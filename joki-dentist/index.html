@@ -1,0 +1,885 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joki Dental Care | Premier Dentistry in New York</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fcfcfc;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1c91d4;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1c91d4;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #1678b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: #1c91d4;
+            border: 2px solid #1c91d4;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f8f8f8;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1c91d4;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+            color: #666;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1c91d4;
+        }
+
+        .logo span {
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #1c91d4;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(to right, #e6f4fa, #f8fdff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: rgba(28, 145, 212, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .service-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e6f4fa;
+            color: #1c91d4;
+            font-size: 2rem;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1c91d4;
+        }
+
+        .service-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .service-link {
+            display: inline-block;
+            font-weight: 600;
+            color: #1c91d4;
+            margin-top: 10px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: #f8fdff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            background-color: #e6f4fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1c91d4;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1c91d4;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .credentials {
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .credential {
+            padding: 15px;
+            margin-right: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .credential-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1c91d4;
+            margin-bottom: 5px;
+        }
+
+        .credential-text {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(28, 145, 212, 0.1);
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            color: #555;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #e6f4fa;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1c91d4;
+            font-weight: 600;
+        }
+
+        .testimonial-info h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: #f8fdff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #1c91d4;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e6f4fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #1c91d4;
+        }
+
+        .contact-text {
+            color: #555;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #1c91d4;
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #1c91d4;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0 0 15px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .credentials {
+                flex-wrap: wrap;
+            }
+            
+            .credential {
+                flex: 1 0 calc(50% - 15px);
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">Joki <span>Dental</span></div>
+                <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Brightest Smile Starts Here</h1>
+                <p>Experience painless, state-of-the-art dental care in the heart of New York. Dr. Joki and our team provide gentle, comprehensive treatments for the whole family.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Schedule Appointment</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive dental care tailored to your unique needs</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Preventive Dentistry</h3>
+                        <p class="service-description">Regular check-ups, cleanings, and early intervention to maintain your oral health and prevent future problems.</p>
+                        <a href="#contact" class="service-link">Learn more →</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Cosmetic Dentistry</h3>
+                        <p class="service-description">Transform your smile with our advanced cosmetic treatments including veneers, whitening, and smile makeovers.</p>
+                        <a href="#contact" class="service-link">Learn more →</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Restorative Dentistry</h3>
+                        <p class="service-description">Repair damaged or missing teeth with crowns, bridges, implants, and other advanced restorative techniques.</p>
+                        <a href="#contact" class="service-link">Learn more →</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">★</div>
+                    <div class="service-content">
+                        <h3 class="service-title">Emergency Dental Care</h3>
+                        <p class="service-description">Quick, efficient care when you need it most. We offer same-day appointments for dental emergencies.</p>
+                        <a href="#contact" class="service-link">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    Professional Dentist in New York
+                </div>
+                <div class="about-content">
+                    <h2>About Dr. Joki</h2>
+                    <p>With over 15 years of experience, Dr. Joki has established himself as one of New York's most trusted dental practitioners. After graduating with honors from NYU's College of Dentistry, he continued his education with specialized training in cosmetic and restorative procedures.</p>
+                    <p>At Joki Dental, our mission is simple: to provide each patient with personalized, compassionate care in a comfortable environment. We combine the latest dental technology with a gentle touch to ensure your visit is as pleasant as possible.</p>
+                    <p>Our modern dental practice in the heart of New York City serves patients of all ages, offering comprehensive treatments from routine cleanings to complex restorative work.</p>
+                    
+                    <div class="credentials">
+                        <div class="credential">
+                            <div class="credential-number">15+</div>
+                            <div class="credential-text">Years Experience</div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-number">5,000+</div>
+                            <div class="credential-text">Happy Patients</div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-number">100%</div>
+                            <div class="credential-text">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Patients Say</h2>
+            <p class="section-subtitle">Real experiences from our New York dental family</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I've been terrified of dentists my entire life, but Dr. Joki completely changed that. He took the time to explain everything and made sure I was comfortable throughout my procedure. His office is modern, clean, and the staff is incredibly friendly. Best dental experience I've ever had!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Manhattan, NY</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">After breaking a tooth during dinner, I called Joki Dental in a panic. They got me in first thing the next morning and fixed it perfectly. The crown matches my other teeth so well that even I can't tell which one it is! Dr. Joki is skilled, professional, and truly cares about his patients.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RD</div>
+                        <div class="testimonial-info">
+                            <h4>Robert Davis</h4>
+                            <p>Brooklyn, NY</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">I've been bringing my whole family to Dr. Joki for years. From my 5-year-old son to my 70-year-old mother, he treats everyone with the same level of care and attention. The office uses the latest technology, and they make insurance and payments incredibly simple. I couldn't recommend them more highly!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JG</div>
+                        <div class="testimonial-info">
+                            <h4>Jennifer Garcia</h4>
+                            <p>Queens, NY</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Schedule your appointment or ask us any questions</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>We'd Love to Hear From You</h3>
+                    <p>Whether you're due for a check-up, interested in cosmetic procedures, or have a dental emergency, our team is here to help. Reach out today to schedule your visit to our New York practice.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">123 Park Avenue, New York, NY 10022</div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">(212) 555-1234</div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">info@jokidental.com</div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-text">
+                                Monday - Friday: 9am - 6pm<br>
+                                Saturday: 10am - 2pm<br>
+                                Sunday: Closed
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Schedule Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Joki Dental</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Preventive Dentistry</a></li>
+                        <li><a href="#services">Cosmetic Dentistry</a></li>
+                        <li><a href="#services">Restorative Dentistry</a></li>
+                        <li><a href="#services">Emergency Dental Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>123 Park Avenue</li>
+                        <li>New York, NY 10022</li>
+                        <li>(212) 555-1234</li>
+                        <li>info@jokidental.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <ul>
+                        <li>Monday - Friday: 9am - 6pm</li>
+                        <li>Saturday: 10am - 2pm</li>
+                        <li>Sunday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Joki Dental. All rights reserved. | Premier Dental Care in New York City</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector('nav').classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple form submission (in practice, you would connect this to a backend)
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, this would send data to a server
+            alert('Thank you for your submission. We will contact you shortly to confirm your appointment!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+```
