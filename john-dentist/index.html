@@ -1,0 +1,673 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manhattan Dental Care | Dr. John's Dentistry in New York</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2D88CE;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #1A5C8F;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1A5C8F;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #2D88CE;
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #1A5C8F;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1A5C8F;
+        }
+
+        .logo span {
+            color: #2D88CE;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2D88CE;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f9fa"/><path d="M0 50 L100 50" stroke="%23e9ecef" stroke-width="2"/><path d="M50 0 L50 100" stroke="%23e9ecef" stroke-width="2"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: #2D88CE;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f8f9fa;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1A5C8F;
+        }
+
+        .star-rating {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            margin-right: 15px;
+            color: #2D88CE;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1A5C8F;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-column ul a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+                clip-path: circle(0px at top right);
+                transition: clip-path 0.5s ease-in-out;
+            }
+
+            .nav-links.active {
+                clip-path: circle(1000px at top right);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 300px;
+                order: 1;
+            }
+
+            .about-text {
+                order: 2;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Manhattan<span>Dental</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content animated">
+                <h1>Your Brighter Smile Starts Here</h1>
+                <p>Experience exceptional dental care with Dr. John in the heart of New York. We combine cutting-edge technology with personalized treatment to give you the smile you deserve.</p>
+                <a href="#contact" class="btn">Schedule Your Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <h2 class="section-title animated">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card animated">
+                    <div class="service-icon">⭐</div>
+                    <h3>General Dentistry</h3>
+                    <p>Comprehensive dental care including cleanings, fillings, and preventative treatments to maintain your oral health and prevent future problems.</p>
+                </div>
+                <div class="service-card animated">
+                    <div class="service-icon">✨</div>
+                    <h3>Cosmetic Dentistry</h3>
+                    <p>Transform your smile with our range of cosmetic services including teeth whitening, veneers, and smile makeovers customized for your unique needs.</p>
+                </div>
+                <div class="service-card animated">
+                    <div class="service-icon">🦷</div>
+                    <h3>Restorative Dentistry</h3>
+                    <p>Restore damaged teeth with crowns, bridges, and implants that look, feel and function just like your natural teeth.</p>
+                </div>
+                <div class="service-card animated">
+                    <div class="service-icon">👪</div>
+                    <h3>Family Dentistry</h3>
+                    <p>Quality dental care for the whole family, with a gentle approach that makes even the youngest patients comfortable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image animated">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 80px; color: #1A5C8F;">👨‍⚕️</div>
+                        <div style="font-size: 24px; font-weight: bold; color: #1A5C8F;">Dr. John</div>
+                    </div>
+                </div>
+                <div class="about-text animated">
+                    <h2>About Dr. John</h2>
+                    <p>With over 15 years of experience in dentistry, Dr. John has established Manhattan Dental Care as one of New York's premier dental practices. After graduating with honors from NYU College of Dentistry, he pursued advanced training in cosmetic and restorative procedures.</p>
+                    <p>Dr. John believes in combining traditional dental values with modern techniques to provide exceptional care tailored to each patient's needs. His gentle approach and commitment to continuing education ensure you receive the most advanced and comfortable treatment available.</p>
+                    <p>Manhattan Dental Care was founded in 2008 with a simple mission: to provide New Yorkers with dental care they actually look forward to. Our state-of-the-art facility in central Manhattan is designed for your comfort and convenience.</p>
+                    <a href="#contact" class="btn">Meet Dr. John</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title animated">What Our Patients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card animated">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"Dr. John completely transformed my smile and my confidence along with it. The veneers look so natural that even my close friends couldn't tell I had dental work done. The whole team made me feel comfortable from consultation to completion."</p>
+                    <p class="testimonial-author">- Sarah M., Manhattan</p>
+                </div>
+                <div class="testimonial-card animated">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"After years of dental anxiety, I finally found a dentist I trust. Dr. John took the time to understand my concerns and worked with me at my own pace. His gentle approach and the office's calming environment have made dental visits something I no longer dread."</p>
+                    <p class="testimonial-author">- Michael R., Upper East Side</p>
+                </div>
+                <div class="testimonial-card animated">
+                    <div class="star-rating">★★★★★</div>
+                    <p class="testimonial-text">"My entire family sees Dr. John, from my 5-year-old son to my 70-year-old mother. He adapts his approach for each of us and explains everything thoroughly. The office staff are always friendly and accommodating with scheduling. We couldn't ask for better dental care."</p>
+                    <p class="testimonial-author">- Jennifer T., Brooklyn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title animated">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info animated">
+                    <h3>Manhattan Dental Care</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <p>123 Madison Avenue</p>
+                            <p>New York, NY 10016</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <p>(212) 555-1234</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <p>info@manhattandentalcare.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <p><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
+                            <p><strong>Saturday:</strong> 9:00 AM - 2:00 PM</p>
+                            <p><strong>Sunday:</strong> Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form animated">
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Schedule Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Manhattan Dental Care</h3>
+                    <p>Providing exceptional dental care to New York residents since 2008. Your smile is our priority.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">General Dentistry</a></li>
+                        <li><a href="#services">Cosmetic Dentistry</a></li>
+                        <li><a href="#services">Restorative Dentistry</a></li>
+                        <li><a href="#services">Family Dentistry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>123 Madison Avenue</li>
+                        <li>New York, NY 10016</li>
+                        <li>(212) 555-1234</li>
+                        <li>info@manhattandentalcare.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Manhattan Dental Care. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle Functionality
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your submission! We will contact you shortly to confirm your appointment.');
+            this.reset();
+        });
+
+        // Animation on Scroll
+        function checkVisible() {
+            const elements = document.querySelectorAll('.animated');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (rect.top <= windowHeight * 0.8) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial state for animations
+        document.querySelectorAll('.animated').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        });
+
+        // Check on scroll and initial load
+        window.addEventListener('scroll', checkVisible);
+        window.addEventListener('load', checkVisible);
+    </script>
+</body>
+</html>
+```
