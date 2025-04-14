@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bright Teeth - Premium Dental Care in Belgrade. Dr. Milica Lazic and her team provide exceptional dental services with cutting-edge technology.">
+    <meta name="theme-color" content="#ffffff">
+    <title>Bright Teeth | Premium Dental Care in Belgrade</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://via.placeholder.com/180x180/fff/3b82f6?text=BT">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://via.placeholder.com/32x32/fff/3b82f6?text=BT">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://via.placeholder.com/16x16/fff/3b82f6?text=BT">
+    
+    <style>
+        :root {
+            /* Color Palette */
+            --primary: #3b82f6;  /* Blue */
+            --primary-dark: #2563eb;
+            --primary-light: #93c5fd;
+            --accent: #f59e0b;   /* Amber */
+            --accent-light: #fcd34d;
+            --neutral-100: #ffffff;
+            --neutral-200: #f8fafc;
+            --neutral-300: #e2e8f0;
+            --neutral-400: #cbd5e1;
+            --neutral-500: #94a3b8;
+            --neutral-600: #64748b;
+            --neutral-700: #475569;
+            --neutral-800: #334155;
+            --neutral-900: #1e293b;
+            
+            /* Typography */
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Raleway', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 8rem;
+            
+            /* Dimensions */
+            --header-height: 5rem;
+            --header-height-scrolled: 4rem;
+            --container-width: 1280px;
+            --card-border-radius: 0.5rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--neutral-800);
+            line-height: 1.7;
+            background-color: var(--neutral-100);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--space-sm);
+            color: var(--neutral-900);
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+        
+        h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            position: relative;
+            margin-bottom: var(--space-md);
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 0;
+            height: 3px;
+            width: 80px;
+            background: var(--primary);
+        }
+        
+        h3 {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+        }
+        
+        h4 {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+        }
+        
+        p {
+            margin-bottom: var(--space-sm);
+            color: var(--neutral-700);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        /* Section Styling */
+        section {
+            padding: var(--space-lg) 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .section-title h2 {
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-intro {
+            max-width: 720px;
+            text-align: center;
+            margin: 0 auto var(--space-lg);
+            color: var(--neutral-600);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 2rem;
+            font-weight: 500;
+            font-size: 1rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            min-width: 10rem;
+            min-height: 44px;
+            font-family: var(--font-sans);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: rgba(59, 130, 246, 0.05);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+        
+        .btn i {
+            margin-right: 0.5rem;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+        
+        header.scrolled {
+            height: var(--header-height-scrolled);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--neutral-900);
+            transition: transform var(--transition-normal);
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: none;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: var(--space-md);
+        }
+        
+        .nav-links a {
+            color: var(--neutral-700);
+            font-weight: 500;
+            position: relative;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover, .nav-links a:focus {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width var(--transition-normal);
+        }
+        
+        .nav-links a:hover::after, .nav-links a:focus::after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            margin-left: var(--space-md);
+        }
+        
+        /* Mobile Menu */
+        .menu-toggle {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            z-index: 102;
+        }
+        
+        .hamburger {
+            width: 24px;
+            height: 2px;
+            background-color: var(--neutral-800);
+            border-radius: 2px;
+            transition: all var(--transition-fast);
+            position: relative;
+        }
+        
+        .hamburger::before, .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: var(--neutral-800);
+            border-radius: 2px;
+            transition: all var(--transition-fast);
+        }
+        
+        .hamburger::before {
+            transform: translateY(-8px);
+        }
+        
+        .hamburger::after {
+            transform: translateY(8px);
+        }
+        
+        .menu-toggle.active .hamburger {
+            background-color: transparent;
+        }
+        
+        .menu-toggle.active .hamburger::before {
+            transform: rotate(45deg);
+        }
+        
+        .menu-toggle.active .hamburger::after {
+            transform: rotate(-45deg);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 85%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--neutral-100);
+            z-index: 101;
+            transform: translateX(100%);
+            transition: transform var(--transition-normal);
+            padding: calc(var(--header-height) + var(--space-md)) var(--space-md) var(--space-md);
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .mobile-nav-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .mobile-nav-links a {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--neutral-800);
+            padding: var(--space-xs) 0;
+            font-weight: 500;
+            border-bottom: 1px solid var(--neutral-300);
+            transition: all var(--transition-fast);
+        }
+        
+        .mobile-nav-links a:hover, .mobile-nav-links a:focus {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            padding-left: var(--space-xs);
+        }
+        
+        .mobile-nav-contact {
+            margin-top: auto;
+        }
+        
+        .mobile-nav-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+            font-size: 0.9rem;
+        }
+        
+        .mobile-nav-contact i {
+            color: var(--primary);
+            margin-right: var(--space-xs);
+            width: 20px;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: calc(var(--header-height) + var(--space-lg)) 0 var(--space-lg);
+            overflow: hidden;
+            background-color: var(--neutral-200);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            max-width: 600px;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .hero h1 {
+            margin-bottom: var(--space-md);
+            position: relative;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .hero-tagline {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            margin-bottom: var(--space-md);
+            color: var(--neutral-700);
+            line-height: 1.8;
+        }
+        
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .hero-image {
+            position: relative;
+            margin-top: var(--space-md);
+        }
+        
+        .hero-image img {
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+            width: 100%;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--space-sm);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--shadow-md);
+            transition: transform var(--transition-normal);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: var(--font-serif);
+            line-height: 1.2;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--neutral-700);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--neutral-100);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+        }
+        
+        .service-card {
+            background-color: var(--neutral-100);
+            border-radius: var(--card-border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--neutral-300);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-light);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .service-title {
+            margin-bottom: var(--space-sm);
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+        
+        .service-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width var(--transition-normal);
+        }
+        
+        .service-card:hover .service-title:after {
+            width: 100px;
+        }
+        
+        .service-description {
+            margin-bottom: var(--space-md);
+            color: var(--neutral-600);
+            flex-grow: 1;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: color var(--transition-fast);
+        }
+        
+        .service-link i {
+            margin-left: 5px;
+            transition: transform var(--transition-fast);
+        }
+        
+        .service-link:hover {
+            color: var(--primary-dark);
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--neutral-200);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            margin-bottom: var(--space-md);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-title {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .about-subtitle {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+        }
+        
+        .about-text {
+            margin-bottom: var(--space-md);
+        }
+        
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .credential {
+            flex: 1 1 200px;
+            padding: var(--space-sm);
+            background-color: var(--neutral-100);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--shadow-sm);
+            border-left: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .credential i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: var(--space-sm);
+        }
+        
+        .credential-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--neutral-100);
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            padding: var(--space-md) 0;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform var(--transition-slow);
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 0 var(--space-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .testimonial-content {
+            background-color: var(--neutral-200);
+            padding: var(--space-md);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            margin-bottom: calc(var(--space-md) + 30px);
+            max-width: 800px;
+        }
+        
+        .testimonial-content::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-top: 20px solid var(--neutral-200);
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+        }
+        
+        .testimonial-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: var(--space-md);
+            color: var(--neutral-700);
+        }
+        
+        .testimonial-quote::before,
+        .testimonial-quote::after {
+            content: '"';
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-family: var(--font-serif);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 3px solid var(--neutral-100);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--neutral-900);
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-title {
+            font-size: 0.9rem;
+            color: var(--neutral-600);
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--space-md);
+            gap: var(--space-xs);
+        }
+        
+        .slider-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--neutral-100);
+            border: 1px solid var(--neutral-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .slider-btn:hover, .slider-btn:focus {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .slider-pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--space-sm);
+            gap: 0.5rem;
+        }
+        
+        .pagination-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--neutral-300);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .pagination-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--neutral-200);
+            position: relative;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--space-sm);
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 0.25rem;
+            color: var(--neutral-800);
+        }
+        
+        .contact-details p, .contact-details a {
+            color: var(--neutral-600);
+            margin-bottom: 0;
+        }
+        
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: var(--neutral-100);
+            padding: var(--space-md);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--neutral-300);
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+            background-color: var(--neutral-200);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-error {
+            color: #e11d48;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .form-control.error {
+            border-color: #e11d48;
+        }
+        
+        .form-control.error + .form-error {
+            display: block;
+        }
+        
+        .contact-hours {
+            margin-top: var(--space-md);
+            padding: var(--space-sm);
+            background-color: var(--neutral-100);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .hours-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .hours-title i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+        
+        .hours-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .hours-day {
+            font-weight: 500;
+        }
+        
+        .hours-time {
+            color: var(--neutral-700);
+        }
+        
+        /* Map */
+        .map {
+            height: 300px;
+            width: 100%;
+            border-radius: var(--card-border-radius);
+            overflow: hidden;
+            margin-top: var(--space-md);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--neutral-900);
+            color: var(--neutral-400);
+            padding: var(--space-lg) 0 var(--space-md);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--neutral-700);
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo-text {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--neutral-100);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .footer-logo-text span {
+            color: var(--primary);
+        }
+        
+        .footer-description {
+            margin-bottom: var(--space-sm);
+            color: var(--neutral-500);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: var(--space-sm);
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-300);
+            transition: all var(--transition-fast);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .footer-links h4 {
+            color: var(--neutral-100);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+        
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-nav {
+            list-style: none;
+        }
+        
+        .footer-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-nav a {
+            color: var(--neutral-500);
+            transition: all var(--transition-fast);
+            display: block;
+            padding: 0.25rem 0;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--neutral-100);
+            transform: translateX(5px);
+        }
+        
+        .footer-contact-info p {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            color: var(--neutral-500);
+        }
+        
+        .footer-contact-info i {
+            color: var(--primary);
+            margin-right: 0.75rem;
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+        
+        .footer-newsletter h4 {
+            color: var(--neutral-100);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+        
+        .footer-newsletter h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: var(--space-sm);
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--neutral-300);
+            border-radius: 4px 0 0 4px;
+            font-family: var(--font-sans);
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .newsletter-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 1rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .footer-bottom {
+            padding-top: var(--space-md);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--neutral-600);
+        }
+        
+        .footer-bottom a {
+            color: var(--primary);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition-normal);
+            z-index: 99;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 576px) {
+            .service-card {
+                flex-direction: row;
+                height: auto;
+            }
+            
+            .service-image {
+                width: 35%;
+                height: auto;
+            }
+            
+            .service-content {
+                width: 65%;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .service-card {
+                flex-direction: column;
+                height: 100%;
+            }
+            
+            .service-image {
+                width: 100%;
+                height: 200px;
+            }
+            
+            .service-content {
+                width: 100%;
+            }
+            
+            .about-container {
+                flex-direction: row;
+                gap: var(--space-lg);
+            }
+            
+            .about-image {
+                margin-bottom: 0;
+            }
+            
+            .contact-container {
+                flex-direction: row;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 2fr;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                width: 85%;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+        
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
+        
+        /* Accessibility */
+        button:focus, a:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo"><span>Bright</span> Teeth</a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <a href="#contact" class="btn btn-primary nav-cta">Book Appointment</a>
+                
+                <div class="menu-toggle">
+                    <div class="hamburger"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <div class="mobile-nav-contact">
+            <p><i class="fas fa-phone"></i> +381 11 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@brightteeth.rs</p>
+            <p><i class="fas fa-map-marker-alt"></i> Knez Mihailova 22, Belgrade</p>
+        </div>
+    </div>
+    
+    <div class="menu-overlay"></div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="hero-content fade-in">
+                    <h1>World-Class Dental Care in the Heart of Belgrade</h1>
+                    <p class="hero-tagline">Experience the perfect blend of advanced dental technology and exceptional care at Bright Teeth, where your smile is our masterpiece.</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary"><i class="fas fa-calendar-alt"></i> Book Appointment</a>
+                        <a href="#services" class="btn btn-secondary"><i class="fas fa-tooth"></i> Our Services</a>
+                    </div>
+                    
+                    <div class="hero-stats fade-in delay-2">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10k+</div>
+                            <div class="stat-label">Happy Patients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">Satisfaction</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Emergency Care</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image fade-in delay-3">
+                    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Modern dental clinic in Belgrade" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Our Premium Services</h2>
+            </div>
+            
+            <p class="section-intro fade-in delay-1">At Bright Teeth, we provide comprehensive dental solutions using the latest technology and techniques. Our team of specialists is dedicated to delivering exceptional results with your comfort in mind.</p>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in delay-1">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Cosmetic Dentistry" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Cosmetic Dentistry</h3>
+                        <p class="service-description">Transform your smile with our advanced cosmetic procedures including veneers, teeth whitening, and smile makeovers designed to enhance your natural beauty.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in delay-2">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1579083379923-e5203565d8a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Implant Dentistry" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Implant Dentistry</h3>
+                        <p class="service-description">Restore your confidence with our premium dental implants that look, feel, and function like natural teeth, providing a permanent solution for missing teeth.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in delay-3">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Orthodontics" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Invisible Orthodontics</h3>
+                        <p class="service-description">Achieve the perfect alignment with our discreet orthodontic solutions, including Invisalign and ceramic braces, tailored to your unique needs.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in delay-1">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Preventive Care" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Preventive Care</h3>
+                        <p class="service-description">Maintain optimal oral health with our comprehensive preventive services including professional cleanings, exams, and personalized care plans.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in delay-2">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1609840114455-6b3bb0ff23de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Restorative Dentistry" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Restorative Dentistry</h3>
+                        <p class="service-description">Regain full functionality with our restorative treatments, from tooth-colored fillings to full-mouth rehabilitation, designed to bring back your natural smile.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card fade-in delay-3">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1588776814827-678be21c9980?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Digital Dentistry" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Digital Dentistry</h3>
+                        <p class="service-description">Experience the future of dental care with our cutting-edge digital technology, ensuring precision diagnostics, faster treatments, and enhanced comfort.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-image fade-in">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Dr. Milica Lazic" loading="lazy">
+            </div>
+            
+            <div class="about-content fade-in delay-2">
+                <p class="about-subtitle">Meet Our Founder</p>
+                <h2 class="about-title">Dr. Milica Lazic</h2>
+                
+                <div class="about-text">
+                    <p>Dr. Milica Lazic is a distinguished dental professional with over 15 years of experience in advanced dental procedures. After graduating with honors from the University of Belgrade's Faculty of Dental Medicine, she pursued specialized training in cosmetic and implant dentistry at prestigious institutions across Europe and the United States.</p>
+                    
+                    <p>Her passion for combining artistry with the latest scientific advancements has established Bright Teeth as Belgrade's premier dental clinic. Dr. Lazic is committed to continuous education and regularly attends international conferences to bring cutting-edge techniques to her patients.</p>
+                    
+                    <p>With a gentle approach and meticulous attention to detail, Dr. Lazic creates personalized treatment plans that address each patient's unique needs, ensuring exceptional results and lifelong relationships built on trust.</p>
+                </div>
+                
+                <div class="credentials">
+                    <div class="credential">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="credential-text">University of Belgrade Faculty of Dental Medicine</span>
+                    </div>
+                    
+                    <div class="credential">
+                        <i class="fas fa-certificate"></i>
+                        <span class="credential-text">European Society of Aesthetic Dentistry Member</span>
+                    </div>
+                    
+                    <div class="credential">
+                        <i class="fas fa-award"></i>
+                        <span class="credential-text">Belgrade's Top Dentist Award (2020, 2022)</span>
+                    </div>
+                    
+                    <div class="credential">
+                        <i class="fas fa-star"></i>
+                        <span class="credential-text">Advanced Implantology Certification</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>What Our Patients Say</h2>
+            </div>
+            
+            <p class="section-intro fade-in delay-1">Discover why our patients trust us with their smiles. We pride ourselves on creating exceptional experiences that go beyond standard dental care.</p>
+            
+            <div class="testimonial-slider fade-in delay-2">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">Dr. Lazic completely transformed my smile with porcelain veneers. Her attention to detail and aesthetic sense are remarkable. The entire process was comfortable, and the results exceeded my expectations. I can now smile with complete confidence.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jovana Đorđević" loading="lazy">
+                            </div>
+                            <h4 class="author-name">Jovana Đorđević</h4>
+                            <p class="author-title">Marketing Executive</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">After years of dental anxiety, I finally found Bright Teeth. The team's gentle approach and Dr. Lazic's expertise made my implant procedure surprisingly comfortable. The clinic's modern technology and soothing environment set a new standard for dental care in Belgrade.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marko Nikolić" loading="lazy">
+                            </div>
+                            <h4 class="author-name">Marko Nikolić</h4>
+                            <p class="author-title">Software Engineer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">My Invisalign treatment with Dr. Lazic was life-changing. She created a customized plan that worked perfectly with my busy schedule. The staff was always accommodating, and the results were faster than I expected. My only regret is not coming to Bright Teeth sooner!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Petrović" loading="lazy">
+                            </div>
+                            <h4 class="author-name">Ana Petrović</h4>
+                            <p class="author-title">University Professor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn prev-slide" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-slide" aria-label="Next testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="slider-pagination">
+                    <div class="pagination-dot active" data-index="0"></div>
+                    <div class="pagination-dot" data-index="1"></div>
+                    <div class="pagination-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Get in Touch</h2>
+            </div>
+            
+            <p class="section-intro fade-in delay-1">We're here to answer your questions and help you schedule your visit. Reach out to our friendly team today and take the first step toward your dream smile.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info fade-in delay-2">
+                    <h3>Contact Information</h3>
+                    <p>Feel free to reach out to us through any of the following methods or visit our clinic in the heart of Belgrade.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Knez Mihailova 22, 11000 Belgrade, Serbia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Call Us</h4>
+                                <p><a href="tel:+381111234567">+381 11 123 4567</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@brightteeth.rs">info@brightteeth.rs</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-hours">
+                        <h4 class="hours-title"><i class="far fa-clock"></i> Opening Hours</h4>
+                        <div class="hours-list">
+                            <div class="hours-item">
+                                <span class="hours-day">Monday - Friday:</span>
+                                <span class="hours-time">9:00 - 19:00</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="hours-day">Saturday:</span>
+                                <span class="hours-time">9:00 - 14:00</span>
+                            </div>
+                            <div class="hours-item">
+                                <span class="hours-day">Sunday:</span>
+                                <span class="hours-time">Closed</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2830.1754776979286!2d20.4558!3d44.8163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDQ4JzU4LjciTiAyMMKwMjcnMjAuOSJF!5e0!3m2!1sen!2srs!4v1623317146873!5m2!1sen!2srs" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in delay-3">
+                    <h3>Book Your Appointment</h3>
+                    <p>Complete the form below, and we'll contact you to confirm your appointment.</p>
+                    
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                            <span class="form-error">Please enter your full name</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                            <span class="form-error">Please enter a valid email address</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                            <span class="form-error">Please enter your phone number</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service of Interest</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="cosmetic">Cosmetic Dentistry</option>
+                                <option value="implant">Implant Dentistry</option>
+                                <option value="orthodontics">Invisible Orthodontics</option>
+                                <option value="preventive">Preventive Care</option>
+                                <option value="restorative">Restorative Dentistry</option>
+                                <option value="digital">Digital Dentistry</option>
+                                <option value="other">Other Services</option>
+                            </select>
+                            <span class="form-error">Please select a service</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Additional Information</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-text"><span>Bright</span> Teeth</div>
+                    <p class="footer-description">Premium dental care in Belgrade, offering advanced treatments in a comfortable, state-of-the-art environment.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Dr. Lazic</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#services">Cosmetic Dentistry</a></li>
+                        <li><a href="#services">Implant Dentistry</a></li>
+                        <li><a href="#services">Invisible Orthodontics</a></li>
+                        <li><a href="#services">Preventive Care</a></li>
+                        <li><a href="#services">Restorative Dentistry</a></li>
+                        <li><a href="#services">Digital Dentistry</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Subscribe to Our Newsletter</h4>
+                    <p>Stay updated with our latest services, dental tips, and special offers.</p>
+                    
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your Email Address" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="footer-contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Knez Mihailova 22, 11000 Belgrade</p>
+                        <p><i class="fas fa-phone-alt"></i> +381 11 123 4567</p>
+                        <p><i class="fas fa-envelope"></i> info@brightteeth.rs</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div
