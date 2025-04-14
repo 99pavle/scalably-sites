@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Eyes | Premium Eye Care in Belgrade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color Palette */
+            --primary: #1a365d;
+            --primary-light: #2a4a7f;
+            --accent: #c8a97e;
+            --accent-light: #d8c2a0;
+            --neutral-dark: #333;
+            --neutral: #555;
+            --neutral-light: #f8f9fa;
+            --white: #fff;
+            
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            
+            /* Transitions */
+            --transition-fast: 0.3s ease;
+            --transition-medium: 0.5s ease;
+            --transition-slow: 0.8s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--neutral);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-serif);
+            color: var(--primary);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width var(--transition-medium);
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+        }
+        
+        p {
+            margin-bottom: var(--spacing-sm);
+            font-weight: 300;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md) 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 500;
+            border: 2px solid var(--primary);
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 1px;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+        }
+        
+        .btn-accent:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+        
+        .section {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--neutral);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all var(--transition-medium);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        .nav-desktop {
+            display: none;
+        }
+        
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-desktop li {
+            margin-left: var(--spacing-md);
+        }
+        
+        .nav-desktop a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 5px;
+            position: relative;
+        }
+        
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width var(--transition-fast);
+        }
+        
+        .nav-desktop a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+        
+        .menu-toggle:hover {
+            color: var(--accent);
+        }
+        
+        .nav-mobile {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--primary);
+            padding: var(--spacing-lg) var(--spacing-md);
+            transition: right var(--transition-medium);
+            z-index: 1001;
+            overflow-y: auto;
+        }
+        
+        .nav-mobile.active {
+            right: 0;
+        }
+        
+        .nav-mobile .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+        
+        .nav-mobile .close:hover {
+            color: var(--accent);
+        }
+        
+        .nav-mobile ul {
+            list-style: none;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .nav-mobile li {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .nav-mobile a {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: block;
+            padding: var(--spacing-xs) 0;
+            transition: color var(--transition-fast);
+        }
+        
+        .nav-mobile a:hover {
+            color: var(--accent);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+            z-index: 999;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background-color: var(--neutral-light);
+            overflow: hidden;
+            margin-top: 70px;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: var(--spacing-md);
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--neutral);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-medium);
+            position: relative;
+            padding: var(--spacing-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+            transition: transform var(--transition-medium);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+        
+        .service-title {
+            margin-top: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
+            font-size: 1.5rem;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--neutral-light);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 5px;
+            z-index: -1;
+        }
+        
+        .about-text h2 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .about-text p {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .credentials {
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .credentials h3 {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .credentials ul {
+            list-style: none;
+        }
+        
+        .credentials li {
+            margin-bottom: var(--spacing-xs);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .credentials li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 15rem;
+            position: absolute;
+            left: -20px;
+            top: 0;
+            color: rgba(0, 0, 0, 0.03);
+            line-height: 1;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform var(--transition-medium);
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+        
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+            position: relative;
+        }
+        
+        .testimonial-text {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            color: var(--neutral-dark);
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .testimonial-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: var(--spacing-sm);
+            object-fit: cover;
+            border: 3px solid var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-name {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--neutral);
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-md);
+        }
+        
+        .testimonial-button {
+            background-color: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 10px;
+            margin: 0 10px;
+            transition: color var(--transition-fast);
+        }
+        
+        .testimonial-button:hover {
+            color: var(--accent);
+        }
+        
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            margin: 0 5px;
+            opacity: 0.3;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .testimonial-dot.active {
+            opacity: 1;
+            background-color: var(--accent);
+        }
+        
+        /* Contact */
+        .contact {
+            background-color: var(--neutral-light);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-info p {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .contact-methods {
+            list-style: none;
+        }
+        
+        .contact-methods li {
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-methods i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-sm);
+            font-size: 1rem;
+        }
+        
+        .contact-form-container {
+            background-color: var(--white);
+            padding: var(--spacing-md);
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            transition: border-color var(--transition-fast);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary);
+            color: rgba(255, 255, 255, 0.7);
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        .footer-logo {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .footer-about {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-title {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.3rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-social {
+            display: flex;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            margin-right: 10px;
+            transition: all var(--transition-fast);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Media Queries */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .nav-desktop {
+                display: block;
+            }
+            
+            .menu-toggle {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-text">Happy <span>Eyes</span></div>
+            </div>
+            
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="nav-mobile" id="nav-mobile">
+        <div class="close" id="close-menu">
+            <i class="fas fa-times"></i>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="https://images.unsplash.com/photo-1580121441575-41bcb5c6b47c?auto=format&fit=crop&q=80&w=1920" alt="Eye care" class="hero-image">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Eye Care in <span>Belgrade</span></h1>
+                <p>At Happy Eyes, we combine cutting-edge technology with personalized care to help you achieve optimal vision and eye health. Trust your vision to our expert team led by Dr. Povlinjoo Lazic.</p>
+                <a href="#contact" class="btn btn-accent">Schedule a Consultation</a>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-text">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8,000+</div>
+                        <div class="stat-text">Satisfied Patients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1,200+</div>
+                        <div class="stat-text">Surgical Procedures</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-text">Specialized Services</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of eye care services using the latest diagnostic and treatment technologies.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-eye service-icon"></i>
+                    <h3 class="service-title">Comprehensive Eye Exams</h3>
+                    <p>Our thorough eye examinations assess your vision and screen for potential eye diseases using advanced diagnostic technology.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-glasses service-icon"></i>
+                    <h3 class="service-title">Vision Correction</h3>
+                    <p>From prescription glasses to contact lenses, we provide customized vision correction solutions tailored to your lifestyle.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-laser-pointer service-icon"></i>
+                    <h3 class="service-title">LASIK & Refractive Surgery</h3>
+                    <p>Experience freedom from glasses or contacts with our advanced laser vision correction procedures.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-droplet service-icon"></i>
+                    <h3 class="service-title">Dry Eye Treatment</h3>
+                    <p>Our specialized treatments provide relief from chronic dry eye symptoms, improving comfort and eye health.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-eye-low-vision service-icon"></i>
+                    <h3 class="service-title">Glaucoma Management</h3>
+                    <p>Early detection and personalized treatment plans to manage glaucoma and preserve your vision.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-child service-icon"></i>
+                    <h3 class="service-title">Pediatric Eye Care</h3>
+                    <p>Specialized eye care for children, ensuring healthy visual development from an early age.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600" alt="Dr. Povlinjoo Lazic">
+                </div>
+                
+                <div class="about-text">
+                    <h2>Dr. Povlinjoo Lazic</h2>
+                    <p>With over 15 years of experience in ophthalmology, Dr. Lazic has established himself as one of Belgrade's leading eye care specialists. After completing his medical education at the University of Belgrade, he pursued specialized training in ophthalmology at prestigious institutions across Europe.</p>
+                    
+                    <p>Dr. Lazic is passionate about combining traditional eye care practices with innovative technologies to provide the best possible outcomes for his patients. His gentle approach and dedication to excellence have earned him a reputation for exceptional patient care.</p>
+                    
+                    <div class="credentials">
+                        <h3>Credentials & Achievements</h3>
+                        <ul>
+                            <li>MD, University of Belgrade Faculty of Medicine</li>
+                            <li>Specialized Ophthalmology Training, Vienna Eye Clinic</li>
+                            <li>Member, European Society of Cataract & Refractive Surgeons</li>
+                            <li>Board Member, Serbian Ophthalmological Society</li>
+                            <li>Published author in prestigious ophthalmology journals</li>
+                            <li>Regular speaker at international eye care conferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Testimonials</h2>
+                <p>Hear what our patients have to say about their experience at Happy Eyes.</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"I've struggled with poor vision for years until I found Dr. Lazic. After my LASIK procedure, I can see perfectly without glasses for the first time in 20 years. The care I received was exceptional from consultation to follow-up."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Mila Petrović" class="testimonial-image">
+                                <div class="testimonial-name">Mila Petrović</div>
+                                <div class="testimonial-role">Teacher | Belgrade</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Dr. Lazic diagnosed my glaucoma early when other doctors missed it. His attention to detail and comprehensive approach to treatment has preserved my vision. The entire staff at Happy Eyes is professional and caring."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Stefan Nikolić" class="testimonial-image">
+                                <div class="testimonial-name">Stefan Nikolić</div>
+                                <div class="testimonial-role">Engineer | Belgrade</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Taking my 5-year-old daughter to an eye doctor was initially stressful, but Dr. Lazic's warm approach immediately put her at ease. He explained everything clearly and made the experience positive. We couldn't be happier with her vision improvement."</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Ana Jovanović" class="testimonial-image">
+                                <div class="testimonial-name">Ana Jovanović</div>
+                                <div class="testimonial-role">Mother | Belgrade</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="testimonial-button" id="prev-testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial-button" id="next-testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="testimonial-dots" id="testimonial-dots">
+                    <span class="testimonial-dot active" data-index="0"></span>
+                    <span class="testimonial-dot" data-index="1"></span>
+                    <span class="testimonial-dot" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Schedule your appointment or contact us with any questions about our services.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>We're committed to providing the highest quality eye care to our patients in Belgrade. Whether you need a routine eye exam or specialized treatment, our friendly team is here to help.</p>
+                    
+                    <ul class="contact-methods">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Knez Mihailova Street, Belgrade, Serbia</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+381 11 123 4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@happyeyes.rs</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 9:00-17:00, Sat: 9:00-13:00</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <h3>Schedule an Appointment</h3>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Your Phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="eye-exam">Comprehensive Eye Exam</option>
+                                <option value="vision-correction">Vision Correction</option>
+                                <option value="lasik">LASIK Consultation</option>
+                                <option value="dry-eye">Dry Eye Treatment</option>
+                                <option value="glaucoma">Glaucoma Consultation</option>
+                                <option value="pediatric">Pediatric Eye Care</option>
+                                <option value="other">Other Services</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" rows="5"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-text" style="color: white;">Happy <span>Eyes</span></div>
+                    </div>
+                    <p>At Happy Eyes, we're dedicated to providing exceptional eye care services in Belgrade. Our state-of-the-art facility combines advanced technology with compassionate care.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Eye Examinations</a></li>
+                        <li><a href="#services">Vision Correction</a></li>
+                        <li><a href="#services">LASIK Surgery</a></li>
+                        <li><a href="#services">Dry Eye Treatment</a></li>
+                        <li><a href="#services">Glaucoma Management</a></li>
+                        <li><a href="#services">Pediatric Eye Care</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Working Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 9:00 - 17:00</li>
+                        <li>Saturday: 9:00 - 13:00</li>
+                        <li>Sunday: Closed</li>
+                        <li><br></li>
+                        <li><strong>Emergency Service Available</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Happy Eyes. All Rights Reserved. Crafted with care by Dr. Povlinjoo Lazic.
+            </div>
+        </div>
+    </footer>
+    
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+        const navMobile = document.getElementById('nav-mobile');
+        const overlay = document.getElementById('overlay');
+        const mobileLinks = navMobile.querySelectorAll('a');
+        
+        menuToggle.addEventListener('click', function() {
+            navMobile.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        function closeNavMobile() {
+            navMobile.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        closeMenu.addEventListener('click', closeNavMobile);
+        overlay.addEventListener('click', closeNavMobile);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeNavMobile);
+        });
+        
+        // Testimonial slider
+        const track = document.getElementById('testimonial-track');
+        const slides = track.querySelectorAll('.testimonial-slide');
+        const dotsContainer = document.getElementById('testimonial-dots');
+        const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        let currentIndex = 0;
+        
+        function goToSlide(index) {
+            if (index < 0) {
+                index = slides.length - 1;
+            } else if (index >= slides.length) {
+                index = 0;
+            }
+            
+            track.style.transform = `translateX(-${index * 100}%)`;
+            currentIndex = index;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+        
+        prevButton.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+        });
+        
+        nextButton.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                goToSlide(i);
+            });
+        });
+        
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            goToSlide(currentIndex + 1);
+        }, 5000);
+        
+        // Back to top button
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form validation
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic validation would go here in a real implementation
+                
+                alert('Thank you for your message! We will contact you shortly.');
+                contactForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
