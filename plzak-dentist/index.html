@@ -1,0 +1,1352 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plzak Dental | Premium Dental Care in New York</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            /* Colors */
+            --primary: #0A476B;
+            --primary-light: #126B9A;
+            --accent: #DDA269;
+            --accent-light: #EAC4A3;
+            --neutral-100: #FFFFFF;
+            --neutral-200: #F7F9FA;
+            --neutral-300: #E8ECF0;
+            --neutral-400: #CCD4DB;
+            --neutral-500: #9CA8B4;
+            --neutral-600: #636F7C;
+            --neutral-700: #3E4A59;
+            --neutral-800: #202A39;
+            --neutral-900: #0F1624;
+            
+            /* Typography */
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Montserrat', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-xxl: 5rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 5px rgba(15, 22, 36, 0.05);
+            --shadow-md: 0 4px 12px rgba(15, 22, 36, 0.08);
+            --shadow-lg: 0 8px 28px rgba(15, 22, 36, 0.12);
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-round: 50%;
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--sans);
+            color: var(--neutral-700);
+            line-height: 1.6;
+            background-color: var(--neutral-100);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--serif);
+            font-weight: 600;
+            color: var(--neutral-800);
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+        
+        h4 {
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        section {
+            padding: var(--space-xl) 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            font-family: var(--sans);
+            font-weight: 500;
+            font-size: 0.9375rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+            color: var(--neutral-100);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            transform: translateY(-2px);
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: var(--space-md);
+            transition: all var(--transition-medium);
+        }
+        
+        .header.scrolled {
+            background-color: var(--neutral-100);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-sm) var(--space-md);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .scrolled .logo-text {
+            font-size: 1.5rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-link {
+            margin-left: var(--space-lg);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width var(--transition-medium);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            margin-left: var(--space-lg);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(15, 22, 36, 0.6), rgba(15, 22, 36, 0.6)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--neutral-100);
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: var(--space-xxl);
+        }
+        
+        .hero h1 {
+            color: var(--neutral-100);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-xl);
+            opacity: 0.9;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: var(--serif);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: var(--space-xs);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--neutral-200);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .service-card {
+            background-color: var(--neutral-100);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-medium);
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-icon {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            font-size: 2.5rem;
+            transition: all var(--transition-medium);
+        }
+        
+        .service-card:hover .service-icon {
+            background-color: var(--accent);
+        }
+        
+        .service-content {
+            padding: var(--space-lg);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .service-description {
+            font-size: 0.9375rem;
+            color: var(--neutral-600);
+        }
+        
+        /* About Section */
+        .about {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--space-xl);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 280px;
+        }
+        
+        .about-img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .credentials {
+            margin-top: var(--space-lg);
+        }
+        
+        .credential {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+        
+        .credential-icon {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-right: var(--space-md);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials .section-title {
+            color: var(--neutral-100);
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform var(--transition-slow);
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: var(--space-lg);
+        }
+        
+        .testimonial-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            padding: var(--space-xl);
+            text-align: center;
+            position: relative;
+        }
+        
+        .testimonial-content::before {
+            content: '\201C';
+            font-family: var(--serif);
+            position: absolute;
+            top: -30px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--accent);
+            opacity: 0.5;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-name {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        
+        .author-title {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .testimonial-nav-btn {
+            background: none;
+            border: none;
+            color: var(--neutral-100);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .testimonial-nav-btn:hover {
+            color: var(--accent);
+        }
+        
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: var(--space-md);
+        }
+        
+        .testimonial-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: var(--radius-round);
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .testimonial-indicator.active {
+            background-color: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        /* Contact Section */
+        .contact {
+            position: relative;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+        
+        .contact-info h3 {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: var(--space-md);
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-label {
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--neutral-700);
+        }
+        
+        .contact-detail {
+            color: var(--neutral-600);
+        }
+        
+        .contact-form {
+            background-color: var(--neutral-100);
+            border-radius: var(--radius-md);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+            color: var(--neutral-700);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: var(--space-md);
+            border: 1px solid var(--neutral-400);
+            border-radius: var(--radius-sm);
+            font-family: var(--sans);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(10, 71, 107, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--neutral-800);
+            color: var(--neutral-400);
+            padding: var(--space-xl) 0;
+        }
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-col h4 {
+            color: var(--neutral-100);
+            margin-bottom: var(--space-lg);
+            font-size: 1.25rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: var(--neutral-400);
+            font-size: 0.9375rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: var(--space-sm);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-round);
+            color: var(--neutral-100);
+            font-size: 1.25rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            margin-top: var(--space-lg);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            border-radius: var(--radius-round);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-medium);
+            z-index: 99;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--neutral-100);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: all var(--transition-medium);
+                box-shadow: var(--shadow-lg);
+                z-index: 1001;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: var(--space-md) 0;
+            }
+            
+            .nav-link {
+                margin-left: 0;
+                font-size: 1.1rem;
+            }
+            
+            .nav-cta {
+                margin: var(--space-md) 0;
+                margin-left: 0;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+                z-index: 1002;
+            }
+            
+            .mobile-menu-toggle.active {
+                color: var(--neutral-700);
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+            
+            .hero {
+                height: auto;
+                padding: 150px 0 var(--space-xxl);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .about-content {
+                flex-direction: column-reverse;
+            }
+            
+            .about-image {
+                margin-bottom: var(--space-lg);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            :root {
+                --space-xl: 2.5rem;
+                --space-xxl: 4rem;
+            }
+            
+            section {
+                padding: var(--space-lg) 0;
+            }
+            
+            .service-card {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .testimonial-content {
+                padding: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#" class="logo-text">Plzak Dental</a>
+            </div>
+            
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item nav-cta"><a href="#contact" class="btn btn-primary">Book Appointment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Experience Exceptional Dental Care in New York City</h1>
+                <p>At Plzak Dental, we combine advanced technology with personalized care to give you the confident smile you deserve.</p>
+                
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary">Schedule Consultation</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15k+</div>
+                        <div class="stat-label">Satisfied Patients</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Cosmetic Dentistry</h3>
+                        <p class="service-description">Transform your smile with our advanced cosmetic treatments including veneers, whitening, and smile makeovers tailored to your unique features.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Restorative Dentistry</h3>
+                        <p class="service-description">Restore functionality and aesthetics with our premium dental implants, crowns, and bridges crafted using the finest materials and techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Preventive Care</h3>
+                        <p class="service-description">Maintain optimal oral health with our comprehensive preventive services including exams, cleanings, and personalized care plans.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth-open"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Invisalign</h3>
+                        <p class="service-description">Achieve the perfect alignment with our virtually invisible Invisalign treatments, custom-designed for your comfort and lifestyle.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Sedation Dentistry</h3>
+                        <p class="service-description">Experience anxiety-free dental visits with our compassionate sedation options designed for maximum comfort during treatments.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Smile Consultations</h3>
+                        <p class="service-description">Begin your journey with a personalized smile consultation to discuss your goals and create a custom treatment plan for your dream smile.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Dr. Plzak</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Dr. Daniel Plzak brings over 20 years of specialized experience to his Manhattan dental practice. After graduating with highest honors from NYU College of Dentistry, he completed advanced training in cosmetic and restorative procedures at the prestigious Pankey Institute.</p>
+                    
+                    <p>Combining his meticulous attention to detail with a genuine passion for patient comfort, Dr. Plzak has established himself as one of New York's premier dental providers. His philosophy centers on personalized care that addresses both aesthetic desires and functional needs.</p>
+                    
+                    <p>Dr. Plzak continually invests in the latest dental technologies and techniques to ensure his patients receive the most advanced, comfortable care available in modern dentistry.</p>
+                    
+                    <div class="credentials">
+                        <div class="credential">
+                            <div class="credential-icon"><i class="fas fa-award"></i></div>
+                            <div>Fellow of the American Academy of Cosmetic Dentistry</div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon"><i class="fas fa-certificate"></i></div>
+                            <div>Member of the American Dental Association</div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div>NYU College of Dentistry, Summa Cum Laude</div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon"><i class="fas fa-star"></i></div>
+                            <div>New York Top Dentist Award, 5 consecutive years</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Dr. Plzak" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Patients Say</h2>
+            
+            <div class="testimonial-slider" id="testimonial-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">After years of avoiding the dentist due to anxiety, Dr. Plzak completely changed my experience. His sedation options made the process painless, and now I have the smile I've always wanted. The entire team treats you like family, not just another patient.</p>
+                            <div class="testimonial-author">
+                                <div class="author-name">Sarah Jenkins</div>
+                                <div class="author-title">Upper East Side, Manhattan</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">The level of care at Plzak Dental is exceptional. I needed extensive cosmetic work after an accident, and Dr. Plzak's attention to detail was remarkable. The results exceeded my expectations — my new smile looks completely natural, and I couldn't be happier.</p>
+                            <div class="testimonial-author">
+                                <div class="author-name">Michael Thompson</div>
+                                <div class="author-title">Financial District, New York</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">As someone who works in the public eye, my smile is everything. Dr. Plzak understood exactly what I wanted and delivered results that felt authentic to me. The office environment is luxurious and calming, and their flexible scheduling accommodates my hectic calendar.</p>
+                            <div class="testimonial-author">
+                                <div class="author-name">Rebecca Chen</div>
+                                <div class="author-title">Chelsea, Manhattan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <button class="testimonial-nav-btn" id="prev-testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial-nav-btn" id="next-testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="testimonial-indicators" id="testimonial-indicators">
+                    <span class="testimonial-indicator active" data-index="0"></span>
+                    <span class="testimonial-indicator" data-index="1"></span>
+                    <span class="testimonial-indicator" data-index="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Our Location</div>
+                            <div class="contact-detail">425 Park Avenue, Suite 1200<br>New York, NY 10022</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Phone Number</div>
+                            <div class="contact-detail">(212) 555-7890</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Email Address</div>
+                            <div class="contact-detail">appointments@plzakdental.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <div class="contact-label">Office Hours</div>
+                            <div class="contact-detail">
+                                Monday - Thursday: 8am - 6pm<br>
+                                Friday: 8am - 4pm<br>
+                                Saturday: 9am - 2pm (by appointment)<br>
+                                Sunday: Closed
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="form-label">Service of Interest</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" selected disabled>Select a service</option>
+                                <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                                <option value="Restorative Dentistry">Restorative Dentistry</option>
+                                <option value="Preventive Care">Preventive Care</option>
+                                <option value="Invisalign">Invisalign</option>
+                                <option value="Sedation Dentistry">Sedation Dentistry</option>
+                                <option value="Smile Consultation">Smile Consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary submit-btn">Schedule Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h4>Plzak Dental</h4>
+                    <p>Elevating dental care in New York with personalized treatments and exceptional service in a luxurious environment.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">Cosmetic Dentistry</a></li>
+                        <li><a href="#services">Restorative Dentistry</a></li>
+                        <li><a href="#services">Preventive Care</a></li>
+                        <li><a href="#services">Invisalign</a></li>
+                        <li><a href="#services">Sedation Dentistry</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Dr. Plzak</a></li>
+                        <li><a href="#testimonials">Patient Testimonials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Schedule a Visit</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:2125557890">(212) 555-7890</a></li>
+                        <li><a href="mailto:appointments@plzakdental.com">appointments@plzakdental.com</a></li>
+                        <li>425 Park Avenue, Suite 1200<br>New York, NY 10022</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Plzak Dental. All rights reserved. | Designed for exceptional smiles.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header Scroll Effect
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                    backToTop.classList.add('show');
+                } else {
+                    header.classList.remove('scrolled');
+                    backToTop.classList.remove('show');
+                }
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            mobileMenuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                
+                if (mobileMenuToggle.classList.contains('active')) {
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            // Close mobile menu when clicking on a nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Testimonial Slider
+            const testimonialTrack = document.getElementById('testimonial-track');
+            const testimonialSlides = testimonialTrack.querySelectorAll('.testimonial-slide');
+            const prevButton = document.getElementById('prev-testimonial');
+            const nextButton = document.getElementById('next-testimonial');
+            const indicators = document.querySelectorAll('.testimonial-indicator');
+            
+            let currentSlide = 0;
+            const slideCount = testimonialSlides.length;
+            
+            function updateSlide() {
+                testimonialTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                updateSlide();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                updateSlide();
+            }
+            
+            nextButton.addEventListener('click', nextSlide);
+            prevButton.addEventListener('click', prevSlide);
+            
+            // Allow indicator clicks to jump to slides
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlide();
+                });
+            });
+            
+            // Auto advance testimonials every 5 seconds
+            let testimonialInterval = setInterval(nextSlide, 5000);
+            
+            // Pause auto-advance on hover
+            const testimonialSlider = document.getElementById('testimonial-slider');
+            testimonialSlider.addEventListener('mouseenter', () => {
+                clearInterval(testimonialInterval);
+            });
+            
+            testimonialSlider.addEventListener('mouseleave', () => {
+                testimonialInterval = setInterval(nextSlide, 5000);
+            });
+            
+            // Form Validation
+            const appointmentForm = document.getElementById('appointment-form');
+            
+            appointmentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && email && phone && service && message) {
+                    // In a real implementation, you would send this data to a server
+                    alert('Thank you for your appointment request! We will contact you shortly to confirm your appointment.');
+                    appointmentForm.reset();
+                } else {
+                    alert('Please fill out all fields.');
+                }
+            });
+            
+            // Back to Top Button
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```
