@@ -1,0 +1,1445 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kristina Dental Studio | Premium Dental Care in New York</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color Palette */
+            --primary: #1d3557;
+            --primary-light: #2a4a76;
+            --secondary: #a8dadc;
+            --secondary-light: #c1e5e7;
+            --accent: #e63946;
+            --accent-light: #f27781;
+            --text-dark: #333;
+            --text-light: #777;
+            --white: #fff;
+            --light-bg: #f8f9fa;
+            --gold: #d4af37;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Border Radius */
+            --radius-sm: 3px;
+            --radius-md: 6px;
+            --radius-lg: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .section-title h2 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        section {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-medium);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: var(--white);
+            color: var(--accent);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all var(--transition-medium);
+            background-color: transparent;
+        }
+        
+        header.scrolled {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+            color: var(--white);
+            transition: color var(--transition-medium);
+        }
+        
+        header.scrolled .logo h1 {
+            color: var(--primary);
+        }
+        
+        .logo-accent {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: var(--spacing-md);
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color var(--transition-medium);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        header.scrolled nav ul li a {
+            color: var(--text-dark);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+            transition: width var(--transition-medium);
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--white);
+            transition: color var(--transition-medium);
+        }
+        
+        header.scrolled .mobile-menu-toggle {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(29, 53, 87, 0.9), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80') no-repeat center center/cover;
+            color: var(--white);
+            position: relative;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero p {
+            color: var(--secondary-light);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-text {
+            font-size: 0.9rem;
+            color: var(--secondary-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            background-color: var(--white);
+            transform: skewY(-4deg);
+            z-index: 1;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+            transition: all var(--transition-medium);
+        }
+        
+        .service-card:hover .service-icon {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+        
+        .service-card h3 {
+            margin-bottom: var(--spacing-sm);
+            transition: color var(--transition-medium);
+        }
+        
+        .service-card:hover h3 {
+            color: var(--accent);
+        }
+        
+        .service-card p {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform var(--transition-medium);
+        }
+        
+        .service-card:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light-bg);
+            position: relative;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform var(--transition-slow);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-content h2::after {
+            left: 0;
+            transform: none;
+        }
+        
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .credential {
+            background-color: var(--white);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-medium);
+        }
+        
+        .credential:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .credential-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        
+        .credential-text h4 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+        
+        .credential-text p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--white);
+            overflow: hidden;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .testimonial-slide {
+            padding: var(--spacing-md);
+            text-align: center;
+            display: none;
+            animation: fadeEffect 1s;
+        }
+        
+        .testimonial-slide.active {
+            display: block;
+        }
+        
+        @keyframes fadeEffect {
+            from {opacity: 0.4}
+            to {opacity: 1}
+        }
+        
+        .client-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto var(--spacing-md);
+            border: 3px solid var(--secondary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            position: relative;
+            max-width: 750px;
+            margin: 0 auto var(--spacing-md);
+            padding: 0 var(--spacing-md);
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--secondary);
+            position: absolute;
+            line-height: 1;
+        }
+        
+        .testimonial-text::before {
+            top: -20px;
+            left: 0;
+        }
+        
+        .testimonial-text::after {
+            bottom: -40px;
+            right: 0;
+            transform: rotate(180deg);
+        }
+        
+        .client-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .client-role {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-md);
+        }
+        
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: var(--secondary-light);
+            border-radius: 50%;
+            display: inline-block;
+            transition: all var(--transition-medium);
+            cursor: pointer;
+        }
+        
+        .dot.active, 
+        .dot:hover {
+            background-color: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-bg);
+            position: relative;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-medium);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(29, 53, 87, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info {
+            padding-top: var(--spacing-sm);
+        }
+        
+        .contact-info h2::after {
+            left: 0;
+            transform: none;
+        }
+        
+        .contact-methods {
+            margin-top: var(--spacing-md);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: var(--spacing-sm);
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .contact-text p {
+            margin-bottom: 0;
+        }
+        
+        .contact-map {
+            margin-top: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-map iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: var(--spacing-lg) 0 var(--spacing-md);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+        }
+        
+        .footer-about p {
+            color: var(--secondary-light);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .footer-links a {
+            color: var(--secondary-light);
+            text-decoration: none;
+            transition: color var(--transition-medium);
+            display: inline-block;
+            position: relative;
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+            transition: width var(--transition-medium);
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all var(--transition-medium);
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--secondary-light);
+            font-size: 0.9rem;
+        }
+        
+        .copyright a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-medium);
+            z-index: 999;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-container, 
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: var(--shadow-md);
+                padding: var(--spacing-md) 0;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: var(--spacing-sm) 0;
+            }
+            
+            nav ul li a {
+                color: var(--text-dark);
+                display: block;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .stat-item {
+                flex: 0 0 45%;
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .service-card {
+                min-height: auto;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: var(--spacing-lg) 0;
+            }
+            
+            .stat-item {
+                flex: 0 0 100%;
+            }
+            
+            .testimonial-text {
+                padding: 0;
+            }
+            
+            .testimonial-text::before, 
+            .testimonial-text::after {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <h1>Kristina <span class="logo-accent">Dental Studio</span></h1>
+            </a>
+            <button class="mobile-menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="mainNav">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Elevate Your Smile with Manhattan's Premier Dental Care</h1>
+                <p>At Kristina Dental Studio, we combine cutting-edge technology with artistry to create beautiful, healthy smiles that last a lifetime. Experience dental care reimagined in the heart of New York City.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-accent">Schedule Consultation</a>
+                    <a href="#services" class="btn btn-outline">Explore Services</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-text">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-text">Happy Patients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-text">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>We offer a comprehensive range of dental treatments, from preventive care to advanced cosmetic procedures, all delivered with precision and comfort.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth"></i>
+                    </div>
+                    <h3>Cosmetic Dentistry</h3>
+                    <p>Transform your smile with our bespoke cosmetic treatments, including veneers, teeth whitening, and smile makeovers designed for the Manhattan elite.</p>
+                    <a href="#contact" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Restorative Dentistry</h3>
+                    <p>Restore function and aesthetics with our premium dental implants, crowns, and bridges, crafted using the finest materials available.</p>
+                    <a href="#contact" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Preventive Care</h3>
+                    <p>Maintain optimal oral health with our thorough cleanings, comprehensive exams, and personalized preventive strategies.</p>
+                    <a href="#contact" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Invisalign® Treatment</h3>
+                    <p>Achieve a straight, aligned smile discreetly with our custom Invisalign® treatments, perfect for busy New York professionals.</p>
+                    <a href="#contact" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h3>Sedation Dentistry</h3>
+                    <p>Experience anxiety-free dental care with our advanced sedation options, ensuring comfort throughout your treatment.</p>
+                    <a href="#contact" class="btn btn-outline">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Emergency Dental Care</h3>
+                    <p>When dental emergencies arise, our Manhattan practice offers prompt, effective care when you need it most.</p>
+                    <a href="#contact" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-content">
+                <h2>Meet Dr. Kristina Evans</h2>
+                <p>A respected figure in New York's dental community, Dr. Kristina Evans combines exceptional clinical expertise with a deeply personal approach to patient care. After graduating with honors from NYU College of Dentistry, she completed advanced training in cosmetic and restorative procedures at the prestigious Pankey Institute.</p>
+                <p>With over 15 years of experience serving Manhattan's discerning clientele, Dr. Evans has built a reputation for delivering stunning results that enhance both the function and aesthetics of her patients' smiles. Her commitment to continuing education ensures she remains at the forefront of dental innovation.</p>
+                <div class="credentials">
+                    <div class="credential">
+                        <div class="credential-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="credential-text">
+                            <h4>NYU College of Dentistry</h4>
+                            <p>Doctor of Dental Surgery</p>
+                        </div>
+                    </div>
+                    <div class="credential">
+                        <div class="credential-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="credential-text">
+                            <h4>American Academy of Cosmetic Dentistry</h4>
+                            <p>Accredited Member</p>
+                        </div>
+                    </div>
+                    <div class="credential">
+                        <div class="credential-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="credential-text">
+                            <h4>Top Dentist in Manhattan</h4>
+                            <p>New York Magazine, 2018-2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1559599189-fe84dea4eb79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Dr. Kristina Evans">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Testimonials</h2>
+                <p>Discover why Manhattan's most discerning patients choose Kristina Dental Studio for their oral health and aesthetic needs.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Client">
+                    </div>
+                    <div class="testimonial-text">
+                        <p>After years of being self-conscious about my smile, Dr. Evans transformed my teeth with porcelain veneers that look absolutely natural. Her attention to detail and artistic eye are unmatched in Manhattan. The entire experience was comfortable and the results exceeded all my expectations.</p>
+                    </div>
+                    <div class="client-name">Sarah Mitchell</div>
+                    <div class="client-role">Marketing Executive, Upper East Side</div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Client">
+                    </div>
+                    <div class="testimonial-text">
+                        <p>As someone with significant dental anxiety, finding Dr. Evans was life-changing. Her gentle approach and sedation options made my extensive restoration work painless. The office environment is more like a luxury spa than a dental clinic, and her staff treats you like family. I wouldn't trust my smile to anyone else in New York.</p>
+                    </div>
+                    <div class="client-name">Michael Richardson</div>
+                    <div class="client-role">Finance Professional, Tribeca</div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Client">
+                    </div>
+                    <div class="testimonial-text">
+                        <p>My Invisalign journey with Dr. Evans was seamless from start to finish. She corrected issues that other dentists claimed would require surgery. The results were better than I imagined, and the convenience of her Midtown location made fitting appointments into my busy schedule easy. Her practice represents the best of New York dentistry.</p>
+                    </div>
+                    <div class="client-name">Jennifer Lopez</div>
+                    <div class="client-role">Attorney, Chelsea</div>
+                </div>
+                <div class="testimonial-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Schedule Your Consultation</h2>
+                <p>Experience the difference of personalized, premium dental care in the heart of Manhattan.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Request Appointment</h3>
+                    <form id="appointmentForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" class="form-control">
+                                <option value="" selected disabled>Select a service</option>
+                                <option value="cosmetic">Cosmetic Dentistry</option>
+                                <option value="restorative">Restorative Dentistry</option>
+                                <option value="preventive">Preventive Care</option>
+                                <option value="invisalign">Invisalign® Treatment</option>
+                                <option value="sedation">Sedation Dentistry</option>
+                                <option value="emergency">Emergency Care</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent">Submit Request</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>We're conveniently located in the heart of Manhattan, offering flexible scheduling to accommodate our patients' busy lifestyles.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>350 Fifth Avenue, Suite 2500<br>New York, NY 10118</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>(212) 555-1234</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>appointments@kristinadentalstudio.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Office Hours</h4>
+                                <p>Monday - Friday: 8am - 7pm<br>Saturday: 9am - 3pm<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2376315275335!2d-73.98194908459303!3d40.74844797932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9aeb1c6b5%3A0x35b1cfbc89a6097f!2sEmpire%20State%20Building%2C%20350%205th%20Ave%2C%20New%20York%2C%20NY%2010118!5e0!3m2!1sen!2sus!4v1652789214935!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">Kristina Dental Studio</div>
+                <p>Elevating the standard of dental care in Manhattan with a commitment to excellence, innovation, and patient-centered service.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Dr. Evans</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-title">Our Services</h3>
+                <ul>
+                    <li><a href="#services">Cosmetic Dentistry</a></li>
+                    <li><a href="#services">Restorative Dentistry</a></li>
+                    <li><a href="#services">Preventive Care</a></li>
+                    <li><a href="#services">Invisalign® Treatment</a></li>
+                    <li><a href="#services">Sedation Dentistry</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-title">Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 350 Fifth Avenue, Suite 2500, NY 10118</li>
+                    <li><i class="fas fa-phone-alt"></i> (212) 555-1234</li>
+                    <li><i class="fas fa-envelope"></i> info@kristinadentalstudio.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Kristina Dental Studio. All Rights Reserved. | Designed with <i class="fas fa-heart"></i> in New York City</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Header transformation on scroll
+        const header = document.getElementById('header');
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                backToTop.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Set active nav link
+                    document.querySelectorAll('nav ul li a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Close mobile menu if open
+                    if (document.getElementById('mainNav').classList.contains('show')) {
+                        document.getElementById('mainNav').classList.remove('show');
+                    }
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('show');
+        });
+        
+        // Testimonial slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            testimonialSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            testimonialSlides[n].classList.add('active');
+            dots[n].classList.add('active');
+            currentSlide = n;
+        }
+        
+        // Add click event to dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                showSlide(slideIndex);
+            });
+        });
+        
+        // Auto-advance testimonials every 5 seconds
+        setInterval(function() {
+            let nextSlide = currentSlide + 1;
+            if (nextSlide >= testimonialSlides.length) {
+                nextSlide = 0;
+            }
+            showSlide(nextSlide);
+        }, 5000);
+        
+        // Form validation
+        const appointmentForm = document.getElementById('appointmentForm');
+        if (appointmentForm) {
+            appointmentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simple validation
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                
+                if (!name || !email || !phone) {
+                    alert('Please fill in all required fields.');
+                    return false;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return false;
+                }
+                
+                // If all validations pass
+                alert('Thank you! Your appointment request has been received. We will contact you shortly to confirm your visit.');
+                this.reset();
+            });
+        }
+        
+        // Active navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
