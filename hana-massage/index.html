@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Touch | Luxury Massage by Hana | Alabama</title>
+    <meta name="description" content="Experience Alabama's premier luxury massage therapy with Hana at Serenity Touch. Personalized treatments in a tranquil setting for ultimate rejuvenation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Colors */
+            --primary: #3a4a3f;
+            --primary-light: #506856;
+            --primary-dark: #2a372e;
+            --accent: #d4b098;
+            --accent-light: #e5cdb8;
+            --accent-dark: #b89273;
+            --neutral-100: #ffffff;
+            --neutral-200: #f8f5f3;
+            --neutral-300: #e9e5e1;
+            --neutral-400: #d1ccc7;
+            --neutral-500: #9c9691;
+            --neutral-600: #5c5752;
+            --neutral-700: #3d3a37;
+            --neutral-800: #27231f;
+            --text-dark: #27231f;
+            --text-light: #f8f5f3;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 8rem;
+            
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            
+            /* Border Radius */
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 8px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --transition-slow: 0.8s ease;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Reset and Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--neutral-100);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            position: relative;
+            margin-bottom: var(--space-md);
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 3.5rem;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width var(--transition-medium);
+        }
+        
+        .text-center h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+        }
+        
+        h4 {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+        }
+        
+        p, li, a {
+            font-size: clamp(0.9rem, 1.75vw, 1rem);
+            margin-bottom: var(--space-sm);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        .section {
+            padding: var(--space-lg) 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-accent {
+            color: var(--accent-dark);
+        }
+        
+        .subtitle {
+            font-family: var(--font-sans);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--text-dark);
+        }
+        
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+            color: var(--text-light);
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: var(--space-md) 0;
+            transition: all var(--transition-medium);
+        }
+        
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: var(--space-xs) 0;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--primary);
+            letter-spacing: 0.05em;
+            font-weight: 400;
+        }
+        
+        .logo span {
+            color: var(--accent-dark);
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-list li {
+            margin-left: var(--space-md);
+        }
+        
+        .nav-list a {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        .nav-list a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--accent);
+            transition: width var(--transition-fast);
+        }
+        
+        .nav-list a:hover::after,
+        .nav-list a.active::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .menu-toggle .bar {
+            display: block;
+            width: 24px;
+            height: 2px;
+            margin: 5px 0;
+            background-color: var(--primary);
+            transition: all var(--transition-fast);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(rgba(42, 55, 46, 0.3), rgba(42, 55, 46, 0.5)), url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center;
+            background-size: cover;
+            color: var(--neutral-100);
+        }
+        
+        .hero-container {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            margin-bottom: var(--space-md);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: var(--space-md);
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .hero-btn {
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+        
+        .stats {
+            display: flex;
+            margin-top: var(--space-md);
+            animation: fadeInUp 1s ease-out 0.9s forwards;
+            opacity: 0;
+        }
+        
+        .stat-item {
+            margin-right: var(--space-md);
+            border-left: 1px solid var(--accent);
+            padding-left: var(--space-sm);
+        }
+        
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--accent-light);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--neutral-200);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services::before {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(212, 176, 152, 0.1);
+            border-radius: 50%;
+            top: -200px;
+            left: -200px;
+            z-index: 0;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .service-card {
+            background-color: var(--neutral-100);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-medium);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .service-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(42, 55, 46, 0.1), rgba(42, 55, 46, 0.5));
+            transition: opacity var(--transition-medium);
+            opacity: 0;
+        }
+        
+        .service-card:hover .service-image::after {
+            opacity: 1;
+        }
+        
+        .service-content {
+            padding: var(--space-md);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+        
+        .service-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width var(--transition-medium);
+        }
+        
+        .service-card:hover .service-title::after {
+            width: 80px;
+        }
+        
+        .service-price {
+            font-family: var(--font-serif);
+            color: var(--accent-dark);
+            font-size: 1.2rem;
+            margin-top: var(--space-xs);
+        }
+        
+        .service-duration {
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+            margin-left: var(--space-xs);
+        }
+        
+        /* About Section */
+        .about {
+            position: relative;
+        }
+        
+        .about::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(58, 74, 63, 0.05);
+            border-radius: 50%;
+            bottom: -200px;
+            right: -200px;
+            z-index: -1;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform var(--transition-medium);
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .about-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 176, 152, 0.2), transparent);
+        }
+        
+        .about-content h2 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .about-content p {
+            margin-bottom: var(--space-md);
+        }
+        
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: var(--space-md);
+            gap: var(--space-sm);
+        }
+        
+        .credential {
+            flex: 1 1 calc(50% - var(--space-sm));
+            min-width: 200px;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .credential-icon {
+            color: var(--accent);
+            margin-right: var(--space-xs);
+            font-size: 1.2rem;
+        }
+        
+        .credential-text {
+            font-size: 0.9rem;
+        }
+        
+        .credential-text strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--neutral-200);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            max-width: 900px;
+            margin: var(--space-lg) auto 0;
+            overflow: hidden;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial {
+            flex: 0 0 100%;
+            padding: var(--space-md);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .testimonial.active {
+            opacity: 1;
+        }
+        
+        .testimonial-content {
+            background-color: var(--neutral-100);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            margin-bottom: var(--space-md);
+        }
+        
+        .testimonial-content::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--neutral-100);
+            transform: rotate(45deg);
+        }
+        
+        .testimonial-quote {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
+            position: relative;
+        }
+        
+        .testimonial-quote::before {
+            content: "\201C";
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            position: absolute;
+            left: -15px;
+            top: -30px;
+            color: var(--accent-light);
+            opacity: 0.3;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: var(--space-sm);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .author-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+        
+        .author-location {
+            font-size: 0.85rem;
+            color: var(--neutral-600);
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--space-md);
+        }
+        
+        .control-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--neutral-400);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .control-dot.active {
+            background-color: var(--accent);
+            transform: scale(1.3);
+        }
+        
+        .arrow-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 2;
+            transform: translateY(-50%);
+        }
+        
+        .arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .arrow:hover {
+            background-color: var(--neutral-100);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .arrow-prev {
+            margin-left: -20px;
+        }
+        
+        .arrow-next {
+            margin-right: -20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            position: relative;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .contact-form {
+            background-color: var(--neutral-200);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            background-color: var(--neutral-100);
+            transition: all var(--transition-fast);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(212, 176, 152, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            margin-top: var(--space-sm);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .info-box {
+            margin-bottom: var(--space-md);
+        }
+        
+        .info-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-xs);
+            color: var(--primary);
+        }
+        
+        .info-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .info-icon {
+            width: 20px;
+            color: var(--accent);
+            margin-right: var(--space-xs);
+        }
+        
+        .business-hours {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xs);
+            margin-top: var(--space-xs);
+        }
+        
+        .hours-day {
+            font-weight: 500;
+        }
+        
+        .map {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 200px;
+            box-shadow: var(--shadow-sm);
+            margin-top: var(--space-md);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--neutral-300);
+            padding: var(--space-lg) 0 var(--space-md);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .footer-logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--neutral-100);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-about {
+            font-size: 0.9rem;
+            max-width: 300px;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+        
+        .footer-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-sm);
+            position: relative;
+            padding-bottom: var(--space-xs);
+            color: var(--neutral-100);
+        }
+        
+        .footer-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-link {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .footer-link a {
+            font-size: 0.9rem;
+            color: var(--neutral-300);
+            transition: all var(--transition-fast);
+            display: inline-block;
+        }
+        
+        .footer-link a:hover {
+            color: var(--accent);
+            transform: translateX(3px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: var(--space-sm);
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--neutral-100);
+            transition: all var(--transition-fast);
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            padding-top: var(--space-md);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-fast);
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-dark);
+            color: var(--neutral-100);
+            transform: translateY(-3px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Media Queries */
+        @media screen and (max-width: 992px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            
+            .about-image {
+                margin: 0 auto;
+                max-width: 500px;
+            }
+            
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .nav-list {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background-color: var(--neutral-100);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right var(--transition-medium);
+                box-shadow: var(--shadow-lg);
+                z-index: 1000;
+            }
+            
+            .nav-list.active {
+                right: 0;
+            }
+            
+            .nav-list li {
+                margin: var(--space-sm) 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .stats {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                margin-bottom: var(--space-sm);
+                margin-right: 0;
+            }
+            
+            .arrow-controls {
+                display: none;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .section {
+                padding: var(--space-md) 0;
+            }
+            
+            .hero {
+                text-align: center;
+            }
+            
+            .stats {
+                justify-content: center;
+            }
+            
+            .business-hours {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-about {
+                max-width: 100%;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Serenity <span>Touch</span></a>
+            <nav>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-list" id="nav-list">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <p class="subtitle">Alabama's Premier Massage Experience</p>
+            <h1>Revitalize Your Body, Mind, and Spirit</h1>
+            <p>Experience the transformation of expert therapeutic touch in a tranquil sanctuary designed for your complete relaxation and rejuvenation.</p>
+            <a href="#contact" class="btn btn-accent hero-btn">Book Your Session</a>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Specialized Treatments</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <p class="subtitle">Our Offerings</p>
+                <h2>Luxurious Massage Treatments</h2>
+                <p>Discover our curated selection of therapeutic experiences designed to restore balance and promote wellness.</p>
+            </div>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Swedish Relaxation</h3>
+                        <p>A gentle full-body massage using long, flowing strokes to promote relaxation, improve circulation, and ease tension.</p>
+                        <div class="service-price">$95 <span class="service-duration">60 minutes</span></div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Deep Tissue</h3>
+                        <p>Targeted therapy that works deep within tight, painful muscles to release chronic tension and restore mobility.</p>
+                        <div class="service-price">$115 <span class="service-duration">60 minutes</span></div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Hot Stone Therapy</h3>
+                        <p>Smooth, heated basalt stones are incorporated into a massage to release heat into tight muscles and induce deep relaxation.</p>
+                        <div class="service-price">$135 <span class="service-duration">75 minutes</span></div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1550599112-0c21a831f6b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Aromatherapy Journey</h3>
+                        <p>Enhance your massage with custom-blended essential oils to address specific concerns and promote emotional well-being.</p>
+                        <div class="service-price">$125 <span class="service-duration">60 minutes</span></div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1552693673-1bf958298935?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Prenatal Bliss</h3>
+                        <p>A gentle, nurturing massage specifically designed to address the unique needs of expectant mothers in their second and third trimesters.</p>
+                        <div class="service-price">$105 <span class="service-duration">60 minutes</span></div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1600334368665-9e82d208d5c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">Alabama Signature</h3>
+                        <p>Our exclusive treatment combines multiple techniques with locally-sourced botanical oils for a truly distinctive experience.</p>
+                        <div class="service-price">$155 <span class="service-duration">90 minutes</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1559595500-e15296bdbb48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hana, Massage Therapist">
+                </div>
+                <div class="about-content">
+                    <p class="subtitle">Meet Your Therapist</p>
+                    <h2>Hana's Healing Journey</h2>
+                    <p>With over 12 years of experience in therapeutic massage, I've dedicated my career to helping people find relief, relaxation, and renewal through the power of skilled touch.</p>
+                    <p>After training at the prestigious Alabama Institute of Massage Therapy and completing advanced studies in multiple modalities, I opened Serenity Touch to create a sanctuary where clients can escape the stresses of everyday life and reconnect with their bodies.</p>
+                    <p>My approach combines technical expertise with intuitive understanding to create personalized treatments that address your specific needs. Whether you're seeking relief from chronic pain, athletic recovery, or simply a moment of tranquil escape, my mission is to exceed your expectations with every visit.</p>
+                    
+                    <div class="credentials">
+                        <div class="credential">
+                            <div class="credential-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="credential-text">
+                                <strong>Licensed Massage Therapist</strong>
+                                Alabama State Board #MT-12485
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="credential-text">
+                                <strong>Advanced Certification</strong>
+                                Deep Tissue & Myofascial Release
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="credential-text">
+                                <strong>Specialized Training</strong>
+                                Prenatal & Postpartum Care
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="credential-text">
+                                <strong>"Best of Alabama"</strong>
+                                Awarded 2022 & 2023
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="text-center">
+                <p class="subtitle">Client Experiences</p>
+                <h2>Words From Our Clients</h2>
+                <p>Discover how Serenity Touch has transformed the lives of our clients across Alabama.</p>
+            </div>
+            
+            <div class="testimonial-slider" id="testimonial-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial active">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">After months of shoulder pain from computer work, I finally found relief with Hana. Her deep tissue technique got to the root of my issues, and her aftercare advice has helped me maintain the benefits. I'm now a monthly regular!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rebecca Mitchell">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Rebecca Mitchell</div>
+                                <div class="author-location">Birmingham, AL</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">The Alabama Signature massage is worth every penny. The attention to detail, from the heated table to the aromatherapy selection to Hana's incredibly skilled hands—it's an experience that leaves you feeling renewed for days afterward.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Donovan">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">James Donovan</div>
+                                <div class="author-location">Montgomery, AL</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p class="testimonial-quote">As a pregnant mother of two, the Prenatal Bliss massage was exactly what I needed. Hana's knowledge of prenatal care is exceptional, and she made accommodations for my comfort that I hadn't even considered. It was the most relaxed I've felt in months.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Thompson">
+                            </div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah Thompson</div>
+                                <div class="author-location">Huntsville, AL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="arrow-controls">
+                    <div class="arrow arrow-prev" id="prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="arrow arrow-next" id="next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls" id="testimonial-dots">
+                    <div class="control-dot active" data-index="0"></div>
+                    <div class="control-dot" data-index="1"></div>
+                    <div class="control-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <p class="subtitle">Get In Touch</p>
+                <h2>Schedule Your Experience</h2>
+                <p>Begin your journey to wellness by booking your appointment today.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service" class="form-label">Desired Service</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="swedish">Swedish Relaxation</option>
+                                <option value="deep-tissue">Deep Tissue</option>
+                                <option value="hot-stone">Hot Stone Therapy</option>
+                                <option value="aromatherapy">Aromatherapy Journey</option>
+                                <option value="prenatal">Prenatal Bliss</option>
+                                <option value="signature">Alabama Signature</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Special Requests</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">Request Appointment</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div>
+                        <div class="info-box">
+                            <h4 class="info-title">Visit Our Sanctuary</h4>
+                            <div class="info-content">
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        421 Wellness Way<br>
+                                        Birmingham, AL 35203
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h4 class="info-title">Contact Us</h4>
+                            <div class="info-content">
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>(205) 555-8723</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>hana@serenitytouch.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h4 class="info-title">Hours of Tranquility</h4>
+                            <div class="info-content">
+                                <div class="business-hours">
+                                    <div class="hours-day">Monday - Friday</div>
+                                    <div>9:00 AM - 7:00 PM</div>
+                                    <div class="hours-day">Saturday</div>
+                                    <div>10:00 AM - 5:00 PM</div>
+                                    <div class="hours-day">Sunday</div>
+                                    <div>By Appointment</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53230.49003921501!2d-86.84421745!3d33.5206608!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888911df5885bfd3%3A0x25507409eaba54ce!2sBirmingham%2C%20AL!5e0!3m2!1sen!2sus!4v1623252315883!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Serenity <span>Touch</span></div>
+                    <p class="footer-about">A luxury massage therapy sanctuary in the heart of Alabama, dedicated to your wellness journey through expert therapeutic touch.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#home">Home</a></li>
+                        <li class="footer-link"><a href="#services">Services</a></li>
+                        <li class="footer-link"><a href="#about">About Hana</a></li>
+                        <li class="footer-link"><a href="#testimonials">Testimonials</a></li>
+                        <li class="footer-link"><a href="#contact">Book Now</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#services">Swedish Relaxation</a></li>
+                        <li class="footer-link"><a href="#services">Deep Tissue</a></li>
+                        <li class="footer-link"><a href="#services">Hot Stone Therapy</a></li>
+                        <li class="footer-link"><a href="#services">Aromatherapy Journey</a></li>
+                        <li class="footer-link"><a href="#services">Prenatal Bliss</a></li>
+                        <li class="footer-link"><a href="#services">Alabama Signature</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="tel:+12055558723">(205) 555-8723</a></li>
+                        <li class="footer-link"><a href="mailto:hana@serenitytouch.com">hana@serenitytouch.com</a></li>
+                        <li class="footer-link">421 Wellness Way</li>
+                        <li class="footer-link">Birmingham, AL 35203</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Serenity Touch by Hana. All rights reserved. | Licensed and Insured | AL License #MT-12485</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // DOM Elements
+        const header = document.getElementById('header');
+        const menuToggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-list');
+        const navLinks = document.querySelectorAll('.nav-list a');
+        const backToTop = document.getElementById('back-to-top');
+        const testimonialTrack = document.getElementById('testimonial-track');
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.control-dot');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const form = document.getElementById('booking-form');
+        
+        // Current testimonial index
+        let currentIndex = 0;
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Back to Top Button
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navList.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                navList.classList.remove('active');
+                
+                // Set active class on clicked link
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to Top Button Click
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Testimonial Slider
+        function showTestimonial(index) {
+            // Hide all testimonials
+            testimonials.forEach(testimonial => {
+                testimonial.classList.remove('active');
+            });
+            
+            // Remove active class from all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show the selected testimonial
+            testimonials[index].classList.add('active');
+            dots[index
