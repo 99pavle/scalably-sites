@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Bright Care | Premium Dental Services in Austin, TX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color Palette */
+            --primary: #1a5f7a;
+            --primary-light: #2a7090;
+            --primary-dark: #0f4d66;
+            --accent: #e6c78c;
+            --accent-light: #f2debc;
+            --accent-dark: #d4b272;
+            --neutral-100: #ffffff;
+            --neutral-200: #f7f7f7;
+            --neutral-300: #e6e6e6;
+            --neutral-400: #c4c4c4;
+            --neutral-500: #8a8a8a;
+            --neutral-600: #5e5e5e;
+            --neutral-700: #303030;
+            --neutral-800: #1a1a1a;
+            
+            /* Typography */
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 8rem;
+            
+            /* Other */
+            --border-radius: 0.3rem;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-size: 1.6rem;
+            line-height: 1.7;
+            color: var(--neutral-700);
+            background-color: var(--neutral-100);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-secondary);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--space-sm);
+            color: var(--neutral-800);
+        }
+        
+        h1 {
+            font-size: 4.8rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        h2 {
+            font-size: 3.6rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        h3 {
+            font-size: 2.4rem;
+        }
+        
+        h4 {
+            font-size: 2rem;
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 2.8rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            color: var(--neutral-100);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent);
+            color: var(--neutral-800);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-dark);
+            color: var(--neutral-800);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            padding: var(--space-lg) 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: var(--space-sm) auto 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.97);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .header.scrolled {
+            padding: 1rem 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            transition: var(--transition);
+        }
+        
+        .scrolled .header-container {
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: var(--font-secondary);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+            margin-left: 0.3rem;
+        }
+        
+        .nav-desktop {
+            display: none;
+        }
+        
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-desktop li {
+            margin-left: var(--space-md);
+        }
+        
+        .nav-desktop a {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-desktop a:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .nav-desktop a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-desktop a:hover:after {
+            width: 100%;
+        }
+        
+        .contact-btn {
+            margin-left: var(--space-md);
+        }
+        
+        .mobile-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .mobile-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .mobile-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        .nav-mobile {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background-color: var(--neutral-100);
+            padding: 10rem var(--space-md) var(--space-md);
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-mobile.active {
+            right: 0;
+        }
+        
+        .nav-mobile ul {
+            list-style: none;
+        }
+        
+        .nav-mobile li {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .nav-mobile a {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--neutral-700);
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--neutral-300);
+        }
+        
+        .nav-mobile a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-mobile .btn {
+            margin-top: var(--space-md);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 16rem 0 var(--space-lg);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            margin-bottom: var(--space-sm);
+            font-size: 3.6rem;
+        }
+        
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: var(--space-md);
+            color: var(--neutral-600);
+        }
+        
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            align-items: center;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+        
+        .stat {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: var(--space-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-number {
+            font-family: var(--font-secondary);
+            font-size: 3.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-text {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--neutral-600);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--neutral-200);
+            padding: var(--space-xl) 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .service-card {
+            background-color: var(--neutral-100);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: var(--space-md);
+        }
+        
+        .service-card h3 {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+        
+        .service-card h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover h3:after {
+            width: 60px;
+        }
+        
+        .service-card p {
+            font-size: 1.5rem;
+            color: var(--neutral-600);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .service-card .learn-more {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .service-card .learn-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .service-card .learn-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* About Section */
+        .about {
+            padding: var(--space-xl) 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+        
+        .about-img {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-img:after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: var(--border-radius);
+            z-index: -1;
+        }
+        
+        .about-content h2 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .about-content p {
+            margin-bottom: var(--space-md);
+        }
+        
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .credential {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .credential i {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-right: var(--space-sm);
+            margin-top: 3px;
+        }
+        
+        .credential-content {
+            flex: 1;
+        }
+        
+        .credential h4 {
+            font-size: 1.6rem;
+            margin-bottom: 2px;
+        }
+        
+        .credential p {
+            font-size: 1.4rem;
+            margin-bottom: 0;
+            color: var(--neutral-500);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            padding: var(--space-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1571210862729-78a52d3779a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .testimonials .section-title {
+            color: var(--neutral-100);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonials .section-title:after {
+            background-color: var(--accent-light);
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 0 var(--space-sm);
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            text-align: center;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: """;
+            font-family: var(--font-secondary);
+            font-size: 12rem;
+            line-height: 0;
+            position: absolute;
+            top: 6rem;
+            left: 2rem;
+            color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-text {
+            font-size: 1.8rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: var(--space-sm);
+            border: 3px solid var(--accent);
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-name {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .author-title {
+            font-size: 1.4rem;
+            color: var(--accent-light);
+        }
+        
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--space-md);
+            gap: var(--space-xs);
+        }
+        
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        .testimonial-arrows {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 100%;
+            padding: 0 var(--space-sm);
+        }
+        
+        .testimonial-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--neutral-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .testimonial-arrow:hover {
+            background-color: var(--accent);
+            color: var(--neutral-800);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+        
+        .contact-info {
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            height: 100%;
+        }
+        
+        .contact-info h3 {
+            color: var(--neutral-100);
+            margin-bottom: var(--space-md);
+            font-size: 2.4rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-md);
+        }
+        
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-right: var(--space-sm);
+            margin-top: 5px;
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text h4 {
+            color: var(--neutral-100);
+            margin-bottom: 5px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--neutral-300);
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+        
+        .contact-text a:hover {
+            color: var(--accent);
+        }
+        
+        .contact-hours {
+            margin-top: var(--space-md);
+        }
+        
+        .hours-table {
+            width: 100%;
+            font-size: 1.5rem;
+            border-collapse: collapse;
+            margin-top: var(--space-sm);
+        }
+        
+        .hours-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hours-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .hours-table td {
+            padding: 8px 0;
+        }
+        
+        .hours-table td:last-child {
+            text-align: right;
+            color: var(--accent-light);
+        }
+        
+        .contact-social {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-link i {
+            color: var(--neutral-100);
+            font-size: 1.6rem;
+            margin: 0;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .social-link:hover i {
+            color: var(--neutral-800);
+        }
+        
+        .contact-form {
+            background-color: var(--neutral-100);
+            border-radius: var(--border-radius);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-form h3 {
+            margin-bottom: var(--space-md);
+            font-size: 2.4rem;
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.6rem;
+            font-family: var(--font-primary);
+            border: 1px solid var(--neutral-300);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(26, 95, 122, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+        
+        .form-error {
+            color: #e74c3c;
+            font-size: 1.4rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.has-error .form-control {
+            border-color: #e74c3c;
+        }
+        
+        .form-group.has-error .form-error {
+            display: block;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--neutral-800);
+            color: var(--neutral-400);
+            padding: var(--space-lg) 0 var(--space-md);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--neutral-700);
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-logo {
+            font-family: var(--font-secondary);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--neutral-100);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-about p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-heading {
+            font-size: 1.8rem;
+            color: var(--neutral-100);
+            margin-bottom: var(--space-sm);
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+        
+        .footer-heading:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            font-size: 1.5rem;
+            color: var(--neutral-400);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(3px);
+        }
+        
+        .footer-links a i {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-contact i {
+            color: var(--accent);
+            margin-right: var(--space-sm);
+            font-size: 1.6rem;
+            margin-top: 4px;
+        }
+        
+        .footer-cta {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: var(--space-md);
+            border-radius: var(--border-radius);
+            margin-top: var(--space-sm);
+        }
+        
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .copyright {
+            font-size: 1.4rem;
+            color: var(--neutral-500);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .footer-social a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .footer-social a i {
+            color: var(--neutral-400);
+            font-size: 1.4rem;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-social a:hover i {
+            color: var(--neutral-800);
+        }
+        
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: var(--neutral-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Media Queries */
+        @media (min-width: 576px) {
+            .hero h1 {
+                font-size: 4.2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .form-row {
+                flex-direction: row;
+            }
+            
+            .form-row .form-group {
+                flex: 1;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .nav-desktop {
+                display: flex;
+                align-items: center;
+            }
+            
+            .mobile-toggle {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 4.8rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+            .copyright {
+                margin-bottom: 0;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .hero {
+                padding: 18rem 0 var(--space-xl);
+                background-position: right center;
+            }
+            
+            .hero-content {
+                text-align: left;
+                margin: 0;
+            }
+            
+            .hero-btns {
+                justify-content: flex-start;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr 1fr;
+            }
+            
+            .testimonial-arrows {
+                padding: 0 var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Smile Bright <span>Care</span></a>
+            
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#appointment" class="btn btn-primary contact-btn">Book Appointment</a>
+            </nav>
+            
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <nav class="nav-mobile">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+        </nav>
+        
+        <div class="overlay"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Dental Care for Your Perfect Smile</h1>
+                <p>Experience the highest standard of dental services in Austin with Dr. Sarah Johnson and her expert team of professionals.</p>
+                <div class="hero-btns">
+                    <a href="#appointment" class="btn btn-primary">Book Your Visit</a>
+                    <a href="#services" class="btn btn-outline">Explore Services</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-text">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-text">Happy Patients</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-text">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="container">
+            <h2 class="section-title">Our Premium Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1606265752651-269ffb107f36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cosmetic Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Cosmetic Dentistry</h3>
+                        <p>Transform your smile with our comprehensive cosmetic solutions including veneers, whitening, and smile makeovers.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Preventive Care">
+                    </div>
+                    <div class="service-content">
+                        <h3>Preventive Care</h3>
+                        <p>Maintain optimal oral health with our thorough cleanings, exams, and personalized preventive treatment plans.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1579790655393-3c693da1b5bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restorative Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Restorative Dentistry</h3>
+                        <p>Repair and restore damaged teeth with our advanced crown, bridge, and implant solutions for a healthy smile.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Orthodontics">
+                    </div>
+                    <div class="service-content">
+                        <h3>Orthodontics</h3>
+                        <p>Achieve a perfectly aligned smile with our discreet and comfortable orthodontic solutions including Invisalign.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pediatric Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Pediatric Dentistry</h3>
+                        <p>Give your child the gift of great oral health with our gentle, specialized care designed for young patients.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1581789164394-810293cd79ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sedation Dentistry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Sedation Dentistry</h3>
+                        <p>Experience anxiety-free dental care with our safe sedation options for a comfortable treatment experience.</p>
+                        <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dr. Sarah Johnson">
+                </div>
+                
+                <div class="about-content">
+                    <h2>Meet Dr. Sarah Johnson</h2>
+                    <p>With over 15 years of experience in the dental field, Dr. Sarah Johnson has established herself as one of Austin's premier dental professionals, dedicated to providing exceptional care with a gentle touch.</p>
+                    <p>After graduating with honors from the University of Texas School of Dentistry, Dr. Johnson completed advanced training in cosmetic and restorative procedures. Her commitment to continuing education ensures she stays at the forefront of modern dental techniques.</p>
+                    <p>Dr. Johnson founded Smile Bright Care with a vision of creating a dental practice where patients receive personalized care in a comfortable, luxurious environment. Her philosophy centers on building lasting relationships with patients while delivering outstanding results.</p>
+                    
+                    <div class="credentials">
+                        <div class="credential">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="credential-content">
+                                <h4>Education</h4>
+                                <p>University of Texas School of Dentistry</p>
+                            </div>
+                        </div>
+                        
+                        <div class="credential">
+                            <i class="fas fa-certificate"></i>
+                            <div class="credential-content">
+                                <h4>Certification</h4>
+                                <p>American Dental Association</p>
+                            </div>
+                        </div>
+                        
+                        <div class="credential">
+                            <i class="fas fa-award"></i>
+                            <div class="credential-content">
+                                <h4>Recognition</h4>
+                                <p>Austin Top Dentist 2022</p>
+                            </div>
+                        </div>
+                        
+                        <div class="credential">
+                            <i class="fas fa-star"></i>
+                            <div class="credential-content">
+                                <h4>Specialization</h4>
+                                <p>Cosmetic & Restorative Dentistry</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+        <div class="container">
+            <h2 class="section-title">What Our Patients Say</h2>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">Dr. Johnson transformed my smile completely. After years of feeling self-conscious about my teeth, I now can't stop smiling! The team at Smile Bright Care made the entire process comfortable and stress-free.</p>
+                            <div class="testimonial-author">
+                                <div class="author-img">
+                                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Jennifer Parker">
+                                </div>
+                                <div class="author-name">Jennifer Parker</div>
+                                <div class="author-title">Marketing Executive</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">As someone with severe dental anxiety, I can't express how grateful I am to have found Dr. Johnson. Her gentle approach and the calming atmosphere at Smile Bright Care have made dental visits something I no longer dread.</p>
+                            <div class="testimonial-author">
+                                <div class="author-img">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Reed">
+                                </div>
+                                <div class="author-name">Michael Reed</div>
+                                <div class="author-title">Software Developer</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">I've been bringing my family to Smile Bright Care for three years now, and we couldn't be happier with the service. Dr. Johnson and her team are exceptional with my children, making dental care a positive experience for the whole family.</p>
+                            <div class="testimonial-author">
+                                <div class="author-img">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sophia Martinez">
+                                </div>
+                                <div class="author-name">Sophia Martinez</div>
+                                <div class="author-title">Elementary School Teacher</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+                
+                <div class="testimonial-arrows">
+                    <div class="testimonial-arrow prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="testimonial-arrow next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>1250 W 6th Street, Suite 100<br>Austin, TX 78703</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p><a href="tel:5125551234">(512) 555-1234</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@smilebrightcare.com">info@smilebrightcare.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-hours">
+                        <h4>Office Hours</h4>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Monday - Thursday</td>
+                                <td>8:00 AM - 5:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>8:00 AM - 3:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>9:00 AM - 2:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>Closed</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div id="appointment" class="contact-form">
+                    <h3>Request an Appointment</h3>
+                    <form id="appointmentForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name*</label>
+                                <input type="text" id="firstName" class="form-control" required>
+                                <div class="form-error">Please enter your first name</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name*</label>
+                                <input type="text" id="lastName" class="form-control" required>
+                                <div class="form-error">Please enter your last name</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address*</label>
+                                <input type="email" id="email" class="form-control" required>
+                                <div class="form-error">Please enter a valid email address</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number*</label>
+                                <input type="tel" id="phone" class="form-control" required>
+                                <div class="form-error">Please enter a valid phone number</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service" class="form-label">Service of Interest</label>
+                            <select id="service" class="form-control">
+                                <option value="">Select a Service</option>
+                                <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                                <option value="Preventive Care">Preventive Care</option>
+                                <option value="Restorative Dentistry">Restorative Dentistry</option>
+                                <option value="Orthodontics">Orthodontics</option>
+                                <option value="Pediatric Dentistry">Pediatric Dentistry</option>
+                                <option value="Sedation Dentistry">Sedation Dentistry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" class="form-control" rows="5"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">Smile Bright <span>Care</span></div>
+                    <p>At Smile Bright Care, we're dedicated to providing exceptional dental care in a comfortable, state-of-the-art environment. Led by Dr. Sarah Johnson, our team is committed to helping you achieve and maintain optimal oral health.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-services">
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cosmetic Dentistry</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Preventive Care</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Restorative Dentistry</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Orthodontics</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Pediatric Dentistry</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sedation Dentistry</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>1250 W 6th Street, Suite 100<br>Austin, TX 78703</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(
