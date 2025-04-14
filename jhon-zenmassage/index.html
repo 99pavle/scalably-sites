@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenMassage | Luxury Massage Therapy in New York</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color Palette */
+            --primary: #1a2639;
+            --primary-light: #2a3649;
+            --accent: #c8a97e;
+            --accent-light: #d8b98f;
+            --neutral-dark: #333333;
+            --neutral-medium: #666666;
+            --neutral-light: #f5f5f5;
+            --white: #ffffff;
+            
+            /* Typography */
+            --serif: 'Cormorant Garamond', serif;
+            --sans-serif: 'Montserrat', sans-serif;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 8rem;
+            
+            /* Transitions */
+            --transition-slow: 0.5s ease;
+            --transition-medium: 0.3s ease;
+            --transition-fast: 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans-serif);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--neutral-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--serif);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width var(--transition-medium);
+        }
+
+        h2:hover::after {
+            width: 100%;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            font-size: 1rem;
+            color: var(--neutral-medium);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: color var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-family: var(--sans-serif);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--white);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2 {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all var(--transition-medium);
+        }
+
+        .header.scrolled {
+            background-color: var(--white);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            transition: color var(--transition-medium);
+        }
+
+        .header.scrolled .logo-text {
+            font-size: 1.6rem;
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: var(--spacing-md);
+        }
+
+        .nav-link {
+            font-family: var(--sans-serif);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width var(--transition-medium);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 38, 57, 0.7), rgba(26, 38, 57, 0.4)), url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            color: var(--white);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero p {
+            color: var(--neutral-light);
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero-stats {
+            display: flex;
+            margin-top: var(--spacing-lg);
+            gap: var(--spacing-md);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+
+        .hero-stat-text {
+            font-size: 0.9rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: var(--spacing-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all var(--transition-medium);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary);
+            z-index: -1;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform var(--transition-slow);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: var(--spacing-sm);
+            transition: all var(--transition-medium);
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--white);
+        }
+
+        .service-title {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            transition: all var(--transition-medium);
+        }
+
+        .service-card:hover .service-title {
+            color: var(--white);
+        }
+
+        .service-desc {
+            transition: all var(--transition-medium);
+        }
+
+        .service-card:hover .service-desc {
+            color: var(--neutral-light);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            font-weight: 500;
+            margin-top: var(--spacing-sm);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: all var(--transition-medium);
+        }
+
+        .service-link i {
+            margin-left: 5px;
+            transition: transform var(--transition-fast);
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .service-card:hover .service-link {
+            color: var(--accent);
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            background-color: var(--neutral-light);
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            box-shadow: 20px 20px 0 var(--accent);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--primary);
+            z-index: -1;
+        }
+
+        .about-content {
+            padding-left: var(--spacing-md);
+        }
+
+        .about-subtitle {
+            font-family: var(--sans-serif);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .about-credentials {
+            margin-top: var(--spacing-md);
+        }
+
+        .credential {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .credential-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-right: var(--spacing-sm);
+            margin-top: 3px;
+        }
+
+        .credential-content h4 {
+            font-family: var(--sans-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .credential-content p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '"';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            font-family: var(--serif);
+            font-size: 20rem;
+            color: rgba(0, 0, 0, 0.03);
+            z-index: 0;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform var(--transition-slow);
+        }
+
+        .testimonial {
+            min-width: 100%;
+            padding: var(--spacing-md);
+            text-align: center;
+            opacity: 0;
+            transition: opacity var(--transition-slow);
+        }
+
+        .testimonial.active {
+            opacity: 1;
+        }
+
+        .testimonial-text {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: var(--spacing-xs);
+            border: 3px solid var(--accent);
+        }
+
+        .testimonial-author-name {
+            font-family: var(--sans-serif);
+            font-weight: 600;
+            margin-bottom: 2px;
+            font-size: 1rem;
+        }
+
+        .testimonial-author-title {
+            font-size: 0.9rem;
+            color: var(--neutral-medium);
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-md);
+        }
+
+        .testimonial-nav-item {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--neutral-medium);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+        }
+
+        .testimonial-nav-item.active,
+        .testimonial-nav-item:hover {
+            background-color: var(--accent);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .contact .section-title h2,
+        .contact p {
+            color: var(--white);
+        }
+
+        .contact-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-sm);
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: all var(--transition-medium);
+        }
+
+        .contact-method:hover .contact-icon {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text h4 {
+            color: var(--white);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .contact-text p,
+        .contact-text a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+            transition: color var(--transition-medium);
+        }
+
+        .contact-text a:hover {
+            color: var(--accent);
+        }
+
+        .contact-hours {
+            margin-top: var(--spacing-md);
+        }
+
+        .contact-hours h4 {
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .hours-day {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hours-time {
+            color: var(--accent);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: var(--spacing-md);
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--neutral-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-family: var(--sans-serif);
+            font-size: 1rem;
+            transition: all var(--transition-medium);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(200, 169, 126, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: var(--primary-light);
+            color: var(--white);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .footer-logo {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-logo-text {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-text {
+            margin-bottom: var(--spacing-md);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all var(--transition-medium);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 10px;
+        }
+
+        .footer-link a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: all var(--transition-medium);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .footer-link a i {
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+
+        .footer-link a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-newsletter p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: var(--sans-serif);
+            font-size: 0.9rem;
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            padding: 0 15px;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--accent-light);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            margin-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition-medium);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .section {
+                padding: var(--spacing-lg) 0;
+            }
+            
+            .about-inner,
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+            
+            .about-image {
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .about-content {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: var(--spacing-md);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-list.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                margin: var(--spacing-xs) 0;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-stat {
+                flex: 0 0 calc(50% - var(--spacing-md));
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .footer-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+            
+            .footer-link a {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                text-align: center;
+            }
+            
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+                margin-bottom: var(--spacing-xs);
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span class="logo-text">ZenMassage</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list" id="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Experience Luxury Massage Therapy in Manhattan</h1>
+            <p>At ZenMassage, we blend ancient techniques with modern luxury to deliver a transformative experience that nurtures both body and mind.</p>
+            <div>
+                <a href="#services" class="btn btn-accent">Explore Services</a>
+                <a href="#contact" class="btn btn-secondary">Book Appointment</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">15+</span>
+                    <span class="hero-stat-text">Years Experience</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">5,000+</span>
+                    <span class="hero-stat-text">Happy Clients</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">12</span>
+                    <span class="hero-stat-text">Expert Therapists</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Services</h2>
+                <p>Indulge in our carefully curated selection of therapeutic treatments designed to revitalize your body, calm your mind, and restore your inner balance.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="service-title">Deep Tissue Massage</h3>
+                    <p class="service-desc">Our therapeutic deep tissue massage targets the inner layers of your muscles to release chronic tension and alleviate pain patterns.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="service-title">Swedish Relaxation</h3>
+                    <p class="service-desc">Experience complete relaxation with our classic Swedish massage, featuring long, flowing strokes that soothe your nervous system.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire-alt"></i>
+                    </div>
+                    <h3 class="service-title">Hot Stone Therapy</h3>
+                    <p class="service-desc">Heated volcanic stones are placed on key points of the body to melt away tension while enhancing massage benefits.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-title">Craniosacral Therapy</h3>
+                    <p class="service-desc">This gentle, hands-on approach releases tensions in the central nervous system to alleviate stress and enhance well-being.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="service-title">Aromatherapy Massage</h3>
+                    <p class="service-desc">Custom-blended essential oils enhance your massage experience, addressing specific physical and emotional needs.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="service-title">Sports Recovery</h3>
+                    <p class="service-desc">Designed for athletes and active individuals, this targeted massage helps enhance performance and accelerate recovery.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="container about-inner">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=900&q=80" alt="Jhon Travolta">
+            </div>
+            <div class="about-content">
+                <span class="about-subtitle">About the Founder</span>
+                <h2>Jhon Travolta</h2>
+                <p>With over 15 years of experience in therapeutic massage and holistic wellness, Jhon Travolta has established ZenMassage as New York's premier destination for luxury massage therapy.</p>
+                <p>After training with master practitioners across Asia and Europe, Jhon developed a unique approach that combines traditional Eastern techniques with modern Western methodologies, creating transformative experiences that address both physical tension and emotional well-being.</p>
+                <div class="about-credentials">
+                    <div class="credential">
+                        <div class="credential-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="credential-content">
+                            <h4>Certified Master Therapist</h4>
+                            <p>International Association of Massage Therapists</p>
+                        </div>
+                    </div>
+                    <div class="credential">
+                        <div class="credential-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="credential-content">
+                            <h4>Advanced Training in Thai Massage</h4>
+                            <p>Wat Pho Traditional Medical School, Bangkok</p>
+                        </div>
+                    </div>
+                    <div class="credential">
+                        <div class="credential-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="credential-content">
+                            <h4>New York Magazine's "Best of New York"</h4>
+                            <p>Top Massage Therapy Provider, 3 consecutive years</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Experiences</h2>
+                <p>Discover what our discerning clients have to say about their transformative experiences at ZenMassage.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonial-track">
+                    <div class="testimonial active">
+                        <p class="testimonial-text">"After years of chronic back pain and failed treatments, my first session with Jhon was nothing short of miraculous. His deep tissue technique identified issues other therapists had missed. I've been a regular client for three years now."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="Rebecca Johnson" class="testimonial-author-image">
+                            <h4 class="testimonial-author-name">Rebecca Johnson</h4>
+                            <p class="testimonial-author-title">Financial Analyst, Manhattan</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"As a professional dancer with the New York City Ballet, my body is my instrument. ZenMassage has become an essential part of my performance routine. Their sports recovery massage has extended my career by years."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Zhang" class="testimonial-author-image">
+                            <h4 class="testimonial-author-name">Michael Zhang</h4>
+                            <p class="testimonial-author-title">Principal Dancer, NYC Ballet</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"The atmosphere at ZenMassage is unlike any other spa in New York. From the moment you enter, there's a sense of tranquility that's rare in this city. The aromatherapy massage specifically tailored to my stress levels was transformative."</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Sarah Goldstein" class="testimonial-author-image">
+                            <h4 class="testimonial-author-name">Sarah Goldstein</h4>
+                            <p class="testimonial-author-title">Executive Director, Art Foundation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav" id="testimonial-nav">
+                    <div class="testimonial-nav-item active" data-index="0"></div>
+                    <div class="testimonial-nav-item" data-index="1"></div>
+                    <div class="testimonial-nav-item" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book Your Experience</h2>
+                <p>Schedule your appointment or inquire about our premium services.</p>
+            </div>
+            <div class="contact-inner">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Our Location</h4>
+                            <p>235 Park Avenue South, New York, NY 10003</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+12125557890">(212) 555-7890</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:appointments@zenmassage.com">appointments@zenmassage.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-hours">
+                        <h4>Operating Hours</h4>
+                        <div class="hours-item">
+                            <span class="hours-day">Monday - Friday</span>
+                            <span class="hours-time">9:00 AM - 8:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Saturday</span>
+                            <span class="hours-time">10:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Sunday</span>
+                            <span class="hours-time">11:00 AM - 5:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service" class="form-label">Preferred Service</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="deep-tissue">Deep Tissue Massage</option>
+                                <option value="swedish">Swedish Relaxation</option>
+                                <option value="hot-stone">Hot Stone Therapy</option>
+                                <option value="craniosacral">Craniosacral Therapy</option>
+                                <option value="aromatherapy">Aromatherapy Massage</option>
+                                <option value="sports">Sports Recovery</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Special Requests</label>
+                            <textarea id="message" class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent">Book Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span class="footer-logo-text">ZenMassage</span>
+                </div>
+                <p class="footer-text">Experience the perfect blend of ancient techniques and modern luxury at Manhattan's premier destination for therapeutic massage.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li class="footer-link"><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li class="footer-link"><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li class="footer-link"><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                    <li class="footer-link"><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Our Services</h4>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#services"><i class="fas fa-chevron-right"></i> Deep Tissue Massage</a></li>
+                    <li class="footer-link"><a href="#services"><i class="fas fa-chevron-right"></i> Swedish Relaxation</a></li>
+                    <li class="footer-link"><a href="#services"><i class="fas fa-chevron-right"></i> Hot Stone Therapy</a></li>
+                    <li class="footer-link"><a href="#services"><i class="fas fa-chevron-right"></i> Craniosacral Therapy</a></li>
+                    <li class="footer-link"><a href="#services"><i class="fas fa-chevron-right"></i> Aromatherapy Massage</a></li>
+                    <li class="footer-link"><a href="#services"><i class="fas fa-chevron-right"></i> Sports Recovery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Newsletter</h4>
+                <p class="footer-newsletter">Subscribe to receive special offers, exclusive event invitations, and wellness tips.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2023 ZenMassage. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> in New York</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navList = document.getElementById('nav-list');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            mobileMenuToggle.innerHTML = navList.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (navList.classList.contains('active')) {
+                    navList.classList.remove('active');
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active Navigation Link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Testimonial Slider
+        const testimonialTrack = document.getElementById('testimonial-track');
+        const testimonials = testimonialTrack.querySelectorAll('.testimonial');
+        const navItems = document.querySelectorAll('.testimonial-nav-item');
+        let currentIndex = 0;
+        
+        function showTestimonial(index) {
+            if (index < 0) index = testimonials.length - 1;
+            if (index >= testimonials.length) index = 0;
+            
+            testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+            
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonials[index].classList.add('active');
+            
+            navItems.forEach(item => item.classList.remove('active'));
+            navItems[index].classList.add('active');
+            
+            currentIndex = index;
+        }
+        
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                showTestimonial(parseInt(item.getAttribute('data-index')));
+            });
+        });
+        
+        // Auto advance testimonials every 5 seconds
+        setInterval(() => {
+            showTestimonial(currentIndex + 1);
+        }, 5000);
+
+        // Form Validation
+        const bookingForm = document.getElementById('booking-form');
+        
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Basic validation
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const service = document.getElementById('service');
+            
+            let isValid = true;
+            
+            if (!name.value.trim()) {
+                highlightField(name, true);
+                isValid = false;
+            } else {
+                highlightField(name, false);
+            }
+            
+            if (!email.value.trim() || !isValidEmail(email.value)) {
+                highlightField(email, true);
+                isValid = false;
+            } else {
+                highlightField(email, false);
+            }
+            
+            if (!phone.value.trim()) {
+                highlightField(phone, true);
+                isValid = false;
+            } else {
+                highlightField(phone, false);
+            }
+            
+            if (!service.value) {
+                highlightField(service, true);
+                isValid = false;
+            } else {
+                highlightField(service, false);
+            }
+            
+            if (isValid) {
+                // In a real scenario, this would submit to a server
+                alert('Thank you for booking with ZenMassage! We will contact you shortly to confirm your appointment.');
+                bookingForm.reset();
+            }
+        });
+        
+        function highlightField(field, isError) {
+            if (isError) {
+                field.style.borderColor = '#e74c3c';
+                field.style.boxShadow = '0 0 0 2px rgba(231, 76, 60, 0.2)';
+            } else {
+                field.style.borderColor = '#e0e0e0';
+                field.style.boxShadow = 'none';
+            }
+        }
+        
+        function isValidEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Interactive form fields
+        const formControls = document.querySelectorAll('.form-control');
+        
+        formControls.forEach(control => {
+            control.addEventListener('focus', () => {
+                control.style.borderColor = 'var(--accent)';
+                control.style.boxShadow = '0 0 0 2px rgba(200, 169, 126, 0.2)';
+            });
+            
+            control.addEventListener('blur', () => {
+                if (!control.value.trim()) {
+                    control.style.borderColor = '#e0e0e0';
+                    control.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
