@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta & Title -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Champion Chiropractic | Dr. Aaron Schoneberger DC | West Hollywood</title>
+  <meta name="description" content="Champion Chiropractic — Dr. Aaron Schoneberger DC. Luxury, patient-centered chiropractic clinic in West Hollywood. Book your appointment today.">
+
+  <!-- Google Fonts: Playfair Display & Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6+ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    /* ======================
+        CSS VARIABLES
+    ====================== */
+    :root {
+      --color-primary: #166D8C;        /* Deep Spine Blue */
+      --color-accent: #25B47E;         /* Healing Green */
+      --color-highlight: #E4F6FB;      /* Sky Blue (backgrounds) */
+      --color-bg: #FBFBFD;             /* Soft White */
+      --color-gray: #F4F7FA;           /* Light Gray for Testimonial */
+      --color-text: #25374A;
+      --color-muted: #7A8897;
+      --color-border: #e0e6ed;
+      --color-danger: #E14D4D;
+
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', Arial, sans-serif;
+
+      --radius-xl: 2.5rem;
+      --radius-lg: 1.25rem;
+      --radius-md: 0.75rem;
+      --radius: 0.5rem;
+
+      --transition: 0.23s cubic-bezier(.45,.05,.55,.95);
+
+      --shadow-card: 0 6px 24px -8px rgba(38,109,140,0.07);
+
+      --max-width: 1200px;
+      --section-pad: 5.5rem;
+      --gap: 2rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--color-bg);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-bg);
+      font-size: 1.06rem;
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+      min-width: 320px;
+      overflow-x: hidden;
+    }
+
+    /* ======================
+        GLOBAL STYLES
+    ====================== */
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover {
+      color: var(--color-accent);
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-top: 0;
+      margin-bottom: 0.8em;
+      letter-spacing: -0.015em;
+    }
+    h1 { font-size: 2.7rem; }
+    h2 { font-size: 2.1rem; }
+    h3 { font-size: 1.35rem; font-weight:600;}
+    h4 { font-size: 1.05rem; }
+    p { margin-top: 0; margin-bottom: 1.1em; }
+
+    img {
+      display: block;
+      max-width: 100%;
+      border-radius: var(--radius-lg);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+    }
+
+    section {
+      padding: var(--section-pad) 0;
+      position: relative;
+    }
+
+    /* ======================
+        HEADER & NAVIGATION
+    ====================== */
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(251,251,253,0.96);
+      box-shadow: 0 2px 22px -8px rgba(38,109,140,0.07);
+      z-index: 100;
+      transition: box-shadow 0.2s;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.4rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: var(--font-heading);
+      font-size: 2.1rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .logo i {
+      font-size: 1.7rem;
+      margin-right: 0.55rem;
+      color: var(--color-accent);
+    }
+    nav {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--color-text);
+      padding: 0.2em 0;
+      transition: color var(--transition);
+      border-bottom: 2.5px solid transparent;
+    }
+    .nav-links a:hover, .nav-links .active {
+      color: var(--color-primary);
+      border-bottom: 2.5px solid var(--color-accent);
+    }
+
+    /* Book Appointment Button */
+    .btn-cta {
+      font-family: var(--font-body);
+      font-size: 1.13rem;
+      font-weight: 700;
+      border: none;
+      outline: none;
+      padding: 0.92em 2em;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(90deg, var(--color-primary) 70%, var(--color-accent) 100%);
+      color: #fff;
+      box-shadow: 0 3px 16px -3px rgba(22,109,140,0.15);
+      cursor: pointer;
+      transition: transform 0.13s, box-shadow 0.18s, background 0.23s;
+      margin-left: 2rem;
+      letter-spacing: 0.01em;
+    }
+    .btn-cta:hover, .btn-cta:focus {
+      background: linear-gradient(90deg, var(--color-accent) 60%, var(--color-primary) 100%);
+      transform: translateY(-2px) scale(1.045);
+      box-shadow: 0 6px 25px -8px var(--color-primary), 0 1.5px 5px -2px var(--color-accent);
+    }
+
+    /* Hamburger Menu */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2.1rem;
+      color: var(--color-primary);
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+
+    /* ======================
+        HERO SECTION
+    ====================== */
+    .hero-section {
+      background: linear-gradient(120deg, var(--color-highlight) 60%, #f3fafd 100%);
+      overflow: hidden;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    .hero-content {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 3.5rem;
+      justify-content: space-between;
+    }
+    .hero-text {
+      flex: 1 1 370px;
+      max-width: 540px;
+      z-index: 2;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      color: var(--color-primary);
+      margin-bottom: 0.5em;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .hero-text p {
+      font-size: 1.24rem;
+      color: var(--color-muted);
+      margin-bottom: 2.2em;
+      font-weight: 500;
+      max-width: 32em;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .hero-image-wrap {
+      flex: 1 1 350px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      min-width: 300px;
+      max-width: 540px;
+      position: relative;
+    }
+    .hero-image {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 8px 40px -12px rgba(38,109,140,0.13);
+      transition: box-shadow var(--transition), transform var(--transition);
+      width: 370px;
+      max-width: 100%;
+      min-height: 410px;
+      background: #eaf6fa;
+    }
+    .hero-image img {
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+    .hero-dr-img {
+      position: absolute;
+      left: -62px;
+      bottom: -22px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      box-shadow: 0 6px 24px -6px rgba(22,109,140,0.18);
+      border: 6px solid #fff;
+      background: #f6fafd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 3;
+      animation: fadeInUp 1.2s cubic-bezier(.41,.18,.62,1) 0.2s both;
+    }
+    .hero-dr-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(35px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* ======================
+        SERVICES SECTION
+    ====================== */
+    .services-section {
+      background: #fff;
+      padding-top: var(--section-pad);
+      padding-bottom: var(--section-pad);
+    }
+    .services-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 2.2rem;
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: var(--color-highlight);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 2.2rem 1.7rem 2.2rem 1.7rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow var(--transition), transform var(--transition);
+      position: relative;
+      min-height: 320px;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(45px);
+      animation: fadeCardUp 0.7s cubic-bezier(.41,.18,.62,1) forwards;
+    }
+    /* Cascade fade-in effect for cards */
+    .service-card:nth-child(1) { animation-delay: 0.10s;}
+    .service-card:nth-child(2) { animation-delay: 0.22s;}
+    .service-card:nth-child(3) { animation-delay: 0.34s;}
+    .service-card:nth-child(4) { animation-delay: 0.46s;}
+    .service-card:nth-child(5) { animation-delay: 0.58s;}
+    .service-card:nth-child(6) { animation-delay: 0.7s;}
+    @keyframes fadeCardUp {
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .service-card:hover, .service-card:focus-within {
+      box-shadow: 0 14px 36px -12px var(--color-primary), var(--shadow-card);
+      transform: translateY(-5px) scale(1.03);
+    }
+    .service-icon {
+      background: linear-gradient(120deg, var(--color-primary) 70%, var(--color-accent) 100%);
+      color: #fff;
+      font-size: 2.25rem;
+      border-radius: 50%;
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 1.5px 8px -2px var(--color-primary), 0 1px 4px -1px var(--color-accent);
+    }
+    .service-title {
+      font-size: 1.18rem;
+      font-family: var(--font-heading);
+      color: var(--color-primary);
+      margin-bottom: 0.7rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .service-desc {
+      font-size: 1.02rem;
+      color: var(--color-muted);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    /* ======================
+        ABOUT SECTION
+    ====================== */
+    .about-section {
+      background: var(--color-bg);
+      padding-top: var(--section-pad);
+      padding-bottom: var(--section-pad);
+    }
+    .about-wrap {
+      display: flex;
+      gap: 3.0rem;
+      align-items: center;
+      max-width: 1050px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .about-photo {
+      flex: 1 1 320px;
+      max-width: 340px;
+      min-width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+    }
+    .about-photo img {
+      width: 100%;
+      height: 370px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 40px -14px rgba(38,109,140,0.15);
+    }
+    .about-info {
+      flex: 2 1 440px;
+      min-width: 270px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .about-title {
+      font-family: var(--font-heading);
+      font-size: 2.05rem;
+      color: var(--color-primary);
+      margin-bottom: 0.2rem;
+    }
+    .about-desc {
+      color: var(--color-muted);
+      font-size: 1.12rem;
+      font-weight: 500;
+      margin-bottom: 1.1rem;
+      max-width: 600px;
+    }
+    .badge-list {
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+      margin-bottom: 0.1rem;
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 0.45em 1.2em;
+      font-size: 1.01rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      box-shadow: 0 2.5px 8px -3px var(--color-highlight);
+      border: 1.5px solid var(--color-border);
+      gap: 0.6em;
+      transition: background var(--transition);
+    }
+    .badge i {
+      color: var(--color-accent);
+      font-size: 1.13em;
+      min-width: 1.1em;
+    }
+
+    /* ======================
+        TESTIMONIALS SECTION
+    ====================== */
+    .testimonials-section {
+      background: var(--color-gray);
+      padding-top: var(--section-pad);
+      padding-bottom: var(--section-pad);
+      position: relative;
+      z-index: 2;
+    }
+    .testimonials-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .testimonial-carousel {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      padding: 0.2rem 0 1.5rem 0;
+    }
+    .testimonial-cards {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(.45,.05,.55,.95);
+      gap: 2.0rem;
+    }
+    .testimonial-card {
+      min-width: 330px;
+      max-width: 370px;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 6px 32px -12px var(--color-primary), var(--shadow-card);
+      padding: 2.3rem 2.0rem 2.2rem 2.0rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      opacity: 0.98;
+      transition: box-shadow var(--transition), transform var(--transition);
+      position: relative;
+      min-height: 228px;
+    }
+    .testimonial-card.active {
+      opacity: 1;
+      transform: scale(1.04);
+      box-shadow: 0 8px 40px -14px var(--color-primary), var(--shadow-card);
+    }
+    .testimonial-quote {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--color-primary);
+      margin-top: 0.3em;
+      margin-bottom: 1em;
+      line-height: 1.6;
+      position: relative;
+      font-style: italic;
+    }
+    .testimonial-quote:before {
+      content: "\f10d";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--color-accent);
+      font-size: 1.5em;
+      position: absolute;
+      left: -1.2em;
+      top: 0.02em;
+      opacity: 0.22;
+    }
+    .testimonial-rating {
+      color: #FDCB3A;
+      margin-bottom: 0.4em;
+      font-size: 1.07em;
+    }
+    .testimonial-user {
+      display: flex;
+      align-items: center;
+      gap: 0.9em;
+      margin-top: 1.1em;
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--color-highlight);
+      border: 2px solid #fff;
+      box-shadow: 0 2.5px 8px -3px var(--color-highlight);
+    }
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .testimonial-user-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.18em;
+    }
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 1.04em;
+    }
+    .testimonial-location {
+      color: var(--color-muted);
+      font-size: 0.98em;
+    }
+    .testimonial-arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .testimonial-arrow {
+      background: #fff;
+      color: var(--color-primary);
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      box-shadow: 0 2.5px 8px -3px var(--color-highlight);
+      font-size: 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: box-shadow var(--transition), background var(--transition), color var(--transition);
+      opacity: 0.9;
+    }
+    .testimonial-arrow:hover {
+      color: #fff;
+      background: var(--color-accent);
+      box-shadow: 0 4px 14px -8px var(--color-accent);
+    }
+    .testimonial-dots {
+      display: flex;
+      gap: 0.6em;
+      justify-content: center;
+      margin-top: 1.2em;
+    }
+    .testimonial-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: 1.5px solid var(--color-primary);
+      cursor: pointer;
+      transition: background var(--transition), border var(--transition), transform var(--transition);
+      margin-bottom: 0.5em;
+    }
+    .testimonial-dot.active {
+      background: var(--color-accent);
+      border: 1.5px solid var(--color-accent);
+      transform: scale(1.18);
+    }
+
+    /* ======================
+        CONTACT SECTION
+    ====================== */
+    .contact-section {
+      background: #fff;
+      padding-top: var(--section-pad);
+      padding-bottom: var(--section-pad);
+    }
+    .contact-wrap {
+      display: flex;
+      gap: 4.5rem;
+      align-items: flex-start;
+      max-width: 1050px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .contact-form-area {
+      flex: 1 1 350px;
+      min-width: 280px;
+      background: var(--color-highlight);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 2.2rem 2.1rem 2.2rem 2.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .contact-form-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      color: var(--color-primary);
+      margin-bottom: 1.2em;
+      text-align: left;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .contact-form label {
+      font-weight: 500;
+      color: var(--color-primary);
+      font-size: 1.03rem;
+      margin-bottom: 0.2em;
+      display: block;
+      letter-spacing: 0.01em;
+    }
+    .contact-form input, .contact-form textarea {
+      font-family: var(--font-body);
+      font-size: 1.04rem;
+      padding: 0.95em 1.15em;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: #fff;
+      color: var(--color-text);
+      outline: none;
+      box-shadow: none;
+      margin-bottom: 0.1em;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      resize: none;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 2px 8px -3px var(--color-highlight);
+    }
+    .contact-form textarea {
+      min-height: 90px;
+      max-height: 260px;
+    }
+    .contact-form .form-error {
+      color: var(--color-danger);
+      font-size: 0.95em;
+      margin-top: -0.6em;
+      margin-bottom: 0.6em;
+      display: none;
+    }
+    .contact-form .form-success {
+      color: var(--color-accent);
+      font-size: 1.01em;
+      margin-top: 0.6em;
+      display: none;
+    }
+    .contact-form .btn-cta {
+      margin-left: 0;
+      width: 100%;
+      font-size: 1.09rem;
+      padding: 0.98em 0;
+      border-radius: var(--radius-xl);
+    }
+
+    /* Contact Info & Map */
+    .contact-info-area {
+      flex: 1 1 330px;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      justify-content: flex-start;
+    }
+    .contact-info-box {
+      background: var(--color-highlight);
+      border-radius: var(--radius-lg);
+      padding: 1.9rem 1.7rem;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+    .contact-info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1em;
+      font-size: 1.09rem;
+      color: var(--color-text);
+    }
+    .contact-info-row i {
+      color: var(--color-accent);
+      font-size: 1.28em;
+      min-width: 1.9em;
+      margin-top: 0.09em;
+    }
+    .contact-info-row strong {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    .contact-map {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 8px 40px -14px rgba(38,109,140,0.12);
+      min-height: 210px;
+      height: 210px;
+      width: 100%;
+      margin-top: 0.8em;
+      border: none;
+    }
+
+    /* ======================
+        FOOTER
+    ====================== */
+    footer {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 2.7rem 0 1.8rem 0;
+      font-size: 1.01rem;
+      text-align: center;
+    }
+    .footer-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      align-items: center;
+    }
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      justify-content: center;
+    }
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.55em;
+    }
+    .footer-logo i {
+      color: var(--color-accent);
+      font-size: 1.15em;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-nav a {
+      color: #fff;
+      font-weight: 500;
+      transition: color var(--transition);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 0.07em;
+    }
+    .footer-nav a:hover {
+      color: var(--color-accent);
+      border-bottom: 2px solid var(--color-accent);
+    }
+    .footer-social {
+      display: flex;
+      gap: 1.1em;
+      margin-top: 0.4em;
+    }
+    .footer-social a {
+      color: #fff;
+      background: var(--color-accent);
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.22em;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+    .footer-social a:hover {
+      background: #fff;
+      color: var(--color-accent);
+      transform: scale(1.13);
+    }
+    .footer-bottom {
+      margin-top: 1.2em;
+      font-size: 0.97em;
+      color: #eaf6fa;
+    }
+
+    /* ======================
+        RESPONSIVE STYLES
+    ====================== */
+    @media (max-width: 1100px) {
+      .container, .about-wrap, .contact-wrap, .services-grid { max-width: 95vw; }
+      .services-grid { grid-template-columns: repeat(2,1fr);}
+      .about-photo { max-width: 290px;}
+      .about-photo img { height: 290px;}
+      .contact-map {height: 160px;}
+    }
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; gap: 1.5rem;}
+      .about-wrap, .contact-wrap { flex-direction: column; gap: 2.2rem;}
+      .about-photo, .about-info, .contact-form-area, .contact-info-area { max-width: 100%; }
+      .about-photo img { height: 230px;}
+      .footer-top { flex-direction: column; gap: 1.5em;}
+      .testimonial-card { min-width: 90vw; max-width: 95vw;}
+    }
+    @media (max-width: 700px) {
+      .navbar { height: 64px;}
+      .logo { font-size: 1.65rem;}
+      .btn-cta { font-size: 1rem; padding: 0.82em 1.2em;}
+      .hero-section { min-height: 400px; padding-top: 1.5rem;}
+      .hero-content { flex-direction: column-reverse; gap: 2.2rem;}
+      .hero-image-wrap, .hero-image { min-width: 0; width: 100%; max-width: 350px;}
+      .hero-image img { height: 240px;}
+      .hero-dr-img { left: -24px; bottom: -13px; width: 72px; height: 72px;}
+      h1 { font-size: 2.1rem;}
+      h2 { font-size: 1.5rem;}
+      h3 { font-size: 1.09rem;}
+      .services-section, .about-section, .testimonials-section, .contact-section { padding: 3.2rem 0;}
+      .service-card {min-height: 180px;}
+      .testimonial-arrows { display: none;}
+      .testimonial-card { min-width: 96vw; max-width: 99vw;}
+    }
+    @media (max-width: 500px) {
+      .container {padding-left: 0.7rem; padding-right: 0.7rem;}
+      .navbar { padding: 0 0.7rem;}
+      .footer-wrap { padding: 0 0.7rem;}
+      .about-photo img { height: 150px;}
+      .contact-info-box, .contact-form-area { padding: 1rem;}
+      .service-card {padding: 1.2rem;}
+      .testimonial-card { padding: 1.3rem 1.1rem;}
+      .hero-image { min-height: 120px;}
+    }
+
+    /* ======================
+        MOBILE NAVIGATION
+    ====================== */
+    @media (max-width: 800px) {
+      nav { position: absolute; left: 0; top: 64px; width: 100%; background: #fff; box-shadow: 0 3px 16px -7px var(--color-primary); flex-direction: column; align-items: center; justify-content: flex-start; z-index: 200; padding: 1.5em 0; gap: 0; transition: max-height 0.35s cubic-bezier(.34,.5,.4,1); max-height: 0; overflow: hidden;}
+      nav.open { max-height: 340px;}
+      .nav-links { flex-direction: column; gap: 1.5em;}
+      .btn-cta { margin-left: 0;}
+      .nav-toggle { display: block;}
+    }
+    @media (min-width: 801px) {
+      nav { position: static; background: none; box-shadow: none; flex-direction: row; align-items: center; justify-content: center; max-height: 100%; padding: 0;}
+      .nav-toggle { display: none;}
+    }
+  </style>
+</head>
+<body>
+  <!-- ======================
+       HEADER & NAVIGATION
+  ======================= -->
+  <header>
+    <div class="navbar">
+      <!-- Logo -->
+      <a href="#hero" class="logo">
+        <i class="fa-solid fa-spa"></i>
+        <span>Champion <span style="font-weight:400;color:var(--color-accent)">Chiropractic</span></span>
+      </a>
+      <!-- Mobile Hamburger Menu -->
+      <button class="nav-toggle" aria-label="Open navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <!-- Navigation Links -->
+      <nav id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn-cta">Book Appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================
+       HERO SECTION
+  ======================= -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-content">
+      <!-- Hero Text -->
+      <div class="hero-text">
+        <h1>Luxury Chiropractic Care<br>in West Hollywood</h1>
+        <p>
+          Experience <strong>patient-centered, evidence-based</strong> wellness with <strong>Dr. Aaron Schoneberger DC</strong>. Specializing in spinal alignment, posture correction, nervous system function, and natural healing. Trusted for 20+ years by Los Angeles’ finest.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-cta">Book Appointment</a>
+          <a href="#services" class="btn-cta" style="background: var(--color-accent);">View Services</a>
+        </div>
+      </div>
+      <!-- Hero Main Image & Doctor Portrait -->
+      <div class="hero-image-wrap">
+        <div class="hero-image">
+          <!-- Chiropractic-related photo (spinal adjustment) -->
+          <img src="https://s3-media0.fl.yelpcdn.com/bphoto/v27LAFRtLflpV5lA0UOiTA/o.jpg" alt="Chiropractic spinal adjustment at Champion Chiropractic">
+          <!-- Dr. Aaron's photo as overlay -->
+          <div class="hero-dr-img">
+            <img src="https://s3-media0.fl.yelpcdn.com/bphoto/4ZQqI7oJv5mA8k1kMDwLLQ/o.jpg" alt="Dr. Aaron Schoneberger DC">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       SERVICES SECTION
+  ======================= -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="services-title">
+        <h2>Our Signature Services</h2>
+        <p style="color:var(--color-muted);font-size:1.13em;max-width:620px;margin:0 auto;">
+          Restore your body’s optimal function with a blend of advanced chiropractic care, holistic therapies, and modern diagnostics—personalized for you.
+        </p>
+      </div>
+      <div class="services-grid">
+        <!-- Service 1: Spinal Alignment -->
+        <div class="service-card" tabindex="0">
+          <div class="service-icon">
+            <i class="fa-solid fa-bone"></i>
+          </div>
+          <div class="service-title">Spinal Alignment</div>
+          <div class="service-desc">
+            Precision adjustments to restore spinal health, optimize posture, and relieve nerve pressure for better mobility and vitality.
+          </div>
+        </div>
+        <!-- Service 2: Posture Correction -->
+        <div class="service-card" tabindex="0">
+          <div class="service-icon">
+            <i class="fa-solid fa-person-rays"></i>
+          </div>
+          <div class="service-title">Posture Correction</div>
+          <div class="service-desc">
+            Evidence-based techniques and digital analysis to correct postural imbalances for lasting comfort and elevated confidence.
+          </div>
+        </div>
+        <!-- Service 3: Massage Therapy -->
+        <div class="service-card" tabindex="0">
+          <div class="service-icon">
+            <i class="fa-solid fa-hands-holding"></i>
+          </div>
+          <div class="service-title">Massage Therapy</div>
+          <div class="service-desc">
+            Therapeutic massages for muscle relief, stress reduction, and enhanced healing—integrated with your care plan.
+          </div>
+        </div>
+        <!-- Service 4: Pain Management -->
+        <div class="service-card" tabindex="0">
+          <div class="service-icon">
+            <i class="fa-solid fa-user-injured"></i>
+          </div>
+          <div class="service-title">Pain Management</div>
+          <div class="service-desc">
+            Holistic & non-invasive solutions for back, neck, and joint pain—so you can move freely and live without limits.
+          </div>
+        </div>
+        <!-- Service 5: Physical Therapy & Rehab -->
+        <div class="service-card" tabindex="0">
+          <div class="service-icon">
+            <i class="fa-solid fa-dumbbell"></i>
+          </div>
+          <div class="service-title">Physical Therapy & Rehab</div>
+          <div class="service-desc">
+            Customized rehabilitation and strengthening exercises to accelerate recovery and prevent future injuries.
+          </div>
+        </div>
+        <!-- Service 6: Digital X-Ray Diagnostics -->
+        <div class="service-card" tabindex="0">
+          <div class="service-icon">
+            <i class="fa-solid fa-x-ray"></i>
+          </div>
+          <div class="service-title">Digital X-Ray Diagnostics</div>
+          <div class="service-desc">
+            On-site digital X-ray imaging for in-depth spinal analysis and tailored, evidence-based treatment plans.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       ABOUT SECTION
+  ======================= -->
+  <section class="about-section" id="about">
+    <div class="container about-wrap">
+      <!-- Doctor Photo -->
+      <div class="about-photo">
+        <img src="https://s3-media0.fl.yelpcdn.com/bphoto/4ZQqI7oJv5mA8k1kMDwLLQ/o.jpg" alt="Dr. Aaron Schoneberger DC, Champion Chiropractic">
+      </div>
+      <!-- Bio & Credentials -->
+      <div class="about-info">
+        <div class="about-title">Meet Dr. Aaron Schoneberger, DC</div>
+        <div class="about-desc">
+          With over <strong>20 years of experience</strong>, Dr. Aaron Schoneberger is a board-certified chiropractor dedicated to holistic, patient-centered care. Fluent in English and Spanish, Dr. Aaron’s philosophy blends advanced chiropractic science, natural healing, and a genuine partnership for your long-term health. Discover the difference of a practitioner who listens, educates, and empowers every patient.
+        </div>
+        <div class="badge-list">
+          <div class="badge"><i class="fa-solid fa-award"></i>20+ Years Experience</div>
+          <div class="badge"><i class="fa-solid fa-certificate"></i>Board Certified</div>
+          <div class="badge"><i class="fa-solid fa-language"></i>English &amp; Spanish</div>
+          <div class="badge"><i class="fa-solid fa-leaf"></i>Holistic Care</div>
+          <div class="badge"><i class="fa-solid fa-user-check"></i>Patient-Centered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       TESTIMONIALS SECTION
+  ======================= -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="testimonials-title">
+        <h2>What Clients Say</h2>
+        <p style="color:var(--color-muted);font-size:1.1em;max-width:600px;margin:0 auto;">
+          Real stories of relief, healing, and transformation from Champion Chiropractic patients.
+        </p>
+      </div>
+      <div class="testimonial-carousel" id="testimonial-carousel">
+        <div class="testimonial-arrows">
+          <button class="testimonial-arrow" id="testimonial-prev" aria-label="Previous testimonial"><i class="fa-solid fa-angle-left"></i></button>
+          <button class="testimonial-arrow" id="testimonial-next" aria-label="Next testimonial"><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+        <div class="testimonial-cards" id="testimonial-cards">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              “Dr. Aaron is hands down the best chiropractor I’ve seen in LA. He took time to understand my back pain and explained every step. My posture and energy have never been better!”
+            </div>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client testimonial avatar">
+              </div>
+              <div class="testimonial-user-info">
+                <div class="testimonial-name">Jessica L.</div>
+                <div class="testimonial-location">West Hollywood</div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              “After a sports injury, I couldn’t walk without pain. Dr. Schoneberger’s holistic approach and rehab exercises got me back on my feet—literally. Thank you, Champion Chiropractic!”
+            </div>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-alt"></i>
+            </div>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Client testimonial avatar">
+              </div>
+              <div class="testimonial-user-info">
+                <div class="testimonial-name">Miguel R.</div>
+                <div class="testimonial-location">Los Angeles</div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              “The clinic is modern, relaxing, and the staff speaks Spanish too. I trust Dr. Aaron with my whole family’s health. ¡Gracias por todo!”
+            </div>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/women/81.jpg" alt="Client testimonial avatar">
+              </div>
+              <div class="testimonial-user-info">
+                <div class="testimonial-name">Ana T.</div>
+                <div class="testimonial-location">Hollywood</div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              “From the first visit, I felt heard and cared for. The digital X-rays made my diagnosis clear. I highly recommend Champion Chiropractic to anyone serious about their health.”
+            </div>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/men/70.jpg" alt="Client testimonial avatar">
+              </div>
+              <div class="testimonial-user-info">
+                <div class="testimonial-name">David S.</div>
+                <div class="testimonial-location">Beverly Hills</div>
+              </div>
+            </div>
+          </div>
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              “I appreciate the holistic care—Dr. Aaron never rushes and always explains the ‘why’ behind treatments. I always leave feeling refreshed and aligned.”
+            </div>
+            <div class="testimonial-rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="testimonial-user">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Client testimonial avatar">
+              </div>
+              <div class="testimonial-user-info">
+                <div class="testimonial-name">Greg H.</div>
+                <div class="testimonial-location">Studio City</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Dots for Carousel -->
+        <div class="testimonial-dots" id="testimonial-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       CONTACT SECTION
+  ======================= -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-wrap">
+      <!-- Consultation Form -->
+      <div class="contact-form-area">
+        <div class="contact-form-title">Request a Consultation</div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" autocomplete="name" required>
+          <div class="form-error" id="error-name"></div>
+
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" autocomplete="email" required>
+          <div class="form-error" id="error-email"></div>
+
+          <label for="phone">Phone Number</label>
+          <input type="tel" name="phone" id="phone" autocomplete="tel" required>
+          <div class="form-error" id="error-phone"></div>
+
+          <label for="message">How can we help?</label>
+          <textarea name="message" id="message" rows="3" required></textarea>
+          <div class="form-error" id="error-message"></div>
+
+          <button type="submit" class="btn-cta">Send Request</button>
+          <div class="form-success" id="form-success"></div>
+        </form>
+      </div>
+      <!-- Contact Info & Map -->
+      <div class="contact-info-area">
+        <div class="contact-info-box">
+          <div class="contact-info-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>
+              <strong>Address:</strong><br>
+              7901 Santa Monica Blvd Ste 207,<br>West Hollywood, CA 90046
+            </span>
+          </div>
+          <div class="contact-info-row">
+            <i class="fa-solid fa-phone"></i>
+            <span>
+              <strong>Phone:</strong> <a href="tel:3236567722" style="color:var(--color-text);text-decoration:underline;">323-656-7722</a>
+            </span>
+          </div>
+          <div class="contact-info-row">
+            <i class="fa-solid fa-clock"></i>
+            <span>
+              <strong>Clinic Hours:</strong><br>
+              Mon–Fri: 9am–6pm<br>
+              Sat: 10am–2pm
+            </span>
+          </div>
+          <div class="contact-info-row">
+            <i class="fa-solid fa-language"></i>
+            <span>
+              <strong>Languages:</strong> English, Spanish
+            </span>
+          </div>
+        </div>
+        <!-- Google Map Embed -->
+        <iframe class="contact-map" src="https://www.google.com/maps?q=7901+Santa+Monica+Blvd+Ste+207+West+Hollywood+CA+90046&output=embed" allowfullscreen="" loading="lazy" title="Champion Chiropractic Map"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================
+       FOOTER
+  ======================= -->
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-top">
+        <a href="#hero" class="footer-logo">
+          <i class="fa-solid fa-spa"></i>
+          Champion <span style="font-weight:400;color:var(--color-accent)">Chiropractic</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="footer-social">
+          <a href="https://www.yelp.com/biz/champion-chiropractic-west-hollywood-2" target="_blank" rel="noopener" aria-label="Yelp"><i class="fa-brands fa-yelp"></i></a>
+          <a href="https://www.facebook.com/championchiropracticla" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="tel:3236567722" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="footerYear"></span> Champion Chiropractic — Dr. Aaron Schoneberger DC. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================
+       SCRIPTS
+  ======================= -->
+  <script>
+    // ========== MOBILE NAVIGATION ==========
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      navToggle.querySelector('i').classList.toggle('fa-bars');
+      navToggle.querySelector('i').classList.toggle('fa-xmark');
+    });
+    // Close menu when clicking a nav link (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 800) navMenu.classList.remove('open');
+      });
+    });
+
+    // ========== SCROLL ACTIVE NAV ==========
+    const sections = ['services', 'about', 'testimonials', 'contact'];
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY + 100;
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) {
+          const navLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+          if (
+            scrollY >= section.offsetTop &&
+            scrollY < section.offsetTop + section.offsetHeight
+          ) {
+            navLink.classList.add('active');
+          } else {
+            navLink.classList.remove('active');
+          }
+        }
+      });
+    });
+
+    // ========== TESTIMONIAL CAROUSEL ==========
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    const testimonialCards = document.getElementById('testimonial-cards');
+    const prevBtn = document.getElementById('testimonial-prev');
+    const nextBtn = document.getElementById('testimonial-next');
+    const dotsContainer = document.getElementById('testimonial-dots');
+    let testimonialIndex = 0;
+
+    function showTestimonial(idx) {
+      testimonialIndex = idx;
+      const offset = -idx * testimonialCards.children[0].offsetWidth - idx * 32;
+      testimonialCards.style.transform = `translateX(${offset}px)`;
+      testimonials.forEach((card, i) => {
+        card.classList.toggle('active', i === idx);
+      });
+      // Activate dots
+      Array.from(dotsContainer.children).forEach((dot, i) => {
+        dot.classList.toggle('active', i === idx);
+      });
+    }
+    // Build dots
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < testimonials.length; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('tabindex', '0');
+      dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+      dot.addEventListener('click', () => showTestimonial(i));
+      dot.addEventListener('keydown', e => { if (e.key === 'Enter') showTestimonial(i); });
+      dotsContainer.appendChild(dot);
+    }
+    // Show first
+    showTestimonial(0);
+
+    // Prev/Next handlers
+    prevBtn.addEventListener('click', () => {
+      testimonialIndex = (testimonialIndex - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(testimonialIndex);
+    });
+    nextBtn.addEventListener('click', () => {
+      testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+      showTestimonial(testimonialIndex);
+    });
+
+    // Swipe support (mobile)
+    let startX = null;
+    testimonialCards.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+    testimonialCards.addEventListener('touchend', e => {
+      if (startX !== null) {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (dx > 40) prevBtn.click();
+        else if (dx < -40) nextBtn.click();
+      }
+      startX = null;
+    });
+
+    // ========== CONTACT FORM VALIDATION ==========
+    const form = document.getElementById('contactForm');
+    const errorName = document.getElementById('error-name');
+    const errorEmail = document.getElementById('error-email');
+    const errorPhone = document.getElementById('error-phone');
+    const errorMessage = document.getElementById('error-message');
+    const formSuccess = document.getElementById('form-success');
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    function validatePhone(phone) {
+      // Accept US phone numbers (basic)
+      return /^[\d\-\+\s\(\)]{7,18}$/.test(phone);
+    }
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+      // Reset errors
+      [errorName, errorEmail, errorPhone, errorMessage].forEach(el => el.style.display = 'none');
+      formSuccess.style.display = 'none';
+
+      // Name
+      if (!form.name.value.trim()) {
+        errorName.textContent = "Please enter your name.";
+        errorName.style.display = 'block';
+        valid = false;
+      }
+      // Email
+      if (!form.email.value.trim() || !validateEmail(form.email.value.trim())) {
+        errorEmail.textContent = "Please enter a valid email address.";
+        errorEmail.style.display = 'block';
+        valid = false;
+      }
+      // Phone
+      if (!form.phone.value.trim() || !validatePhone(form.phone.value.trim())) {
+        errorPhone.textContent = "Please enter a valid phone number.";
+        errorPhone.style.display = 'block';
+        valid = false;
+      }
+      // Message
+      if (!form.message.value.trim() || form.message.value.trim().length < 5) {
+        errorMessage.textContent = "Please describe how we can help you.";
+        errorMessage.style.display = 'block';
+        valid = false;
+      }
+      // Simulate AJAX submit
+      if (valid) {
+        formSuccess.textContent = "Thank you! Your request has been sent.";
+        formSuccess.style.display = 'block';
+        form.reset();
+        setTimeout(() => {
+          formSuccess.style.display = 'none';
+        }, 4000);
+      }
+    });
+
+    // ========== FOOTER YEAR ==========
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
