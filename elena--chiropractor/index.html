@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Just Breathe Healing - Holistic Chiropractic Care in Los Angeles. Natural healing through expert spinal adjustments, therapeutic massage, and personalized wellness plans.">
+    <meta name="author" content="Elena Esparza">
+    <title>Just Breathe Healing | Holistic Chiropractic Care in Los Angeles</title>
+    <link rel="icon" href="https://ibb.co/VpPNZVrJ" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://ibb.co/VpPNZVrJ">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Color Palette */
+            --color-primary: #5a8a65; /* Sage Green */
+            --color-primary-light: #6fa37a;
+            --color-primary-dark: #446852;
+            --color-accent: #b8894f; /* Warm Gold */
+            --color-accent-light: #d6aa6e;
+            --color-accent-dark: #9a6e35;
+            --color-neutral-100: #ffffff;
+            --color-neutral-200: #f7f5f0;
+            --color-neutral-300: #e5e1d8;
+            --color-neutral-400: #d1cbc0;
+            --color-neutral-500: #a09786;
+            --color-neutral-600: #696054;
+            --color-neutral-700: #483f35;
+            --color-neutral-800: #2a241f;
+            --color-neutral-900: #1a1614;
+            
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            --space-xxl: 10rem;
+            
+            /* Layout */
+            --container-width: 1200px;
+            --header-height: 100px;
+            --header-height-scroll: 70px;
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 16px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-neutral-700);
+            line-height: 1.6;
+            background-color: var(--color-neutral-200);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--color-neutral-800);
+            margin-bottom: var(--space-sm);
+        }
+        
+        h1 {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            position: relative;
+            display: inline-block;
+            margin-bottom: var(--space-md);
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            height: 3px;
+            width: 60px;
+            background: var(--color-accent);
+            transition: width var(--transition-medium);
+        }
+        
+        h2:hover:after {
+            width: 100%;
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+        }
+        
+        p {
+            margin-bottom: var(--space-sm);
+            font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+        }
+        
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        a:hover, a:focus {
+            color: var(--color-primary-dark);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--space-sm);
+        }
+        
+        section {
+            padding: var(--space-lg) 0;
+            position: relative;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-body);
+            min-height: 44px;
+            min-width: 44px;
+            touch-action: manipulation;
+        }
+        
+        .btn:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transition: width var(--transition-fast);
+            z-index: 1;
+        }
+        
+        .btn:hover:after, .btn:focus:after {
+            width: 100%;
+        }
+        
+        .btn span {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-neutral-100);
+            border: 1px solid var(--color-primary);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--color-primary-dark);
+            border-color: var(--color-primary-dark);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+        }
+        
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: var(--color-primary);
+            color: var(--color-neutral-100);
+            transform: translateY(-2px);
+        }
+        
+        .accent-text {
+            color: var(--color-accent);
+            font-style: italic;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .relative {
+            position: relative;
+        }
+        
+        /* Header and Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0 var(--space-sm);
+            transition: all var(--transition-medium);
+            background-color: rgba(247, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+        }
+        
+        header.scrolled {
+            height: var(--header-height-scroll);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+            transition: transform var(--transition-fast);
+        }
+        
+        .logo:hover {
+            transform: scale(1.03);
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: var(--space-xs);
+        }
+        
+        .logo-text {
+            display: inline-block;
+        }
+        
+        .nav-desktop {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-desktop {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: none;
+            }
+        }
+        
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: var(--space-md);
+        }
+        
+        .nav-desktop a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: var(--space-xs);
+            position: relative;
+            color: var(--color-neutral-700);
+            transition: color var(--transition-fast);
+        }
+        
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color-accent);
+            transition: width var(--transition-fast);
+        }
+        
+        .nav-desktop a:hover, .nav-desktop a:focus, .nav-desktop a.active {
+            color: var(--color-neutral-900);
+        }
+        
+        .nav-desktop a:hover::after, .nav-desktop a:focus::after, .nav-desktop a.active::after {
+            width: 100%;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            z-index: 1001;
+            position: relative;
+        }
+        
+        .mobile-menu-toggle .bar {
+            width: 25px;
+            height: 2px;
+            background-color: var(--color-neutral-800);
+            position: relative;
+            transition: all var(--transition-medium);
+        }
+        
+        .mobile-menu-toggle .bar::before,
+        .mobile-menu-toggle .bar::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 2px;
+            background-color: var(--color-neutral-800);
+            transition: all var(--transition-medium);
+        }
+        
+        .mobile-menu-toggle .bar::before {
+            transform: translateY(-8px);
+        }
+        
+        .mobile-menu-toggle .bar::after {
+            transform: translateY(8px);
+        }
+        
+        .mobile-menu-toggle.active .bar {
+            background-color: transparent;
+        }
+        
+        .mobile-menu-toggle.active .bar::before {
+            transform: rotate(45deg);
+        }
+        
+        .mobile-menu-toggle.active .bar::after {
+            transform: rotate(-45deg);
+        }
+        
+        .nav-mobile {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background-color: var(--color-neutral-100);
+            padding: var(--space-xl) var(--space-md);
+            box-shadow: var(--shadow-lg);
+            transition: right var(--transition-medium);
+            z-index: 1000;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .nav-mobile.active {
+            right: 0;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-medium);
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .nav-mobile ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-mobile li {
+            margin-bottom: var(--space-sm);
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all var(--transition-medium);
+        }
+        
+        .nav-mobile.active li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .nav-mobile.active li:nth-child(1) { transition-delay: 0.1s; }
+        .nav-mobile.active li:nth-child(2) { transition-delay: 0.2s; }
+        .nav-mobile.active li:nth-child(3) { transition-delay: 0.3s; }
+        .nav-mobile.active li:nth-child(4) { transition-delay: 0.4s; }
+        .nav-mobile.active li:nth-child(5) { transition-delay: 0.5s; }
+        
+        .nav-mobile a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-neutral-800);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            padding: var(--space-xs) 0;
+            transition: all var(--transition-fast);
+        }
+        
+        .nav-mobile a:hover, .nav-mobile a:focus {
+            color: var(--color-primary);
+            transform: translateX(5px);
+        }
+        
+        .mobile-contact {
+            margin-top: auto;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-neutral-300);
+        }
+        
+        .mobile-contact p {
+            margin-bottom: var(--space-xs);
+            font-size: 0.9rem;
+        }
+        
+        .mobile-social {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+        
+        .mobile-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--color-neutral-200);
+            color: var(--color-neutral-700);
+            transition: all var(--transition-fast);
+        }
+        
+        .mobile-social a:hover {
+            background-color: var(--color-primary);
+            color: var(--color-neutral-100);
+            transform: translateY(-3px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: calc(var(--header-height) + var(--space-md)) 0 var(--space-lg);
+            background: linear-gradient(to bottom, rgba(247, 245, 240, 0.9), rgba(247, 245, 240, 0.7)),
+                        url('https://images.unsplash.com/photo-1579126038374-6064e9370f0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-heading);
+            font-style: italic;
+            color: var(--color-accent);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: var(--space-xs);
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.3s;
+        }
+        
+        .hero h1 {
+            margin-bottom: var(--space-md);
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.5s;
+        }
+        
+        .hero-text {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            margin-bottom: var(--space-md);
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.7s;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 1s forwards 0.9s;
+        }
+        
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+            opacity: 0;
+            animation: fadeUp 1s forwards 1.1s;
+        }
+        
+        .stat-item {
+            flex: 1;
+            min-width: 140px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: var(--space-sm);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all var(--transition-medium);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 600;
+            color: var(--color-primary-dark);
+            margin-bottom: 0;
+        }
+        
+        .stat-text {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-neutral-600);
+            margin-bottom: 0;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--color-neutral-100);
+            position: relative;
+            overflow: hidden;
+            padding: var(--space-xl) 0;
+        }
+        
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--color-neutral-300) 0%, transparent 70%);
+            opacity: 0.6;
+            z-index: 1;
+        }
+        
+        .services-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-lg);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .service-card {
+            background-color: var(--color-neutral-200);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-medium);
+            position: relative;
+            z-index: 1;
+            height: 100%;
+        }
+        
+        .service-card:hover, .service-card:focus-within {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-card:hover .service-icon, .service-card:focus-within .service-icon {
+            background-color: var(--color-primary);
+            color: var(--color-neutral-100);
+            transform: scale(1.1);
+        }
+        
+        .service-card:hover .service-title::after, .service-card:focus-within .service-title::after {
+            width: 80px;
+        }
+        
+        .service-card:hover .service-link, .service-card:focus-within .service-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-medium);
+        }
+        
+        .service-card:hover .service-image img, .service-card:focus-within .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: var(--space-md);
+            position: relative;
+        }
+        
+        .service-icon {
+            position: absolute;
+            top: -25px;
+            left: var(--space-md);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            color: var(--color-neutral-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-medium);
+        }
+        
+        .service-title {
+            margin-top: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            font-size: 1.375rem;
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+        
+        .service-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--color-accent);
+            transition: width var(--transition-medium);
+        }
+        
+        .service-description {
+            color: var(--color-neutral-600);
+            margin-bottom: var(--space-md);
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            font-weight: 500;
+            transition: all var(--transition-medium);
+            opacity: 0.8;
+            transform: translateY(5px);
+        }
+        
+        .service-link i {
+            margin-left: var(--space-xs);
+            transition: transform var(--transition-fast);
+        }
+        
+        .service-link:hover, .service-link:focus {
+            color: var(--color-primary-dark);
+        }
+        
+        .service-link:hover i, .service-link:focus i {
+            transform: translateX(5px);
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(to right, rgba(247, 245, 240, 0.95), rgba(247, 245, 240, 0.85)),
+                        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            padding: var(--space-xl) 0;
+            position: relative;
+        }
+        
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+        
+        @media (min-width: 992px) {
+            .about-container {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+            min-height: 400px;
+        }
+        
+        .about-img-main {
+            position: relative;
+            z-index: 2;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            min-height: 400px;
+        }
+        
+        .about-img-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .about-img-main:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-img-accent {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 150px;
+            height: 150px;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            z-index: 3;
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .about-img-accent {
+                display: block;
+            }
+        }
+        
+        .about-img-accent img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-pattern {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-accent);
+            opacity: 0.2;
+            border-radius: var(--border-radius-sm);
+            z-index: 1;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-subtitle {
+            color: var(--color-accent);
+            font-family: var(--font-heading);
+            font-style: italic;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .about-content h2 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .about-text {
+            margin-bottom: var(--space-md);
+        }
+        
+        .about-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+        
+        .credential {
+            flex: 1;
+            min-width: 140px;
+            padding: var(--space-sm);
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-medium);
+        }
+        
+        .credential:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .credential i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .credential-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .credential-subtitle {
+            color: var(--color-neutral-600);
+            font-size: 0.8rem;
+        }
+        
+        .about-cta {
+            margin-top: var(--space-md);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--color-neutral-100);
+            padding: var(--space-xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--color-neutral-300) 0%, transparent 70%);
+            opacity: 0.5;
+            z-index: 1;
+        }
+        
+        .testimonials-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-lg);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            padding: 0 var(--space-sm);
+            margin: 0 auto;
+            max-width: 900px;
+            z-index: 2;
+        }
+        
+        .testimonials-container {
+            display: flex;
+            transition: transform var(--transition-medium);
+        }
+        
+        .testimonial-slide {
+            flex: 0 0 100%;
+            padding: 0 var(--space-sm);
+        }
+        
+        .testimonial-card {
+            background-color: var(--color-neutral-200);
+            border-radius: var(--border-radius-md);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: all var(--transition-medium);
+            height: 100%;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .testimonial-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            opacity: 0.3;
+            transition: all var(--transition-medium);
+        }
+        
+        .testimonial-card:hover::before {
+            transform: scale(1.2);
+            opacity: 0.5;
+        }
+        
+        .testimonial-text {
+            padding-top: var(--space-sm);
+            margin-bottom: var(--space-md);
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: var(--space-sm);
+            border: 2px solid var(--color-primary-light);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0;
+            color: var(--color-neutral-800);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .author-info p {
+            color: var(--color-neutral-600);
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+        
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+        
+        .testimonial-btn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+            background-color: var(--color-neutral-200);
+        }
+        
+        .testimonial-btn:hover, .testimonial-btn:focus {
+            background-color: var(--color-primary);
+            color: var(--color-neutral-100);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .testimonial-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: var(--space-sm);
+        }
+        
+        .testimonial-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-neutral-400);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .testimonial-dot.active {
+            background-color: var(--color-accent);
+            transform: scale(1.3);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(to left, rgba(90, 138, 101, 0.9), rgba(90, 138, 101, 0.7)),
+                        url('https://images.unsplash.com/photo-1521783593447-5702b9bfd267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            padding: var(--space-xl) 0;
+            color: var(--color-neutral-100);
+            position: relative;
+        }
+        
+        .contact-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-lg);
+        }
+        
+        .contact-intro h2, .contact h3 {
+            color: var(--color-neutral-100);
+        }
+        
+        .contact-intro h2:after {
+            background: var(--color-neutral-100);
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+        
+        @media (min-width: 992px) {
+            .contact-container {
+                flex-direction: row;
+            }
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-details {
+            margin-bottom: var(--space-md);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .contact-icon {
+            flex: 0 0 44px;
+            height: 44px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--space-sm);
+            transition: all var(--transition-fast);
+        }
+        
+        .contact-detail:hover .contact-icon {
+            background-color: var(--color-accent);
+            transform: scale(1.1);
+        }
+        
+        .contact-text {
+            flex: 1;
+        }
+        
+        .contact-text h4 {
+            color: var(--color-neutral-100);
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0;
+        }
+        
+        .contact-text a:hover {
+            color: var(--color-neutral-100);
+            text-decoration: underline;
+        }
+        
+        .contact-map {
+            height: 200px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-md);
+        }
+        
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .contact-social {
+            display: flex;
+            gap: var(--space-sm);
+        }
+        
+        .social-link {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--color-neutral-100);
+            transition: all var(--transition-medium);
+        }
+        
+        .social-link:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-5px);
+            color: var(--color-neutral-100);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: var(--color-neutral-100);
+            border-radius: var(--border-radius-md);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-form h3 {
+            color: var(--color-neutral-800);
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-sm);
+            position: relative;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--color-neutral-700);
+            font-size: 0.9rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--color-neutral-300);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--color-neutral-800);
+            background-color: var(--color-neutral-200);
+            transition: all var(--transition-fast);
+        }
+        
+        .form-control:focus {
+            border-color: var(--color-primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(90, 138, 101, 0.2);
+            background-color: var(--color-neutral-100);
+        }
+        
+        .form-control::placeholder {
+            color: var(--color-neutral-500);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-error {
+            color: #d94646;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-error.visible {
+            display: block;
+        }
+        
+        .form-control.error {
+            border-color: #d94646;
+        }
+        
+        .form-submit {
+            margin-top: var(--space-md);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--color-neutral-800);
+            color: var(--color-neutral-400);
+            padding: var(--space-lg) 0 var(--space-md);
+            position: relative;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+            color: var(--color-neutral-100);
+        }
+        
+        .footer-logo img {
+            height: 30px;
+            margin-right: var(--space-xs);
+        }
+        
+        .footer-about p {
+            margin-bottom: var(--space-sm);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .footer-heading {
+            color: var(--color-neutral-100);
+            margin-bottom: var(--space-sm);
+            font-size: 1.25rem;
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-accent);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .footer-links a {
+            color: var(--color-neutral-400);
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            transition: all var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-neutral-100);
+            transform: translateX(5px);
+        }
+        
+        .footer-links a:hover i {
+            opacity: 1;
+            transform: translateX(2px);
+        }
+        
+        .footer-subscribe input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--color-neutral-600);
+            border-radius: var(--border-radius-sm);
+            background-color: var(--color-neutral-700);
+            color: var(--color-neutral-100);
+            margin-bottom: var(--space-sm);
+            font-family: var(--font-body);
+        }
+        
+        .footer-subscribe input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+        
+        .footer-subscribe .btn {
+            width: 100%;
+        }
+        
+        .footer-bottom {
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-neutral-700);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .footer-copyright {
+            margin-bottom: var(--space-sm);
+            font-size: 0.85rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-copyright {
+                margin-bottom: 0;
+            }
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.85rem;
+        }
+        
+        .footer-legal a {
+            color: var(--color-neutral-400);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-legal a:hover {
+            color: var(--color-neutral-100);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            color: var(--color-neutral-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition-medium);
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Media Queries */
+        @media (max-width: 991px) {
+            :root {
+                --space-lg: 3rem;
+                --space-xl: 4rem;
+                --space-xxl: 6rem;
+            }
+            
+            .hero {
+                min-height: 80vh;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            :root {
+                --space-lg: 2.5rem;
+                --space-xl: 3.5rem;
+                --space-xxl: 5rem;
+                --header-height: 80px;
+                --header-height-scroll: 60px;
+            }
+            
+            .hero {
+                min-height: 70vh;
+            }
+            
+            .hero-stats {
+                margin-top: var(--space-md);
+            }
+            
+            .about-credentials {
+                gap: var(--space-sm);
+            }
+        }
+        
+        @media (max-width: 575px) {
+            :root {
+                --space-md: 1.5rem;
+                --space-lg: 2rem;
+                --space-xl: 3rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-cta .btn {
+                width: 100%;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Utility Classes */
+        .mt-0 { margin-top: 0 !important; }
+        .mt-1 { margin-top: var(--space-xs) !important; }
+        .mt-2 { margin-top: var(--space-sm) !important; }
+        .mt-3 { margin-top: var(--space-md) !important; }
+        .mt-4 { margin-top: var(--space-lg) !important; }
+        
+        .mb-0 { margin-bottom: 0 !important; }
+        .mb-1 { margin-bottom: var(--space-xs) !important; }
+        .mb-2 { margin-bottom: var(--space-sm) !important; }
+        .mb-3 { margin-bottom: var(--space-md) !important; }
+        .mb-4 { margin-bottom: var(--space-lg) !important; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="https://ibb.co/VpPNZVrJ" alt="Just Breathe Healing">
+                <span class="logo-text">Just Breathe Healing</span>
+            </a>
+            
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <div class="bar"></div>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="overlay"></div>
+    <nav class="nav-mobile">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        
+        <div class="mobile-contact">
+            <p><strong>Contact Us</strong></p>
+            <p><i class="fas fa-phone-alt"></i> (213) 555-8765</p>
+            <p><i class="fas fa-map-marker-alt"></i> 1234 Wellness Way, Los Angeles, CA 90001</p>
+            
+            <div class="mobile-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle">Holistic Chiropractic Care in Los Angeles</p>
+                <h1>Your Journey to Natural Healing Begins Here</h1>
+                <p class="hero-text">Experience the transformative power of holistic chiropractic care that treats not just symptoms, but addresses the root cause of your discomfort. At Just Breathe Healing, we combine ancient wisdom with modern techniques to restore your body's natural balance.</p>
+                
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary"><span>Schedule Consultation</span></a>
+                    <a href="#services" class="btn btn-secondary"><span>Explore Services</span></a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <p class="stat-number">15+</p>
+                        <p class="stat-text">Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">3,000+</p>
+                        <p class="stat-text">Happy Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <p class="stat-number">98%</p>
+                        <p class="stat-text">Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-intro">
+                <h2>Our Holistic Approach</h2>
+                <p>We offer comprehensive chiropractic care that addresses the interconnected systems of your body. Our healing methodologies combine traditional techniques with innovative approaches to create personalized treatment plans for optimal wellness.</p>
+            </div>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpcm9wcmFjdGljfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Spinal Adjustments">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-spine"></i>
+                        </div>
+                        <h3 class="service-title">Spinal Adjustments</h3>
+                        <p class="service-description">Gentle, precise adjustments to realign your spine, relieve pressure on nerves, and restore proper function to your nervous system.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fG1hc3NhZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Therapeutic Massage">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <h3 class="service-title">Therapeutic Massage</h3>
+                        <p class="service-description">Specialized massage techniques to release muscle tension, improve circulation, and enhance the effectiveness of chiropractic adjustments.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1598887142487-3c854d51d2c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bnV0cml0aW9uJTIwcGxhbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Nutritional Guidance">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3 class="service-title">Nutritional Guidance</h3>
+                        <p class="service-description">Personalized nutritional plans that support your body's healing process, reduce inflammation, and optimize your overall health.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWN1cHVuY3R1cmV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Acupuncture">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="service-title">Acupuncture</h3>
+                        <p class="service-description">Traditional Chinese medicine technique that stimulates specific points on the body to alleviate pain and support natural healing processes.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHlvZ2F8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Therapeutic Exercise">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3 class="service-title">Therapeutic Exercise</h3>
+                        <p class="service-description">Customized exercise programs designed to strengthen your body, improve mobility, and prevent future injuries.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1592838064775-c3c8091cb7ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU1fHxtaW5kZnVsbmVzc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Stress Management">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="service-title">Stress Management</h3>
+                        <p class="service-description">Evidence-based techniques to reduce stress, improve mental clarity, and enhance your body's natural healing abilities.</p>
+                        <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image">
+                    <div class="about-pattern"></div>
+                    <div class="about-img-main">
+                        <img src="https://images.unsplash.com/photo-1542596594-649edbc13630?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZmVtYWxlJTIwZG9jdG9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Dr. Elena Esparza">
+                    </div>
+                    <div class="about-img-accent">
+                        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlZW4lMjBsZWF2ZXN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Nature-inspired healing">
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <p class="about-subtitle">Meet Your Chiropractor</p>
+                    <h2>Dr. Elena Esparza, D.C.</h2>
+                    <div class="about-text">
+                        <p>With over 15 years of experience in holistic healing, Dr. Elena Esparza has dedicated her career to helping patients achieve optimal wellness through natural, non-invasive techniques. Her approach integrates traditional chiropractic methods with complementary therapies to address the whole person—body, mind, and spirit.</p>
+                        <p>After graduating with honors from the Southern California University of Health Sciences, Dr. Esparza furthered her education with specialized training in acupuncture, functional nutrition, and mind-body medicine. Her diverse background allows her to create truly personalized treatment plans that address each patient's unique needs.</p>
+                    </div>
+                    
+                    <div class="about-credentials">
+                        <div class="credential">
+                            <i class="fas fa-award"></i>
+                            <h4 class="credential-title">Board Certified</h4>
+                            <p class="credential-subtitle">Chiropractic Medicine</p>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-certificate"></i>
+                            <h4 class="credential-title">Certified</h4>
+                            <p class="credential-subtitle">Acupuncture</p>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-user-graduate"></i>
+                            <h4 class="credential-title">Advanced Training</h4>
+                            <p class="credential-subtitle">Functional Nutrition</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta">
+                        <a href="#contact" class="btn btn-primary"><span>Schedule an Appointment</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="testimonials-intro">
+                <h2>What Our Clients Say</h2>
+                <p>Discover how our holistic chiropractic approach has transformed the lives of our clients across Los Angeles. These are the stories of healing, recovery, and renewed vitality.</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonials-container">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"After years of chronic back pain and trying countless therapies, I found Just Breathe Healing. Dr. Esparza's comprehensive approach addressed not just my spine, but my nutrition and stress levels too. Six months later, I'm pain-free and have energy I haven't felt in decades."</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Sarah M.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sarah M.</h4>
+                                    <p>Venice Beach, Los Angeles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"As a marathon runner, I've pushed my body to its limits. When I developed sciatic pain that threatened my training, Dr. Esparza created a treatment plan that not only resolved my pain but improved my performance. Her holistic approach has changed how I think about my training and recovery."</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hbiUyMHBvcnRyYWl0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Michael T.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Michael T.</h4>
+                                    <p>Silver Lake, Los Angeles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"After my car accident, I had constant headaches and neck pain that medications couldn't touch. Dr. Esparza's gentle adjustments, combined with acupuncture and nutritional guidance, have given me my life back. The entire team at Just Breathe Healing treats you like family—they truly care about your wellbeing."</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8d29tYW4lMjBwb3J0cmFpdCUyMHNtaWxpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60" alt="Jennifer K.">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Jennifer K.</h4>
+                                    <p>Echo Park, Los Angeles</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-controls">
+                    <button class="testimonial-btn prev-testimonial" aria-label="Previous testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial-btn next-
