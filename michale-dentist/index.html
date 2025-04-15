@@ -1,0 +1,946 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerfectTeeth | Luxury Dental Care in New York</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #22577A;
+            --secondary: #38A3A5;
+            --accent: #F6D167;
+            --bg: #f9f9f7;
+            --white: #fff;
+            --dark: #222;
+            --gray: #6c757d;
+            --header-blur: rgba(255,255,255,0.8);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+        }
+        /* HEADER */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: var(--header-blur);
+            box-shadow: 0 2px 10px rgba(34,87,122,0.06);
+            transition: background 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        header.scrolled {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(34,87,122,0.12);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+        nav a:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+        }
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+        nav a:hover:after, nav a.active:after {
+            width: 100%;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: linear-gradient(135deg, var(--white) 50%, var(--accent) 100%);
+            padding-top: 140px;
+            padding-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1.2s cubic-bezier(.6,.3,.3,1.1);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .stat {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(56,163,165,0.09);
+            padding: 1.5rem 2rem;
+            min-width: 140px;
+            text-align: center;
+            animation: fadeIn 1.7s cubic-bezier(.6,.3,.3,1.1);
+            transition: transform 0.2s;
+        }
+        .stat i {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .stat span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+        .stat small {
+            display: block;
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* SERVICES */
+        .services {
+            padding: 100px 0 60px 0;
+            background: var(--white);
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            margin: 18px auto 0 auto;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: linear-gradient(135deg, var(--bg) 60%, var(--accent) 140%);
+            box-shadow: 0 8px 30px rgba(34,87,122,0.07);
+            border-radius: 16px;
+            flex: 1 1 260px;
+            min-width: 260px;
+            max-width: 330px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            animation: fadeInUp 1.2s cubic-bezier(.6,.3,.3,1.1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.04);
+            box-shadow: 0 16px 40px rgba(34,87,122,0.14);
+        }
+        .service-card i {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .service-card:hover i {
+            color: var(--primary);
+            transform: scale(1.15) rotate(-10deg);
+        }
+        .service-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .service-desc {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* ABOUT */
+        .about {
+            padding: 100px 0 80px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            gap: 3rem;
+        }
+        .about-image {
+            flex: 1 1 260px;
+            max-width: 320px;
+            text-align: center;
+        }
+        .about-image img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--secondary);
+            box-shadow: 0 8px 32px rgba(34,87,122,0.1);
+            animation: fadeIn 1s cubic-bezier(.6,.3,.3,1.1);
+        }
+        .about-content {
+            flex: 2 1 420px;
+            max-width: 600px;
+        }
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .about-content h4 {
+            color: var(--secondary);
+            margin-top: 0;
+            font-weight: 600;
+            margin-bottom: 1.1rem;
+        }
+        .about-content p {
+            color: var(--gray);
+            font-size: 1.08rem;
+            margin-bottom: 1.5rem;
+        }
+        .credentials {
+            display: flex;
+            gap: 2.2rem;
+            flex-wrap: wrap;
+        }
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.05rem;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            box-shadow: 0 2px 10px rgba(56,163,165,0.06);
+        }
+        .credential i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            background: var(--white);
+            padding: 100px 0 80px 0;
+        }
+        .testimonial-slider {
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .testimonial-card {
+            background: var(--bg);
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(34,87,122,0.07);
+            padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+            margin: 0 auto;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(40px) scale(0.96);
+            transition: opacity 0.6s, transform 0.6s;
+            position: absolute;
+            left: 0; right: 0;
+            top: 0; bottom: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .testimonial-card.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            z-index: 2;
+            pointer-events: all;
+            animation: fadeInUp 1s cubic-bezier(.6,.3,.3,1.1);
+        }
+        .testimonial-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .testimonial-text {
+            color: var(--gray);
+            font-size: 1.18rem;
+            margin-bottom: 1.2rem;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .testimonial-author img {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2.5px solid var(--secondary);
+        }
+        .testimonial-author span {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1.7rem;
+            margin-top: 2.2rem;
+        }
+        .testimonial-controls button {
+            background: var(--secondary);
+            border: none;
+            color: var(--white);
+            font-size: 1.15rem;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 18px rgba(34,87,122,0.07);
+        }
+        .testimonial-controls button:hover {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--bg);
+            padding: 100px 0 70px 0;
+        }
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .contact-form {
+            background: var(--white);
+            box-shadow: 0 8px 32px rgba(56,163,165,0.08);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            flex: 2 1 350px;
+            min-width: 320px;
+            max-width: 440px;
+            animation: fadeInUp 1.2s cubic-bezier(.6,.3,.3,1.1);
+        }
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.9rem 1rem;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            resize: none;
+            background: #fafafa;
+            transition: border 0.2s, box-shadow 0.2s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 2px 10px rgba(34,87,122,0.06);
+        }
+        .contact-form button {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            padding: 0.95rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .contact-form button:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            transform: translateY(-3px) scale(1.04);
+        }
+        .contact-info {
+            flex: 2 1 260px;
+            min-width: 260px;
+            max-width: 350px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 8px 32px rgba(56,163,165,0.09);
+            animation: fadeIn 1.2s cubic-bezier(.6,.3,.3,1.1);
+        }
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.3rem;
+            color: var(--accent);
+        }
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+        .contact-info li {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .contact-info li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            min-width: 22px;
+        }
+        .contact-info .hours {
+            margin-top: 2rem;
+        }
+        .contact-info .hours i {
+            color: var(--secondary);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2.5rem 0 1.2rem 0;
+            text-align: center;
+            font-size: 1rem;
+            letter-spacing: 0.1px;
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 2rem;
+            border-bottom: 1.5px solid rgba(255,255,255,0.13);
+            padding-bottom: 2rem;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+        .footer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .footer-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+        .footer-contact {
+            text-align: left;
+        }
+        .footer-contact i {
+            color: var(--accent);
+            margin-right: 0.7rem;
+        }
+        .footer-social {
+            margin-top: 1.6rem;
+        }
+        .footer-social a {
+            color: var(--white);
+            margin: 0 0.6rem;
+            font-size: 1.18rem;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover {
+            color: var(--accent);
+        }
+        .footer-bottom {
+            margin-top: 1.8rem;
+            font-size: 0.97rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(60px);}
+            70% { opacity: 0.9; }
+            100% { opacity: 1; transform: translateY(0);}
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1020px) {
+            .services-list {
+                gap: 1.2rem;
+            }
+            .about {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+            .about-content {
+                max-width: 95vw;
+            }
+        }
+        @media (max-width: 900px) {
+            .contact-container {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: stretch;
+            }
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.2rem;
+                text-align: center;
+            }
+        }
+        @media (max-width: 700px) {
+            .nav-container {
+                padding: 0 1rem;
+                height: 64px;
+            }
+            header {
+                height: 64px;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+        @media (max-width: 580px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 64px;
+                right: 0;
+                width: 80vw;
+                box-shadow: 0 12px 32px rgba(34,87,122,0.09);
+                padding: 1.5rem 2rem;
+                z-index: 1001;
+                border-radius: 0 0 0 12px;
+            }
+            nav.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .about-image img {
+                width: 140px; height: 140px;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            .service-card {
+                max-width: 100%;
+                min-width: 0;
+            }
+            .testimonial-slider {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="nav-container">
+            <div class="logo">PerfectTeeth</div>
+            <nav id="navbar">
+                <a href="#home" class="active">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Experience the Art of Smile Perfection</h1>
+            <p>Luxury dental care in the heart of New York, led by Dr. Michale Corleone. Discover a new level of comfort, innovation, and results for your perfect smile.</p>
+            <div class="stats">
+                <div class="stat">
+                    <i class="fa-solid fa-tooth"></i>
+                    <span>20+</span>
+                    <small>Years Experience</small>
+                </div>
+                <div class="stat">
+                    <i class="fa-solid fa-users"></i>
+                    <span>3,000+</span>
+                    <small>Happy Patients</small>
+                </div>
+                <div class="stat">
+                    <i class="fa-solid fa-award"></i>
+                    <span>15</span>
+                    <small>Awards Won</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Premier Services</h2>
+        <div class="services-list">
+            <div class="service-card">
+                <i class="fa-solid fa-sparkles"></i>
+                <div class="service-title">Cosmetic Dentistry</div>
+                <div class="service-desc">Smile makeovers, porcelain veneers, and teeth whitening using advanced, gentle technology.</div>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-tooth"></i>
+                <div class="service-title">Dental Implants</div>
+                <div class="service-desc">Permanent, natural-looking teeth replacements for a seamless, confident smile.</div>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-shield-heart"></i>
+                <div class="service-title">Preventive Care</div>
+                <div class="service-desc">Comprehensive exams, cleanings, and digital diagnostics for your long-term oral health.</div>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-teeth"></i>
+                <div class="service-title">Invisalign & Orthodontics</div>
+                <div class="service-desc">Discreet, comfortable teeth straightening with the latest aligner technology.</div>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-user-md"></i>
+                <div class="service-title">Facial Aesthetics</div>
+                <div class="service-desc">Botox, fillers, and rejuvenation treatments for a harmonious, youthful appearance.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Michale Corleone, DDS">
+        </div>
+        <div class="about-content">
+            <h2>About Dr. Michale Corleone</h2>
+            <h4>DDS, FAGD, Cosmetic & Implant Dentist</h4>
+            <p>
+                Dr. Michale Corleone is renowned for his meticulous artistry and compassionate care, serving New York for over two decades. A graduate of NYU College of Dentistry, Dr. Corleone combines state-of-the-art techniques with a passion for patient comfort, ensuring every smile is a masterpiece.
+            </p>
+            <div class="credentials">
+                <div class="credential">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    NYU College of Dentistry
+                </div>
+                <div class="credential">
+                    <i class="fa-solid fa-certificate"></i>
+                    Fellowship in the Academy of General Dentistry (FAGD)
+                </div>
+                <div class="credential">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    Over 20 Years of Experience
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">What Our Patients Say</h2>
+        <div class="testimonial-slider" id="testimonial-slider">
+            <div class="testimonial-card active">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="testimonial-text">
+                    "My experience at PerfectTeeth was truly exceptional. The attention to detail and the luxurious atmosphere made me feel at ease. Dr. Corleone transformed my smile beyond my expectations!"
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Patient 1">
+                    <span>Sarah L.</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="testimonial-text">
+                    "From the moment I walked in, I knew I was in great hands. The staff is incredibly professional, and Dr. Corleone’s expertise is unmatched. Highly recommend for anyone seeking top-tier dental care."
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Patient 2">
+                    <span>James M.</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="testimonial-text">
+                    "The best dental experience I've ever had. Pain-free, stunning results, and a true sense of luxury. Thank you, PerfectTeeth!"
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Patient 3">
+                    <span>Emily R.</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-controls">
+            <button id="prev-testimonial" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="next-testimonial" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact PerfectTeeth</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h3>Book Your Consultation</h3>
+                <form id="contactForm" autocomplete="off">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Your Phone (optional)">
+                    <textarea name="message" rows="4" placeholder="How can we help you?" required></textarea>
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+                </form>
+                <div id="formMessage" style="display:none; color: var(--primary); margin-top:1rem; font-weight:600;">Thank you! We'll be in touch soon.</div>
+            </div>
+            <div class="contact-info">
+                <h3>Visit Us</h3>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        123 Fifth Avenue,<br> New York, NY 10021
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        (212) 555-0198
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        info@perfectteethnyc.com
+                    </li>
+                </ul>
+                <div class="hours">
+                    <i class="fa-solid fa-clock"></i>
+                    <b>Mon-Fri:</b> 8:00am - 7:00pm<br>
+                    <b>Sat:</b> 9:00am - 3:00pm<br>
+                    <b>Sun:</b> Closed
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">PerfectTeeth</div>
+                <div>Luxury Dentistry in New York</div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-contact">
+                <div><i class="fa-solid fa-location-dot"></i> 123 Fifth Avenue, NY</div>
+                <div><i class="fa-solid fa-phone"></i> (212) 555-0198</div>
+                <div><i class="fa-solid fa-envelope"></i> info@perfectteethnyc.com</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 PerfectTeeth. Crafted by Dr. Michale Corleone. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JS: Navbar, Testimonials Slider, Contact Form -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if(window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Responsive navbar toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.getElementById('navbar');
+        menuToggle.addEventListener('click', function() {
+            navbar.classList.toggle('open');
+        });
+        // Close nav on link click (mobile)
+        navbar.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('open');
+            });
+        });
+
+        // Active nav link switching
+        const navLinks = navbar.querySelectorAll('a');
+        function activateNavLink() {
+            let fromTop = window.scrollY + 90;
+            navLinks.forEach(link => {
+                const section = document.querySelector(link.getAttribute("href"));
+                if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                    navLinks.forEach(l => l.classList.remove("active"));
+                    link.classList.add("active");
+                }
+            });
+        }
+        window.addEventListener("scroll", activateNavLink);
+
+        // Testimonials slider
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        let currentTestimonial = 0;
+        function showTestimonial(idx) {
+            testimonials.forEach((card, i) => {
+                card.classList.toggle('active', i === idx);
+            });
+        }
+        document.getElementById('prev-testimonial').addEventListener('click', function() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        });
+        document.getElementById('next-testimonial').addEventListener('click', function() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        });
+        // Auto-advance slider every 7s
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 7000);
+
+        // Contact form (demo, not real submission)
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            document.getElementById('formMessage').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('formMessage').style.display = 'none';
+                document.getElementById('contactForm').reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
+```
