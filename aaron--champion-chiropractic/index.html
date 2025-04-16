@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Champion Chiropractic - Premium chiropractic care in Los Angeles by Dr. Aaron Schoneberger. Discover holistic healing, posture correction, and pain relief.">
+  <title>Champion Chiropractic | Los Angeles</title>
+
+  <!-- Google Fonts: Playfair Display for headings, Montserrat for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6+ CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ==========================================================================
+       Champion Chiropractic: Internal CSS
+       Industry: Healthcare/Wellness - Luxurious, calming blue/green palette
+       Typography: Playfair Display (headings), Montserrat (body)
+       Grid: 8px system
+       Animations: Custom, 0.3s transitions
+       BEM methodology used throughout
+    ========================================================================== */
+
+    :root {
+      /* Color Palette: Healthcare/Wellness - Calming, premium */
+      --color-bg: #f8fcfc;
+      --color-bg-gradient-start: #e3f6f5;
+      --color-bg-gradient-end: #b8e1dd;
+      --color-primary: #1c6e6a;
+      --color-primary-dark: #15514e;
+      --color-accent: #44bba4;
+      --color-secondary: #2ec4b6;
+      --color-heading: #184d47;
+      --color-text: #2b2a2a;
+      --color-muted: #819ca9;
+      --color-card-bg: #ffffff;
+      --color-border: #d0e6e3;
+      --color-shadow: rgba(28, 110, 106, 0.07);
+      --color-error: #e57373;
+      --color-success: #4caf50;
+      --color-star: #f9a825;
+
+      /* Spacing (8px grid) */
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 40px;
+      --space-6: 56px;
+
+      /* Typography */
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+      --heading-weight: 700;
+      --subheading-weight: 600;
+      --body-weight: 400;
+
+      /* Border radius */
+      --radius-card: 16px;
+      --radius-btn: 24px;
+
+      /* Box-shadow */
+      --shadow-card: 0 6px 24px var(--color-shadow);
+
+      /* Transition */
+      --transition: 0.3s cubic-bezier(0.5, 0.15, 0.4, 1);
+
+      /* Breakpoints */
+      --bp-sm: 640px;
+      --bp-md: 1024px;
+    }
+
+    /* ========== CSS Reset & Base ========== */
+    html {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-size: 100%;
+      background: var(--color-bg);
+    }
+    *, *::before, *::after { box-sizing: inherit; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.6;
+      font-size: 1rem;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--color-heading);
+      font-weight: var(--heading-weight);
+      margin: 0 0 var(--space-2) 0;
+      letter-spacing: -0.5px;
+    }
+    h1 { font-size: 2.3rem; line-height: 1.15; }
+    h2 { font-size: 1.6rem; font-weight: var(--subheading-weight);}
+    h3 { font-size: 1.2rem; font-weight: var(--subheading-weight);}
+    p { margin: 0 0 var(--space-2) 0; }
+    a { color: var(--color-primary); text-decoration: none; transition: color var(--transition);}
+    a:focus, a:hover { color: var(--color-secondary); outline: none; }
+
+    /* ========== Accessibility ========== */
+    :focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    /* ========== Utility ========== */
+    .u-visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+    }
+
+    /* ========================================================================
+       HEADER
+    ======================================================================== */
+    .header {
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(248,252,252,0.97);
+      box-shadow: 0 2px 6px rgba(28,110,106,0.06);
+      transition: box-shadow var(--transition), background var(--transition);
+    }
+    .header__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-2) var(--space-3);
+      gap: var(--space-2);
+    }
+    .header__logo {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: var(--heading-weight);
+      color: var(--color-primary);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .header__nav-link {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-heading);
+      position: relative;
+      padding: 0 6px;
+      transition: color var(--transition);
+    }
+    .header__nav-link:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width var(--transition);
+      margin: 0 auto;
+    }
+    .header__nav-link:focus:after,
+    .header__nav-link:hover:after {
+      width: 100%;
+    }
+    .header__cta {
+      background: linear-gradient(90deg, var(--color-primary) 60%, var(--color-accent) 100%);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-btn);
+      font-size: 1rem;
+      box-shadow: 0 2px 8px rgba(44,187,164,0.10);
+      cursor: pointer;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+    .header__cta:focus,
+    .header__cta:hover {
+      background: linear-gradient(90deg, var(--color-accent) 50%, var(--color-primary) 100%);
+      box-shadow: 0 4px 18px rgba(44,187,164,0.18);
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    /* Hamburger (Mobile) */
+    .header__burger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--color-primary);
+      cursor: pointer;
+      margin-left: var(--space-2);
+    }
+    @media (max-width: 1024px) {
+      .header__container {
+        padding: var(--space-2) var(--space-2);
+      }
+    }
+    @media (max-width: 640px) {
+      .header__container {
+        flex-wrap: wrap;
+        gap: var(--space-1);
+      }
+      .header__nav {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        box-shadow: 0 8px 24px var(--color-shadow);
+        padding: var(--space-3) 0;
+        z-index: 10;
+      }
+      .header__nav--open {
+        display: flex;
+      }
+      .header__burger {
+        display: inline-flex;
+      }
+    }
+
+    /* ========================================================================
+       HERO
+    ======================================================================== */
+    .hero {
+      background: linear-gradient(120deg, var(--color-bg-gradient-start) 0%, var(--color-bg-gradient-end) 100%);
+      padding: var(--space-6) var(--space-2) var(--space-5) var(--space-2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle floating background effect */
+    .hero__bg-svg {
+      position: absolute;
+      left: 50%;
+      top: 20%;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -20%) scale(1.1);
+      opacity: 0.14;
+      pointer-events: none;
+      animation: hero-bg-float 12s ease-in-out infinite alternate;
+    }
+    @keyframes hero-bg-float {
+      0% { transform: translate(-50%,-20%) scale(1.1);}
+      100% { transform: translate(-48%,-18%) scale(1.15);}
+    }
+    .hero__heading {
+      font-size: 2.8rem;
+      line-height: 1.07;
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      color: var(--color-heading);
+      margin-bottom: var(--space-3);
+      letter-spacing: -1px;
+      text-shadow: 0 2px 8px #fff6;
+    }
+    .hero__subheading {
+      font-size: 1.3rem;
+      color: var(--color-primary-dark);
+      font-family: var(--font-body);
+      font-weight: 500;
+      margin-bottom: var(--space-4);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero__cta {
+      margin-top: var(--space-2);
+      font-size: 1.1rem;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-btn);
+      background: linear-gradient(90deg, var(--color-accent) 60%, var(--color-primary) 100%);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      box-shadow: 0 2px 12px rgba(44,187,164,0.14);
+      cursor: pointer;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .hero__cta:focus,
+    .hero__cta:hover {
+      background: linear-gradient(90deg, var(--color-primary) 60%, var(--color-accent) 100%);
+      box-shadow: 0 6px 24px rgba(44,187,164,0.22);
+      transform: translateY(-2px) scale(1.04);
+    }
+    @media (max-width: 1024px) {
+      .hero { padding: var(--space-5) var(--space-2) var(--space-4) var(--space-2);}
+      .hero__heading { font-size: 2.2rem;}
+    }
+    @media (max-width: 640px) {
+      .hero { padding: var(--space-4) var(--space-1) var(--space-3) var(--space-1);}
+      .hero__heading { font-size: 1.5rem; }
+      .hero__subheading { font-size: 1rem;}
+      .hero__bg-svg { width: 320px; height: 320px;}
+    }
+
+    /* ========================================================================
+       SERVICES
+    ======================================================================== */
+    .services {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-2) var(--space-5) var(--space-2);
+    }
+    .services__heading {
+      text-align: center;
+      margin-bottom: var(--space-4);
+    }
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+    @media (max-width: 1024px) {
+      .services__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3);
+      }
+    }
+    @media (max-width: 640px) {
+      .services__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+      }
+    }
+    .services__card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: var(--space-4) var(--space-3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      border: 2px solid transparent;
+      position: relative;
+      z-index: 1;
+      min-height: 260px;
+      cursor: pointer;
+    }
+    .services__card--featured {
+      border-color: var(--color-accent);
+      box-shadow: 0 8px 32px rgba(68,187,164,0.13);
+      transform: scale(1.025);
+    }
+    .services__card:focus-within,
+    .services__card:hover {
+      box-shadow: 0 12px 40px rgba(68,187,164,0.15), var(--shadow-card);
+      border-color: var(--color-primary);
+      transform: translateY(-4px) scale(1.03);
+    }
+    .services__icon {
+      font-size: 2.3rem;
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+      transition: color var(--transition), transform var(--transition);
+    }
+    .services__card:focus-within .services__icon,
+    .services__card:hover .services__icon {
+      color: var(--color-primary);
+      transform: scale(1.18) rotate(-8deg);
+    }
+    .services__title {
+      font-family: var(--font-heading);
+      font-weight: var(--subheading-weight);
+      font-size: 1.18rem;
+      margin-bottom: var(--space-1);
+      color: var(--color-heading);
+    }
+    .services__desc {
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 0;
+    }
+
+    /* ========================================================================
+       ABOUT
+    ======================================================================== */
+    .about {
+      background: linear-gradient(110deg, #f6fefd 0%, #e3f6f5 100%);
+      padding: var(--space-6) var(--space-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about__container {
+      max-width: 1050px;
+      width: 100%;
+      display: flex;
+      gap: var(--space-5);
+      align-items: stretch;
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: var(--space-4) var(--space-4) var(--space-4) var(--space-5);
+    }
+    .about__photo-col {
+      flex: 0 0 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-width: 160px;
+    }
+    .about__photo {
+      width: 144px;
+      height: 144px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--color-accent);
+      box-shadow: 0 2px 22px rgba(44,187,164,0.13);
+      margin-bottom: var(--space-2);
+      background: #e3f6f5;
+      /* fallback if no image loads */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about__main {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about__heading {
+      font-size: 1.45rem;
+      margin-bottom: var(--space-2);
+      font-weight: var(--heading-weight);
+      color: var(--color-primary-dark);
+    }
+    .about__text {
+      font-size: 1.07rem;
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .about__credentials {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-top: var(--space-2);
+    }
+    .about__credential {
+      background: #f0fbf8;
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 0.98rem;
+      border-radius: 14px;
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 1px 7px rgba(44,187,164,0.06);
+    }
+    .about__trust {
+      margin-top: var(--space-3);
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 0.98rem;
+      color: var(--color-muted);
+    }
+    .about__trust-icon {
+      color: var(--color-accent);
+      font-size: 1.1rem;
+      margin-right: 5px;
+      vertical-align: -2px;
+    }
+    @media (max-width: 1024px) {
+      .about__container {
+        flex-direction: column;
+        padding: var(--space-4) var(--space-3);
+        gap: var(--space-3);
+        align-items: center;
+      }
+      .about__main { width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .about { padding: var(--space-4) var(--space-1);}
+      .about__container { padding: var(--space-3);}
+      .about__photo { width: 100px; height: 100px;}
+    }
+
+    /* ========================================================================
+       TESTIMONIALS
+    ======================================================================== */
+    .testimonials {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-2) var(--space-5) var(--space-2);
+      text-align: center;
+    }
+    .testimonials__heading {
+      margin-bottom: var(--space-4);
+    }
+    .testimonials__carousel {
+      position: relative;
+      overflow: hidden;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonials__slides {
+      display: flex;
+      transition: transform var(--transition);
+      will-change: transform;
+    }
+    .testimonials__slide {
+      min-width: 100%;
+      opacity: 0.7;
+      transform: scale(0.97);
+      transition: opacity var(--transition), transform var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-4) var(--space-3);
+      background: var(--color-card-bg);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      margin: 0 var(--space-2);
+      position: relative;
+      z-index: 1;
+    }
+    .testimonials__slide--active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+      box-shadow: 0 8px 28px rgba(44,187,164,0.11), var(--shadow-card);
+    }
+    .testimonials__stars {
+      color: var(--color-star);
+      margin-bottom: var(--space-1);
+      font-size: 1.05rem;
+    }
+    .testimonials__quote {
+      font-size: 1.13rem;
+      font-weight: 500;
+      color: var(--color-primary-dark);
+      margin-bottom: var(--space-2);
+      font-family: var(--font-heading);
+      line-height: 1.44;
+      position: relative;
+    }
+    .testimonials__client {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--color-muted);
+      font-family: var(--font-body);
+      font-weight: 600;
+    }
+    .testimonials__client-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--color-accent);
+      background: #e3f6f5;
+    }
+    .testimonials__dots {
+      display: flex;
+      gap: 9px;
+      justify-content: center;
+      margin-top: var(--space-2);
+    }
+    .testimonials__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      transition: background var(--transition), transform var(--transition);
+      cursor: pointer;
+      outline: none;
+    }
+    .testimonials__dot--active {
+      background: var(--color-accent);
+      transform: scale(1.18);
+    }
+    @media (max-width: 640px) {
+      .testimonials__slide { padding: var(--space-3) var(--space-1);}
+      .testimonials__carousel { max-width: 98vw;}
+    }
+
+    /* ========================================================================
+       CONTACT
+    ======================================================================== */
+    .contact {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-2) var(--space-5) var(--space-2);
+      display: flex;
+      gap: var(--space-5);
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .contact__form-col, .contact__info-col {
+      flex: 1 1 340px;
+      min-width: 300px;
+      max-width: 500px;
+    }
+    .contact__heading {
+      margin-bottom: var(--space-3);
+    }
+    .contact__form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .contact__input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 0;
+      position: relative;
+    }
+    .contact__label {
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--color-heading);
+      margin-bottom: 2px;
+    }
+    .contact__input,
+    .contact__textarea {
+      border: 2px solid var(--color-border);
+      border-radius: 10px;
+      padding: var(--space-2);
+      font-size: 1rem;
+      font-family: var(--font-body);
+      background: #fff;
+      color: var(--color-text);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      margin-bottom: 0;
+      resize: none;
+    }
+    .contact__input:focus,
+    .contact__textarea:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 2px 14px rgba(44,187,164,0.09);
+    }
+    .contact__error {
+      color: var(--color-error);
+      font-size: 0.96rem;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 2px;
+    }
+    .contact__success {
+      color: var(--color-success);
+      font-size: 1rem;
+      margin-bottom: var(--space-2);
+      text-align: left;
+    }
+    .contact__submit {
+      margin-top: var(--space-1);
+      background: linear-gradient(90deg, var(--color-primary) 60%, var(--color-accent) 100%);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-btn);
+      font-size: 1rem;
+      box-shadow: 0 2px 10px rgba(44,187,164,0.12);
+      cursor: pointer;
+      align-self: flex-start;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+      outline: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contact__submit:focus,
+    .contact__submit:hover {
+      background: linear-gradient(90deg, var(--color-accent) 60%, var(--color-primary) 100%);
+      box-shadow: 0 8px 20px rgba(44,187,164,0.16);
+      transform: translateY(-1px) scale(1.04);
+    }
+    .contact__info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      font-size: 1.05rem;
+    }
+    .contact__info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-2) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    .contact__info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-text);
+    }
+    .contact__info-icon {
+      color: var(--color-accent);
+      font-size: 1.18rem;
+      vertical-align: middle;
+    }
+    .contact__map {
+      border-radius: 12px;
+      width: 100%;
+      height: 220px;
+      border: none;
+      box-shadow: 0 2px 12px rgba(44,187,164,0.08);
+      margin-top: var(--space-2);
+    }
+    @media (max-width: 1024px) {
+      .contact { flex-direction: column; gap: var(--space-4);}
+      .contact__form-col, .contact__info-col { max-width: 100%;}
+    }
+    @media (max-width: 640px) {
+      .contact { padding: var(--space-4) var(--space-1);}
+      .contact__map { height: 180px;}
+    }
+
+    /* ========================================================================
+       FOOTER
+    ======================================================================== */
+    .footer {
+      background: linear-gradient(120deg, var(--color-bg-gradient-end) 30%, var(--color-bg-gradient-start) 100%);
+      padding: var(--space-4) var(--space-2);
+      border-top: 1px solid var(--color-border);
+    }
+    .footer__container {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+    }
+    .footer__logo {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      font-size: 1.18rem;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer__nav {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .footer__nav-link {
+      font-size: 1rem;
+      color: var(--color-heading);
+      font-weight: 500;
+      position: relative;
+      transition: color var(--transition);
+      padding: 0 4px;
+    }
+    .footer__nav-link:focus,
+    .footer__nav-link:hover {
+      color: var(--color-accent);
+    }
+    .footer__socials {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-left: var(--space-2);
+    }
+    .footer__social-link {
+      color: var(--color-primary);
+      font-size: 1.18rem;
+      transition: color var(--transition), transform var(--transition);
+      border-radius: 50%;
+      outline: none;
+      padding: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer__social-link:focus,
+    .footer__social-link:hover {
+      color: var(--color-accent);
+      background: #e3f6f5;
+      transform: scale(1.13);
+    }
+    .footer__copyright {
+      font-size: 0.98rem;
+      color: var(--color-muted);
+      margin-left: var(--space-2);
+    }
+    @media (max-width: 640px) {
+      .footer__container { flex-direction: column; gap: var(--space-2);}
+      .footer__nav { gap: var(--space-2);}
+      .footer__copyright { margin-left: 0; margin-top: var(--space-2);}
+    }
+
+    /* ========================================================================
+       Animations & Scroll Effects
+    ======================================================================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity var(--transition), transform var(--transition);
+      will-change: opacity, transform;
+    }
+    .fade-up--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Micro-interactions for icons/buttons */
+    .icon-btn:focus,
+    .icon-btn:hover {
+      color: var(--color-primary) !important;
+      background: #e3f6f5 !important;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- =======================================================================
+       HEADER: Sticky, Responsive, Accessible
+       - Logo (text)
+       - Centered navigation
+       - Prominent CTA
+     ======================================================================= -->
+  <header class="header" aria-label="Site Header">
+    <div class="header__container">
+      <a class="header__logo" href="#hero" aria-label="Champion Chiropractic Home">
+        <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+        Champion Chiropractic
+      </a>
+      <nav class="header__nav" aria-label="Main Navigation" id="mainNav">
+        <a href="#services" class="header__nav-link" tabindex="0">Services</a>
+        <a href="#about" class="header__nav-link" tabindex="0">About</a>
+        <a href="#testimonials" class="header__nav-link" tabindex="0">Testimonials</a>
+        <a href="#contact" class="header__nav-link" tabindex="0">Contact</a>
+      </nav>
+      <a href="#contact" class="header__cta" role="button" tabindex="0" aria-label="Book an Appointment">
+        <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+        Book Appointment
+      </a>
+      <button class="header__burger" id="burgerBtn" aria-label="Open navigation" aria-controls="mainNav" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- =======================================================================
+       HERO: Elegant, Expensive Look, Value Proposition, CTA
+     ======================================================================= -->
+  <section class="hero" id="hero" aria-label="Champion Chiropractic Hero section">
+    <span class="hero__bg-svg" aria-hidden="true">
+      <!-- Soft abstract SVG background for subtle luxury effect -->
+      <svg width="100%" height="100%" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="300" cy="300" rx="260" ry="200" fill="#44bba4" fill-opacity="0.12"/>
+        <ellipse cx="340" cy="320" rx="220" ry="160" fill="#1c6e6a" fill-opacity="0.08"/>
+        <ellipse cx="270" cy="320" rx="170" ry="120" fill="#2ec4b6" fill-opacity="0.09"/>
+      </svg>
+    </span>
+    <h1 class="hero__heading fade-up" style="transition-delay:0.1s">
+      Renew, Restore, Thrive.<br>
+      <span style="color:var(--color-accent)">Elite Chiropractic Care</span> in Los Angeles
+    </h1>
+    <div class="hero__subheading fade-up" style="transition-delay:0.18s">
+      Experience holistic healing and personalized treatment for your spine, posture, and wellbeing.<br>
+      Led by Dr. Aaron Schoneberger, Champion Chiropractic empowers you to move pain-free and live fully.
+    </div>
+    <a class="hero__cta fade-up" style="transition-delay:0.26s" href="#contact" role="button" aria-label="Schedule Your Consultation">
+      <i class="fa-solid fa-hand-holding-medical"></i>
+      Schedule Your Consultation
+    </a>
+  </section>
+
+  <!-- =======================================================================
+       SERVICES: 6 Cards, Icons, Value Hierarchy, Hover/Micro-interactions
+     ======================================================================= -->
+  <section class="services" id="services" aria-labelledby="services-heading">
+    <h2 id="services-heading" class="services__heading fade-up">Our Signature Services</h2>
+    <div class="services__grid">
+      <!-- High-value service: Chiropractic Adjustments -->
+      <div class="services__card services__card--featured fade-up" style="transition-delay:0.09s" tabindex="0" aria-label="Chiropractic Adjustments">
+        <span class="services__icon"><i class="fa-solid fa-spine"></i></span>
+        <div class="services__title">Chiropractic Adjustments</div>
+        <p class="services__desc">
+          Gentle, precise spinal alignments to relieve pain, restore mobility, and improve nervous system health—without drugs or surgery.
+        </p>
+      </div>
+      <!-- Posture Correction -->
+      <div class="services__card fade-up" style="transition-delay:0.15s" tabindex="0" aria-label="Posture Correction">
+        <span class="services__icon"><i class="fa-solid fa-child-reaching"></i></span>
+        <div class="services__title">Posture Correction</div>
+        <p class="services__desc">
+          Transform posture to reduce strain, prevent future discomfort, and support a confident, pain-free lifestyle.
+        </p>
+      </div>
+      <!-- Sports Injury Rehab -->
+      <div class="services__card fade-up" style="transition-delay:0.21s" tabindex="0" aria-label="Sports Injury Rehabilitation">
+        <span class="services__icon"><i class="fa-solid fa-running"></i></span>
+        <div class="services__title">Sports Injury Rehab</div>
+        <p class="services__desc">
+          Targeted care for athletes: accelerate healing, optimize performance, and reduce risk of re-injury.
+        </p>
+      </div>
+      <!-- Therapeutic Massage -->
+      <div class="services__card fade-up" style="transition-delay:0.27s" tabindex="0" aria-label="Therapeutic Massage">
+        <span class="services__icon"><i class="fa-solid fa-spa"></i></span>
+        <div class="services__title">Therapeutic Massage</div>
+        <p class="services__desc">
+          Relieve muscle tension and promote deep relaxation with customized therapeutic massage as part of your healing plan.
+        </p>
+      </div>
+      <!-- Family & Pediatric Care -->
+      <div class="services__card fade-up" style="transition-delay:0.33s" tabindex="0" aria-label="Family & Pediatric Care">
+        <span class="services__icon"><i class="fa-solid fa-users"></i></span>
+        <div class="services__title">Family &amp; Pediatric Care</div>
+        <p class="services__desc">
+          Safe, gentle chiropractic for every age—supporting healthy growth and development for children and peace of mind for parents.
+        </p>
+      </div>
+      <!-- Wellness & Preventative Care -->
+      <div class="services__card fade-up" style="transition-delay:0.39s" tabindex="0" aria-label="Wellness & Preventative Care">
+        <span class="services__icon"><i class="fa-solid fa-heart-pulse"></i></span>
+        <div class="services__title">Wellness &amp; Preventative Care</div>
+        <p class="services__desc">
+          Proactive care and lifestyle guidance to keep you at your best—reduce stress, boost immunity, and enhance quality of life.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       ABOUT: Dr. Aaron Schoneberger, Credentials, Trust
+     ======================================================================= -->
+  <section class="about" id="about" aria-labelledby="about-heading">
+    <div class="about__container fade-up">
+      <div class="about__photo-col">
+        <img class="about__photo" src="https://randomuser.me/api/portraits/men/43.jpg" alt="Dr. Aaron Schoneberger, Chiropractor in Los Angeles">
+      </div>
+      <div class="about__main">
+        <h2 class="about__heading" id="about-heading">Meet Dr. Aaron Schoneberger</h2>
+        <div class="about__text">
+          With over 15 years of experience, Dr. Schoneberger delivers world-class chiropractic care tailored for discerning clients in Los Angeles. Renowned for a gentle approach and clinical precision, he empowers patients to overcome pain and regain their active lifestyles.<br><br>
+          <strong>Why choose Champion Chiropractic?</strong> Our practice blends cutting-edge techniques with compassionate care, ensuring each visit is restorative, comfortable, and results-driven. Your health, comfort, and privacy are our highest priorities.
+        </div>
+        <div class="about__credentials" aria-label="Dr. Schoneberger's Credentials">
+          <span class="about__credential"><i class="fa-solid fa-certificate"></i> DC, Doctor of Chiropractic</span>
+          <span class="about__credential"><i class="fa-solid fa-award"></i> Board Certified, California</span>
+          <span class="about__credential"><i class="fa-solid fa-graduation-cap"></i> Palmer College of Chiropractic</span>
+        </div>
+        <div class="about__trust" aria-label="Trust indicators">
+          <span>
+            <i class="fa-solid fa-user-shield about__trust-icon"></i>
+            HIPAA Compliant
+          </span>
+          <span>
+            <i class="fa-solid fa-star about__trust-icon"></i>
+            98% Patient Satisfaction
+          </span>
+          <span>
+            <i class="fa-solid fa-stethoscope about__trust-icon"></i>
+            Member, American Chiropractic Association
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       TESTIMONIALS: Carousel, Auto-advance, Social Proof, Star Ratings
+     ======================================================================= -->
+  <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+    <h2 class="testimonials__heading fade-up" id="testimonials-heading">What Our Clients Say</h2>
+    <div class="testimonials__carousel fade-up" id="testimonialCarousel" aria-live="polite">
+      <div class="testimonials__slides" id="testimonialSlides">
+        <!-- Slide 1 -->
+        <div class="testimonials__slide testimonials__slide--active" data-index="0" aria-label="Testimonial 1">
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="testimonials__quote">
+            “I tried everything for my chronic back pain. Dr. Schoneberger listened and created a plan that truly worked. I feel like myself again—pain free and energized.”
+          </div>
+          <div class="testimonials__client">
+            <img class="testimonials__client-img" src="https://randomuser.me/api/portraits/women/52.jpg" alt="Sarah L., client">
+            Sarah L.<span aria-hidden="true">|</span> Hollywood
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="testimonials__slide" data-index="1" aria-label="Testimonial 2">
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="testimonials__quote">
+            “The care at Champion Chiropractic is next level. I noticed improvements after my first session. The staff is warm, and the clinic is beautiful and calming.”
+          </div>
+          <div class="testimonials__client">
+            <img class="testimonials__client-img" src="https://randomuser.me/api/portraits/men/50.jpg" alt="Michael R., client">
+            Michael R.<span aria-hidden="true">|</span> Silver Lake
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="testimonials__slide" data-index="2" aria-label="Testimonial 3">
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="testimonials__quote">
+            “I bring my whole family here. Dr. Aaron is fantastic with kids and adults alike. We always feel cared for and leave feeling better than when we walked in.”
+          </div>
+          <div class="testimonials__client">
+            <img class="testimonials__client-img" src="https://randomuser.me/api/portraits/women/22.jpg" alt="Jessica P., client">
+            Jessica P.<span aria-hidden="true">|</span> Brentwood
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="testimonials__slide" data-index="3" aria-label="Testimonial 4">
+          <div class="testimonials__stars" aria-label="5 out of 5 stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div class="testimonials__quote">
+            “After my sports injury, their rehab plan got me back on the field faster than I thought possible. True professionals.”
+          </div>
+          <div class="testimonials__client">
+            <img class="testimonials__client-img" src="https://randomuser.me/api/portraits/men/21.jpg" alt="Luis M., client">
+            Luis M.<span aria-hidden="true">|</span> Westwood
+          </div>
+        </div>
+      </div>
+      <div class="testimonials__dots" id="testimonialDots" role="tablist" aria-label="Testimonial navigation">
+        <button class="testimonials__dot testimonials__dot--active" aria-label="Go to testimonial 1" role="tab" aria-selected="true" tabindex="0"></button>
+        <button class="testimonials__dot" aria-label="Go to testimonial 2" role="tab" aria-selected="false" tabindex="-1"></button>
+        <button class="testimonials__dot" aria-label="Go to testimonial 3" role="tab" aria-selected="false" tabindex="-1"></button>
+        <button class="testimonials__dot" aria-label="Go to testimonial 4" role="tab" aria-selected="false" tabindex="-1"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       CONTACT: Form, Map, Info, Accessible, Validation
+     ======================================================================= -->
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
+    <div class="contact__form-col fade-up">
+      <h2 class="contact__heading" id="contact-heading">Book a Consultation</h2>
+      <form class="contact__form" id="contactForm" novalidate aria-label="Contact form">
+        <div class="contact__input-group">
+          <label class="contact__label" for="name">Full Name</label>
+          <input type="text" class="contact__input" id="name" name="name" autocomplete="name" required aria-required="true" aria-describedby="nameError">
+          <span class="contact__error" id="nameError" aria-live="polite"></span>
+        </div>
+        <div class="contact__input-group">
+          <label class="contact__label" for="email">Email</label>
+          <input type="email" class="contact__input" id="email" name="email" autocomplete="email" required aria-required="true" aria-describedby="emailError">
+          <span class="contact__error" id="emailError" aria-live="polite"></span>
+        </div>
+        <div class="contact__input-group">
+          <label class="contact__label" for="phone">Phone Number</label>
+          <input type="tel" class="contact__input" id="phone" name="phone" autocomplete="tel" required aria-required="true" aria-describedby="phoneError" pattern="^[0-9\-\+\(\)\s]+$">
+          <span class="contact__error" id="phoneError" aria-live="polite"></span>
+        </div>
+        <div class="contact__input-group">
+          <label class="contact__label" for="service">Service Interested In</label>
+          <select class="contact__input" id="service" name="service" required aria-required="true" aria-describedby="serviceError">
+            <option value="">Select a service</option>
+            <option>Chiropractic Adjustments</option>
+            <option>Posture Correction</option>
+            <option>Sports Injury Rehab</option>
+            <option>Therapeutic Massage</option>
+            <option>Family & Pediatric Care</option>
+            <option>Wellness & Preventative Care</option>
+          </select>
+          <span class="contact__error" id="serviceError" aria-live="polite"></span>
+        </div>
+        <div class="contact__input-group">
+          <label class="contact__label" for="message">Additional Details</label>
+          <textarea class="contact__textarea" id="message" name="message" rows="4" aria-describedby="messageError"></textarea>
+          <span class="contact__error" id="messageError" aria-live="polite"></span>
+        </div>
+        <button type="submit" class="contact__submit" id="submitBtn">
+          <i class="fa-solid fa-paper-plane"></i>
+          Submit Request
+        </button>
+        <div class="contact__success" id="contactSuccess" aria-live="polite" style="display:none;"></div>
+      </form>
+    </div>
+    <div class="contact__info-col fade-up" style="transition-delay:0.13s">
+      <div class="contact__info" aria-label="Clinic Information">
+        <ul class="contact__info-list" aria-label="Contact details">
+          <li class="contact__info-item">
+            <i class="fa-solid fa-location-dot contact__info-icon"></i>
+            123 Main Street, Los Angeles, CA
+          </li>
+          <li class="contact__info-item">
+            <i class="fa-solid fa-clock contact__info-icon"></i>
+            Mon - Fri: 9 AM – 5 PM
+          </li>
+          <li class="contact__info-item">
+            <i class="fa-solid fa-phone contact__info-icon"></i>
+            <a href="tel:123-456-7890" aria-label="Call 123-456-7890">123-456-7890</a>
+          </li>
+          <li class="contact__info-item">
+            <i class="fa-solid fa-envelope contact__info-icon"></i>
+            <a href="mailto:info@championchiro.com" aria-label="Email info@championchiro.com">info@championchiro.com</a>
+          </li>
+        </ul>
+        <div>
+          <iframe class="contact__map"
+            title="Champion Chiropractic Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.934773618353!2d-118.2436846847839!3d34.05223538060665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c7b8e8e4b4b1%3A0x8e9e6f2d7e8d6c2a!2s123%20Main%20St%2C%20Los%20Angeles%2C%20CA%2090012%2C%20USA!5e0!3m2!1sen!2sus!4v1707737333651!5m2!1sen!2sus"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       FOOTER: Complete Navigation, Social Icons, Copyright
+     ======================================================================= -->
+  <footer class="footer" aria-label="Site Footer">
+    <div class="footer__container">
+      <div class="footer__logo" aria-label="Champion Chiropractic Footer Logo">
+        <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+        Champion Chiropractic
+      </div>
+      <nav class="footer__nav" aria-label="Footer Navigation">
+        <a class="footer__nav-link" href="#hero">Home</a>
+        <a class="footer__nav-link" href="#services">Services</a>
+        <a class="footer__nav-link" href="#about">About</a>
+        <a class="footer__nav-link" href="#testimonials">Testimonials</a>
+        <a class="footer__nav-link" href="#contact">Contact</a>
+      </nav>
+      <div class="footer__socials" aria-label="Social Media">
+        <a class="footer__social-link icon-btn" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="footer__social-link icon-btn" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="footer__social-link icon-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a class="footer__social-link icon-btn" href="https://maps.google.com/?q=123+Main+Street+Los+Angeles+CA" target="_blank" rel="noopener" aria-label="Google Maps">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </a>
+      </div>
+      <div class="footer__copyright">
+        &copy; <span id="year"></span> Champion Chiropractic. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       SCRIPTS: 
+       - Navigation (hamburger)
+       - Scroll fade-up animation
+       - Testimonial carousel (auto, manual, accessible)
+       - Contact form validation
+       - Footer year
+     ======================================================================= -->
+  <script>
+    // ----------------------------------------------------------
+    // 1. Mobile Navigation Hamburger
+    // ----------------------------------------------------------
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mainNav = document.getElementById('mainNav');
+    burgerBtn.addEventListener('click', function() {
+      const expanded = mainNav.classList.toggle('header__nav--open');
+      burgerBtn.setAttribute('aria-expanded', expanded);
+    });
+
+    // Close mobile nav when a link is clicked
+    mainNav.addEventListener('click', function(e) {
+      if(e.target.classList.contains('header__nav-link')) {
+        mainNav.classList.remove('header__nav--open');
+        burgerBtn.setAttribute('aria-expanded', false);
+      }
+    });
+
+    // ----------------------------------------------------------
+    // 2. Scroll Fade-up Animation
+    // ----------------------------------------------------------
+    function handleFadeUpOnScroll() {
+      const fadeEls = document.querySelectorAll('.fade-up');
+      fadeEls.forEach(function(el) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.93) {
+          el.classList.add('fade-up--visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', handleFadeUpOnScroll);
+    window.addEventListener('DOMContentLoaded', handleFadeUpOnScroll);
+
+    // ----------------------------------------------------------
+    // 3. Testimonials Carousel (Accessible, Auto, Keyboard)
+    // ----------------------------------------------------------
+    (function(){
+      const slides = document.querySelectorAll('.testimonials__slide');
+      const dots = document.querySelectorAll('.testimonials__dot');
+      const slidesContainer = document.getElementById('testimonialSlides');
+      let current = 0;
+      let timer = null;
+      const INTERVAL = 7000;
+
+      function showSlide(idx) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('testimonials__slide--active', i === idx);
+          slide.setAttribute('aria-hidden', i !== idx);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('testimonials__dot--active', i === idx);
+          dot.setAttribute('aria-selected', i === idx);
+          dot.setAttribute('tabindex', i === idx ? "0" : "-1");
+        });
+        slidesContainer.style.transform = `translateX(${-idx * 100}%)`;
+        current = idx;
+      }
+
+      function nextSlide() {
+        showSlide((current + 1) % slides.length);
+      }
+
+      function prevSlide() {
+        showSlide((current - 1 + slides.length) % slides.length);
+      }
+
+      function startAuto() {
+        timer && clearInterval(timer);
+        timer = setInterval(nextSlide, INTERVAL);
+      }
+
+      dots.forEach((dot,i) => {
+        dot.addEventListener('click', function() {
+          showSlide(i);
+          startAuto();
+        });
+        dot.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showSlide(i);
+            startAuto();
+          }
+          // Keyboard left/right navigation
+          if (e.key === 'ArrowLeft') {
+            prevSlide();
+            startAuto();
+          } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            startAuto();
+          }
+        });
+      });
+
+      slidesContainer.addEventListener('mouseenter', () => clearInterval(timer));
+      slidesContainer.addEventListener('mouseleave', startAuto);
+
+      // Swipe on mobile
+      let startX = null;
+      slidesContainer.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+      });
+      slidesContainer.addEventListener('touchend', e => {
+        if (startX !== null) {
+          const dx = e.changedTouches[0].clientX - startX;
+          if (Math.abs(dx) > 50) {
+            if (dx > 0) prevSlide(); else nextSlide();
+            startAuto();
+          }
+          startX = null;
+        }
+      });
+
+      showSlide(0);
+      startAuto();
+    })();
+
+    // ----------------------------------------------------------
+    // 4. Contact Form: Real-time Validation & Submission UX
+    // ----------------------------------------------------------
+    (function(){
+      const form = document.getElementById('contactForm');
+      const successDiv = document.getElementById('contactSuccess');
+      const submitBtn = document.getElementById('submitBtn');
+
+      const fields = [
+        {id:'name', required:true, type:'text', label:'Full Name'},
+        {id:'email', required:true, type:'email', label:'Email'},
+        {id:'phone', required:true, type:'tel', label:'Phone Number', pattern:/^[0-9\-\+\(\)\s]+$/},
+        {id:'service', required:true, type:'select', label:'Service Interested In'}
+      ];
+
+      function showError(id, msg) {
+        const errEl = document.getElementById(id+'Error');
+        if (errEl) errEl.textContent = msg;
+      }
+      function clearError(id) {
+        showError(id, '');
+      }
+
+      function validateField(field) {
+        const el = document.getElementById(field.id);
+        const val = el.value.trim();
+        if (field.required && !val) {
+          showError(field.id, field.label+' is required.');
+          return false;
+        }
+        if (field.type === 'email' && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+          showError(field.id, 'Please enter a valid email.');
+          return false;
+        }
+        if (field.type === 'tel' && val && field.pattern && !field.pattern.test(val)) {
+          showError(field.id, 'Please enter a valid phone number.');
+          return false;
+        }
+        clearError(field.id);
+        return true;
+      }
+
+      fields.forEach(f=>{
+        const el = document.getElementById(f.id);
+        el.addEventListener('blur', ()=>validateField(f));
+        el.addEventListener('input', ()=>validateField(f));
+      });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        let valid = true;
+        fields.forEach(f=>{
+          valid = validateField(f) && valid;
+        });
+        if (!valid) return;
+        // Simulate submission
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+        setTimeout(function(){
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = "";
+          form.reset();
+          successDiv.innerHTML = '<i class="fa-solid fa-circle-check"></i> Thank you! Your request has been received.';
+          successDiv.style.display = 'block';
+          setTimeout(()=>{successDiv.style.display='none';}, 6500);
+        }, 1200);
+      });
+    })();
+
+    // ----------------------------------------------------------
+    // 5. Dynamic Footer Year
+    // ----------------------------------------------------------
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
