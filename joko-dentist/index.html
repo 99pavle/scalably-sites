@@ -1,11 +1,31 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JOKO Dental Care provides comprehensive dental services in New York. Schedule your appointment today for preventive, cosmetic, and restorative dentistry.">
+    <meta name="keywords" content="dentist, New York dentist, dental care, cosmetic dentistry, teeth whitening, dental implants">
+    <meta name="author" content="JOKO Dental Care">
     <title>JOKO Dental Care | Premier Dentistry in New York</title>
     <style>
+        /* CSS Variables for better maintainability */
+        :root {
+            --primary-color: #0078d4;
+            --secondary-color: #005792;
+            --light-bg: #f9f9f9;
+            --card-bg: #f8f9fa;
+            --light-blue-bg: #f0f9ff;
+            --text-color: #333;
+            --text-light: #555;
+            --text-lighter: #777;
+            --white: #fff;
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
         /* Reset and Base Styles */
         * {
             margin: 0;
@@ -14,19 +34,38 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
         }
 
         a {
             text-decoration: none;
-            color: #0078d4;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
         }
 
         img {
             max-width: 100%;
+            height: auto;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
 
         .container {
@@ -38,43 +77,65 @@
 
         section {
             padding: 80px 0;
+            scroll-margin-top: 70px; /* For smooth scrolling with sticky header */
         }
 
         .section-title {
             text-align: center;
             margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: #005792;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
         }
 
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            background-color: #0078d4;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--white);
             border-radius: 30px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
         }
 
-        .btn:hover {
-            background-color: #005792;
+        .btn:hover, .btn:focus {
+            background-color: var(--secondary-color);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
+            color: var(--white);
+        }
+
+        .btn:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
         }
 
         /* Header Styles */
         header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-md);
         }
 
         .header-container {
@@ -87,11 +148,11 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #005792;
+            color: var(--secondary-color);
         }
 
         .logo span {
-            color: #0078d4;
+            color: var(--primary-color);
         }
 
         nav ul {
@@ -104,13 +165,34 @@
         }
 
         nav ul li a {
-            color: #333;
+            color: var(--text-color);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: var(--transition);
+            position: relative;
         }
 
-        nav ul li a:hover {
-            color: #0078d4;
+        nav ul li a:hover, nav ul li a:focus {
+            color: var(--primary-color);
+        }
+
+        nav ul li a:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         .mobile-menu-btn {
@@ -119,7 +201,17 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #333;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover, .mobile-menu-btn:focus {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
         }
 
         /* Hero Section */
@@ -127,28 +219,35 @@
             background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f9ff"/><path d="M0 50 L100 50 L50 100 Z" fill="%23e1f5fe"/></svg>');
             padding: 160px 0 100px;
             text-align: center;
+            position: relative;
         }
 
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3.2rem;
+            font-size: clamp(2rem, 5vw, 3.2rem);
             margin-bottom: 20px;
-            color: #005792;
+            color: var(--secondary-color);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             margin-bottom: 30px;
-            color: #555;
+            color: var(--text-light);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Services Section */
         .services {
-            background-color: white;
+            background-color: var(--white);
         }
 
         .services-grid {
@@ -158,34 +257,55 @@
         }
 
         .service-card {
-            background-color: #f8f9fa;
-            border-radius: 10px;
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
             padding: 30px;
             text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .service-icon {
             font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #0078d4;
+            color: var(--primary-color);
+            display: inline-block;
+            background-color: rgba(0, 120, 212, 0.1);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            transition: var(--transition);
+            margin: 0 auto 20px;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background-color: rgba(0, 120, 212, 0.2);
         }
 
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: #005792;
+            color: var(--secondary-color);
+        }
+
+        .service-card p {
+            margin-top: auto;
+            color: var(--text-light);
         }
 
         /* About Section */
         .about {
-            background-color: #f0f9ff;
+            background-color: var(--light-blue-bg);
         }
 
         .about-grid {
@@ -196,35 +316,100 @@
         }
 
         .about-image {
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            height: 400px;
+            box-shadow: var(--shadow-lg);
+            aspect-ratio: 4/3;
             background-color: #e1f5fe;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 4px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            z-index: -1;
         }
 
         .about-image-placeholder {
             font-size: 5rem;
-            color: #0078d4;
+            color: var(--primary-color);
+            font-weight: bold;
         }
 
         .about-content h2 {
-            font-size: 2.2rem;
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
             margin-bottom: 20px;
-            color: #005792;
+            color: var(--secondary-color);
         }
 
         .about-content p {
             margin-bottom: 15px;
-            color: #555;
+            color: var(--text-light);
+        }
+
+        /* Team Section */
+        .team {
+            background-color: var(--white);
+        }
+
+        .team-member {
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: #e1f5fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-photo::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0, 120, 212, 0.2), transparent);
+        }
+
+        .team-member h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .team-member .specialty {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--primary-color);
         }
 
         /* Testimonials Section */
         .testimonials {
-            background-color: white;
+            background-color: var(--light-blue-bg);
         }
 
         .testimonials-grid {
@@ -234,14 +419,21 @@
         }
 
         .testimonial-card {
-            background-color: #f8f9fa;
-            border-radius: 10px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
             padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-md);
             position: relative;
+            transition: var(--transition);
+            height: 100%;
         }
 
-        .testimonial-card:before {
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-card::before {
             content: """;
             font-size: 5rem;
             position: absolute;
@@ -256,6 +448,7 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
+            color: var(--text-light);
         }
 
         .testimonial-author {
@@ -272,24 +465,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #0078d4;
+            color: var(--primary-color);
             font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .testimonial-author-info h4 {
             font-size: 1.1rem;
             margin-bottom: 5px;
-            color: #005792;
+            color: var(--secondary-color);
         }
 
         .testimonial-author-info p {
             font-size: 0.9rem;
-            color: #777;
+            color: var(--text-lighter);
         }
 
         /* Contact Section */
         .contact {
-            background-color: #f0f9ff;
+            background-color: var(--white);
         }
 
         .contact-grid {
@@ -301,7 +495,7 @@
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 25px;
-            color: #005792;
+            color: var(--secondary-color);
         }
 
         .contact-details {
@@ -309,24 +503,34 @@
         }
 
         .contact-details p {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
+            color: var(--text-light);
         }
 
         .contact-icon {
-            margin-right: 10px;
-            color: #0078d4;
+            margin-right: 15px;
+            color: var(--primary-color);
             font-size: 1.2rem;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 120, 212, 0.1);
+            border-radius: 50%;
         }
 
         .contact-hours h4 {
-            margin-bottom: 10px;
-            color: #005792;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
         }
 
         .contact-hours p {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: var(--text-light);
         }
 
         .contact-form .form-group {
@@ -335,18 +539,29 @@
 
         .contact-form label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: 500;
+            color: var(--text-color);
         }
 
         .contact-form input,
-        .contact-form textarea {
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
-            padding: 12px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-family: inherit;
             font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.2);
         }
 
         .contact-form textarea {
@@ -354,10 +569,51 @@
             resize: vertical;
         }
 
+        .form-error {
+            color: #e53935;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea,
+        .form-group.error select {
+            border-color: #e53935;
+        }
+
+        .form-group.error .form-error {
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 120, 212, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
         /* Footer */
         footer {
-            background-color: #005792;
-            color: white;
+            background-color: var(--secondary-color);
+            color: var(--white);
             padding: 50px 0 20px;
         }
 
@@ -371,15 +627,40 @@
         .footer-info h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-info h3::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -8px;
+            left: 0;
         }
 
         .footer-info p {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .footer-links h3 {
             font-size: 1.5rem;
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h3::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -8px;
+            left: 0;
         }
 
         .footer-links ul {
@@ -387,23 +668,117 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li:hover {
+            transform: translateX(5px);
         }
 
         .footer-links ul li a {
-            color: #e1f5fe;
-            transition: color 0.3s;
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            display: inline-block;
         }
 
         .footer-links ul li a:hover {
-            color: white;
+            color: var(--white);
+        }
+
+        footer .social-links {
+            margin-top: 20px;
+        }
+
+        footer .social-link {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        footer .social-link:hover {
+            background-color: var(--white);
+            color: var(--secondary-color);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
         }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: var(--shadow-md);
+            z-index: 1001;
+            transition: top 0.5s ease;
+        }
+
+        .notification.show {
+            top: 20px;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
 
         /* Responsive Styles */
         @media (max-width: 992px) {
@@ -413,14 +788,13 @@
             }
 
             .about-image {
-                height: 300px;
+                max-height: 400px;
             }
         }
 
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                padding: 15px 0;
+            section {
+                padding: 60px 0;
             }
 
             .mobile-menu-btn {
@@ -433,6 +807,11 @@
             nav {
                 width: 100%;
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--white);
+                box-shadow: var(--shadow-sm);
             }
 
             nav.active {
@@ -441,59 +820,98 @@
 
             nav ul {
                 flex-direction: column;
-                padding: 20px 0;
+                padding: 0;
             }
 
             nav ul li {
                 margin: 0;
-                padding: 10px 0;
-                text-align: center;
                 border-bottom: 1px solid #eee;
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 15px 20px;
+            }
+
+            nav ul li a::after {
+                display: none;
             }
 
             .hero {
                 padding: 120px 0 80px;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .section-title {
+                margin-bottom: 30px;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .services-grid,
+            .testimonials-grid {
+                gap: 20px;
+            }
+
+            .about-image::before {
+                display: none;
             }
         }
 
         @media (max-width: 576px) {
             section {
-                padding: 60px 0;
+                padding: 50px 0;
             }
 
             .hero {
                 padding: 100px 0 60px;
             }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
-
             .btn {
                 padding: 10px 25px;
+                font-size: 0.9rem;
             }
+
+            .service-card,
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 1.8rem;
+            }
+
+            .back-to-top {
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+
+        /* Accessibility focus styles */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">Thank you for your message! We'll contact you shortly.</div>
+
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container header-container">
-            <div class="logo">JOKO <span>Dental</span></div>
-            <button class="mobile-menu-btn">☰</button>
-            <nav id="main-nav">
+            <div class="logo" aria-label="JOKO Dental Logo">JOKO <span>Dental</span></div>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">☰</button>
+            <nav id="main-nav" aria-label="Main navigation">
                 <ul>
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="#home" aria-current="page">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#team">Our Team</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -501,154 +919,213 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Your Healthy Smile Starts Here</h1>
-                <p>Experience comfortable, comprehensive dental care from New York's trusted dental practice. Our advanced techniques and gentle approach ensure your brightest, healthiest smile.</p>
-                <a href="#contact" class="btn">Schedule Appointment</a>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content animate">
+                    <h1>Your Healthy Smile Starts Here</h1>
+                    <p>Experience comfortable, comprehensive dental care from New York's trusted dental practice. Our advanced techniques and gentle approach ensure your brightest, healthiest smile.</p>
+                    <a href="#contact" class="btn">Schedule Appointment</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">⭐</div>
-                    <h3>Preventive Dentistry</h3>
-                    <p>Regular check-ups, professional cleanings, and personalized care plans to keep your smile healthy and prevent future problems.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>Cosmetic Dentistry</h3>
-                    <p>Transform your smile with our advanced cosmetic treatments including teeth whitening, veneers, and smile makeovers.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🦷</div>
-                    <h3>Restorative Dentistry</h3>
-                    <p>From fillings to crowns and bridges, we restore damaged teeth to their natural beauty and function.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔄</div>
-                    <h3>Dental Implants</h3>
-                    <p>Permanent, natural-looking tooth replacements that restore your smile and confidence.</p>
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title animate">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card animate delay-1">
+                        <div class="service-icon" aria-hidden="true">⭐</div>
+                        <h3>Preventive Dentistry</h3>
+                        <p>Regular check-ups, professional cleanings, and personalized care plans to keep your smile healthy and prevent future problems.</p>
+                    </div>
+                    <div class="service-card animate delay-2">
+                        <div class="service-icon" aria-hidden="true">✨</div>
+                        <h3>Cosmetic Dentistry</h3>
+                        <p>Transform your smile with our advanced cosmetic treatments including teeth whitening, veneers, and complete smile makeovers.</p>
+                    </div>
+                    <div class="service-card animate delay-3">
+                        <div class="service-icon" aria-hidden="true">🦷</div>
+                        <h3>Restorative Dentistry</h3>
+                        <p>From fillings to crowns and bridges, we restore damaged teeth to their natural beauty and function with minimal discomfort.</p>
+                    </div>
+                    <div class="service-card animate delay-4">
+                        <div class="service-icon" aria-hidden="true">🔄</div>
+                        <h3>Dental Implants</h3>
+                        <p>Permanent, natural-looking tooth replacements that restore your smile and confidence for a lifetime of healthy eating and speaking.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">About JOKO Dental</h2>
-            <div class="about-grid">
-                <div class="about-image">
-                    <div class="about-image-placeholder">JOKO</div>
-                </div>
-                <div class="about-content">
-                    <h2>Exceptional Dental Care in the Heart of New York</h2>
-                    <p>Founded by Dr. Joseph Kohn, JOKO Dental has been proudly serving the New York community for over 15 years. Our practice combines state-of-the-art technology with compassionate, patient-centered care.</p>
-                    <p>We believe that everyone deserves a healthy, beautiful smile. Our team of experienced professionals is dedicated to providing the highest quality dental services in a comfortable, welcoming environment.</p>
-                    <p>At JOKO Dental, we take the time to listen to your concerns and develop personalized treatment plans that meet your unique needs and goals. Whether you're visiting for a routine cleaning or a complete smile makeover, your comfort and satisfaction are our top priorities.</p>
-                    <a href="#contact" class="btn">Meet Our Team</a>
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title animate">About JOKO Dental</h2>
+                <div class="about-grid">
+                    <div class="about-image animate delay-1">
+                        <div class="about-image-placeholder" aria-hidden="true">JOKO</div>
+                    </div>
+                    <div class="about-content animate delay-2">
+                        <h2>Exceptional Dental Care in the Heart of New York</h2>
+                        <p>Founded by Dr. Joseph Kohn, JOKO Dental has been proudly serving the New York community for over 15 years. Our practice combines state-of-the-art technology with compassionate, patient-centered care.</p>
+                        <p>We believe that everyone deserves a healthy, beautiful smile. Our team of experienced professionals is dedicated to providing the highest quality dental services in a comfortable, welcoming environment.</p>
+                        <p>At JOKO Dental, we take the time to listen to your concerns and develop personalized treatment plans that meet your unique needs and goals. Whether you're visiting for a routine cleaning or a complete smile makeover, your comfort and satisfaction are our top priorities.</p>
+                        <a href="#team" class="btn">Meet Our Team</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">What Our Patients Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>I've been terrified of dentists my entire life until I found JOKO Dental. Dr. Kohn and his team are incredibly gentle and patient. They explained everything and made sure I was comfortable throughout my procedure. I actually look forward to my dental appointments now!</p>
+        <!-- Team Section (New) -->
+        <section class="services" id="team">
+            <div class="container">
+                <h2 class="section-title animate">Our Expert Team</h2>
+                <div class="services-grid">
+                    <div class="service-card animate delay-1">
+                        <div class="service-icon" aria-hidden="true">👨‍⚕️</div>
+                        <h3>Dr. Joseph Kohn</h3>
+                        <p>Founder & Lead Dentist</p>
+                        <p>With over 20 years of experience, Dr. Kohn specializes in cosmetic and restorative dentistry. He completed his dental training at NYU College of Dentistry.</p>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image">SM</div>
-                        <div class="testimonial-author-info">
-                            <h4>Sarah Mitchell</h4>
-                            <p>Upper East Side, NY</p>
-                        </div>
+                    <div class="service-card animate delay-2">
+                        <div class="service-icon" aria-hidden="true">👩‍⚕️</div>
+                        <h3>Dr. Maria Rodriguez</h3>
+                        <p>Orthodontist</p>
+                        <p>Dr. Rodriguez is our orthodontic specialist with expertise in modern alignment techniques including Invisalign and traditional braces.</p>
                     </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>After moving to New York, I needed to find a new dentist for my family. JOKO Dental exceeded all our expectations. They're great with my kids and provide exceptional care for all of us. The office is modern and immaculate. Highly recommend!</p>
+                    <div class="service-card animate delay-3">
+                        <div class="service-icon" aria-hidden="true">👩‍⚕️</div>
+                        <h3>Sarah Williams</h3>
+                        <p>Dental Hygienist</p>
+                        <p>Sarah has been with our practice for 8 years and is known for her gentle touch and thorough cleaning techniques.</p>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image">MJ</div>
-                        <div class="testimonial-author-info">
-                            <h4>Michael Johnson</h4>
-                            <p>Brooklyn, NY</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>I needed extensive cosmetic work and was anxious about the results. Dr. Kohn took the time to understand exactly what I wanted and created a treatment plan that fit my budget. The results are amazing - I can't stop smiling! The entire team made me feel valued and cared for.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-author-image">AL</div>
-                        <div class="testimonial-author-info">
-                            <h4>Amanda Lin</h4>
-                            <p>Manhattan, NY</p>
-                        </div>
+                    <div class="service-card animate delay-4">
+                        <div class="service-icon" aria-hidden="true">👨‍💼</div>
+                        <h3>Michael Chen</h3>
+                        <p>Office Manager</p>
+                        <p>Michael ensures our practice runs smoothly and is happy to assist with scheduling, insurance questions, and payment options.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <div class="contact-details">
-                        <p><span class="contact-icon">📍</span> 123 Park Avenue, New York, NY 10022</p>
-                        <p><span class="contact-icon">📞</span> (212) 555-1234</p>
-                        <p><span class="contact-icon">✉️</span> smile@jokodental.com</p>
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title animate">What Our Patients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card animate delay-1">
+                        <div class="testimonial-content">
+                            <p>I've been terrified of dentists my entire life until I found JOKO Dental. Dr. Kohn and his team are incredibly gentle and patient. They explained everything and made sure I was comfortable throughout my procedure. I actually look forward to my dental appointments now!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image" aria-hidden="true">SM</div>
+                            <div class="testimonial-author-info">
+                                <h4>Sarah Mitchell</h4>
+                                <p>Upper East Side, NY</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-hours">
-                        <h4>Our Hours</h4>
-                        <p>Monday - Thursday: 8:00am - 6:00pm</p>
-                        <p>Friday: 8:00am - 4:00pm</p>
-                        <p>Saturday: 9:00am - 2:00pm</p>
-                        <p>Sunday: Closed</p>
+                    <div class="testimonial-card animate delay-2">
+                        <div class="testimonial-content">
+                            <p>After moving to New York, I needed to find a new dentist for my family. JOKO Dental exceeded all our expectations. They're great with my kids and provide exceptional care for all of us. The office is modern and immaculate. Highly recommend!</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image" aria-hidden="true">MJ</div>
+                            <div class="testimonial-author-info">
+                                <h4>Michael Johnson</h4>
+                                <p>Brooklyn, NY</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form id="appointment-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
+                    <div class="testimonial-card animate delay-3">
+                        <div class="testimonial-content">
+                            <p>I needed extensive cosmetic work and was anxious about the results. Dr. Kohn took the time to understand exactly what I wanted and created a treatment plan that fit my budget. The results are amazing - I can't stop smiling! The entire team made me feel valued and cared for.</p>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="testimonial-author">
+                            <div class="testimonial-author-image" aria-hidden="true">AL</div>
+                            <div class="testimonial-author-info">
+                                <h4>Amanda Lin</h4>
+                                <p>Manhattan, NY</p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Request Appointment</button>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title animate">Contact Us</h2>
+                <div class="contact-grid">
+                    <div class="contact-info animate delay-1">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-details">
+                            <p><span class="contact-icon" aria-hidden="true">📍</span> 123 Park Avenue, New York, NY 10022</p>
+                            <p><span class="contact-icon" aria-hidden="true">📞</span> <a href="tel:+12125551234">(212) 555-1234</a></p>
+                            <p><span class="contact-icon" aria-hidden="true">✉️</span> <a href="mailto:smile@jokodental.com">smile@jokodental.com</a></p>
+                        </div>
+                        <div class="contact-hours">
+                            <h4>Our Hours</h4>
+                            <p>Monday - Thursday: 8:00am - 6:00pm</p>
+                            <p>Friday: 8:00am - 4:00pm</p>
+                            <p>Saturday: 9:00am - 2:00pm</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook"><span aria-hidden="true">f</span></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><span aria-hidden="true">📷</span></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><span aria-hidden="true">🐦</span></a>
+                            <a href="#" class="social-link" aria-label="LinkedIn"><span aria-hidden="true">in</span></a>
+                        </div>
+                    </div>
+                    <div class="contact-form animate delay-2">
+                        <form id="appointment-form" novalidate>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required aria-required="true">
+                                <div class="form-error">Please enter your name</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required aria-required="true">
+                                <div class="form-error">Please enter a valid email address</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required aria-required="true">
+                                <div class="form-error">Please enter a valid phone number</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service" required aria-required="true">
+                                    <option value="" selected disabled>Please select a service</option>
+                                    <option value="preventive">Preventive Dentistry</option>
+                                    <option value="cosmetic">Cosmetic Dentistry</option>
+                                    <option value="restorative">Restorative Dentistry</option>
+                                    <option value="implants">Dental Implants</option>
+                                    <option value="emergency">Emergency Dental Care</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="form-error">Please select a service</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required aria-required="true"></textarea>
+                                <div class="form-error">Please enter your message</div>
+                            </div>
+                            <button type="submit" class="btn">Request Appointment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -657,6 +1134,12 @@
                 <div class="footer-info">
                     <h3>JOKO Dental</h3>
                     <p>Providing exceptional dental care to New York residents with a focus on comfort, quality, and long-term oral health.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><span aria-hidden="true">f</span></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><span aria-hidden="true">📷</span></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><span aria-hidden="true">🐦</span></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><span aria-hidden="true">in</span></a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
@@ -664,6 +1147,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#about">About Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -680,15 +1164,24 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 JOKO Dental Care. All Rights Reserved.</p>
+                <p>&copy; 2025 JOKO Dental Care. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
     <script>
         // Mobile navigation toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('main-nav').classList.toggle('active');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            // Update aria-expanded attribute for accessibility
+            const expanded = mainNav.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', expanded);
         });
 
         // Smooth scrolling for navigation links
@@ -696,22 +1189,134 @@
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
                 
-                // Close mobile menu after clicking a link
-                document.getElementById('main-nav').classList.remove('active');
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without page reload
+                    history.pushState(null, null, targetId);
+                    
+                    // Close mobile menu after clicking a link
+                    mainNav.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    
+                    // Set focus on the target element for accessibility
+                    setTimeout(() => {
+                        targetElement.setAttribute('tabindex', '-1');
+                        targetElement.focus();
+                        targetElement.removeAttribute('tabindex');
+                    }, 1000);
+                }
             });
         });
 
-        // Form submission
-        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+        // Form validation and submission
+        const appointmentForm = document.getElementById('appointment-form');
+        const notification = document.getElementById('notification');
+
+        appointmentForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your request! We will contact you shortly to confirm your appointment.');
-            this.reset();
+            
+            let isValid = true;
+            const formGroups = this.querySelectorAll('.form-group');
+            
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, textarea, select');
+                const errorDiv = group.querySelector('.form-error');
+                
+                group.classList.remove('error');
+                
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    group.classList.add('error');
+                    isValid = false;
+                } else if (input.type === 'email' && input.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(input.value.trim())) {
+                        group.classList.add('error');
+                        isValid = false;
+                    }
+                } else if (input.type === 'tel' && input.value.trim()) {
+                    const phoneRegex = /^[\d\s\+\-\(\)]{10,15}$/;
+                    if (!phoneRegex.test(input.value.trim())) {
+                        group.classList.add('error');
+                        isValid = false;
+                    }
+                }
+            });
+            
+            if (isValid) {
+                // Show success notification
+                notification.textContent = "Thank you for your appointment request! We will contact you shortly.";
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+                
+                // Reset form
+                this.reset();
+                
+                // In a real application, you would send form data to server here
+                console.log('Form submitted successfully');
+            }
         });
+
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animation on scroll
+        const animatedElements = document.querySelectorAll('.animate');
+        
+        const animateOnScroll = () => {
+            animatedElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        // Run once on page load
+        animateOnScroll();
+        
+        // Then run on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Current year for copyright in footer
+        document.querySelector('.footer-bottom p').innerHTML = 
+            `&copy; ${new Date().getFullYear()} JOKO Dental Care. All Rights Reserved.`;
     </script>
 </body>
 </html>
-```
