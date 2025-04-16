@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Champion Chiropractic | Dr. Aaron Schoneberger DC</title>
+  <!-- Google Fonts: Playfair Display for headings, Montserrat for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* ===========================
+       CSS Variables – Brand Colors
+    ==============================*/
+    :root {
+      --primary: #177ca6;         /* Deep Spine Blue */
+      --accent: #28b386;          /* Healing Green */
+      --highlight: #eaf8fe;       /* Soft Sky Blue */
+      --background: #f7fafc;      /* Neutral Light BG */
+      --white: #fff;
+      --gray-light: #f1f4f8;
+      --gray: #e2e8f0;
+      --text: #1a2530;
+      --text-light: #637186;
+      --shadow: 0 4px 24px rgba(23, 124, 166, 0.10);
+      --radius: 1.2rem;
+    }
+
+    /* ===========================
+        Base Styles
+    ==============================*/
+    html { box-sizing: border-box; }
+    *, *:before, *:after { box-sizing: inherit; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--text);
+      background: var(--background);
+      font-size: 1rem;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    ul, ol {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 0.5em;
+      font-weight: 600;
+      letter-spacing: -1px;
+    }
+    .section-title {
+      font-size: 2.1rem;
+      letter-spacing: -1.2px;
+      margin-bottom: 1.4rem;
+      text-align: center;
+    }
+    /* Typography refinements */
+    .lead {
+      color: var(--text-light);
+      font-size: 1.23rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* Spacing Utilities */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    /* ===========================
+        Header
+    ==============================*/
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: var(--white);
+      box-shadow: 0 1px 12px rgba(23,124,166,0.05);
+      transition: box-shadow 0.2s;
+    }
+    .header-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: -1.5px;
+      color: var(--primary);
+    }
+    .logo-icon {
+      font-size: 1.6em;
+      color: var(--accent);
+    }
+    /* Navigation */
+    nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .nav-list {
+      display: flex;
+      gap: 2.1rem;
+      align-items: center;
+    }
+    .nav-list li a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-light);
+      padding: 0.4em 0.1em;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-list li a:focus,
+    .nav-list li a:hover {
+      color: var(--primary);
+    }
+    /* Book Appointment Button */
+    .btn-cta {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.7em 1.6em;
+      font-size: 1.07rem;
+      font-weight: 600;
+      border-radius: 2.5em;
+      box-shadow: 0 2px 10px rgba(23,124,166,0.13);
+      transition: background 0.18s, box-shadow 0.18s, transform 0.16s;
+      cursor: pointer;
+      margin-left: 1.5rem;
+      outline: none;
+      letter-spacing: 0.01em;
+    }
+    .btn-cta:active {
+      transform: scale(0.96);
+    }
+    .btn-cta:focus,
+    .btn-cta:hover {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 5px 18px rgba(40,179,134,0.13);
+    }
+    /* Hamburger menu for mobile */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: var(--primary);
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+    /* ===========================
+        Hero Section
+    ==============================*/
+    .hero {
+      background: linear-gradient(120deg, var(--primary) 0%, var(--highlight) 100%);
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 0 1.5rem 0;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      width: 100%;
+      max-width: 1160px;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1.3;
+      min-width: 270px;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      text-shadow: 0 2px 16px rgba(23,124,166,0.08);
+      letter-spacing: -1.2px;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--highlight);
+      font-weight: 500;
+      margin-bottom: 1.3rem;
+    }
+    .hero-desc {
+      color: var(--white);
+      font-size: 1.12rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      letter-spacing: -0.2px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .hero-img-wrap {
+      flex: 1.1;
+      min-width: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-img {
+      border-radius: 1.3rem;
+      box-shadow: 0 8px 36px rgba(23,124,166,0.14);
+      width: 330px;
+      max-width: 100%;
+      object-fit: cover;
+      border: 5px solid var(--white);
+      background: var(--gray-light);
+    }
+    /* ===========================
+        Services Section
+    ==============================*/
+    .services {
+      padding: 4.2rem 0 3.7rem 0;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+      margin-top: 2.3rem;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(23,124,166,0.07);
+      padding: 2.1rem 1.5rem 1.6rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: box-shadow 0.19s, transform 0.18s;
+      outline: none;
+      border: 1.5px solid transparent;
+      cursor: default;
+      min-height: 270px;
+      background-image: linear-gradient(120deg, var(--highlight) 0%, var(--gray-light) 100%);
+    }
+    .service-card:hover,
+    .service-card:focus {
+      box-shadow: 0 8px 28px rgba(23,124,166,0.13);
+      border-color: var(--primary);
+      transform: translateY(-4px) scale(1.04);
+      z-index: 1;
+    }
+    .service-icon {
+      font-size: 2.45rem;
+      margin-bottom: 1.1rem;
+      color: var(--primary);
+      background: var(--accent);
+      border-radius: 50%;
+      padding: 0.4em 0.5em;
+      box-shadow: 0 2px 12px rgba(40,179,134,0.07);
+      display: inline-block;
+      line-height: 1;
+    }
+    .service-title {
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    .service-desc {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.55;
+      font-weight: 400;
+    }
+
+    /* ===========================
+        About Section
+    ==============================*/
+    .about {
+      background: var(--gray-light);
+      padding: 4.2rem 0 4rem 0;
+    }
+    .about-content-wrap {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .about-img {
+      width: 230px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 1.3rem;
+      box-shadow: 0 8px 30px rgba(23,124,166,0.14);
+      background: var(--white);
+      border: 4px solid var(--primary);
+      flex-shrink: 0;
+    }
+    .about-info {
+      flex: 1;
+      min-width: 260px;
+    }
+    .about-name {
+      font-size: 1.55rem;
+      color: var(--primary);
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+    }
+    .about-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.03em;
+    }
+    .about-desc {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 1.6rem;
+      line-height: 1.7;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    /* Credentials badges */
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      background: var(--white);
+      color: var(--primary);
+      border-radius: 2em;
+      padding: 0.45em 1.2em;
+      font-size: 0.98rem;
+      font-weight: 500;
+      box-shadow: 0 1px 8px rgba(23,124,166,0.08);
+      border: 1px solid var(--gray);
+    }
+    .badge i {
+      color: var(--accent);
+      font-size: 1.1em;
+    }
+
+    /* ===========================
+        Testimonials Section
+    ==============================*/
+    .testimonials {
+      background: var(--highlight);
+      padding: 4.2rem 0 4.1rem 0;
+    }
+    .testimonials-inner {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    .testimonial-carousel {
+      display: flex;
+      gap: 2.2rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .testimonial {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(23,124,166,0.07);
+      flex: 0 0 320px;
+      min-width: 320px;
+      max-width: 350px;
+      padding: 2.1rem 1.4rem 1.2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      border: 1.5px solid var(--gray);
+      margin-bottom: 0.7rem;
+      position: relative;
+      transition: box-shadow 0.19s, transform 0.18s;
+    }
+    .testimonial:hover,
+    .testimonial:focus {
+      box-shadow: 0 8px 28px rgba(23,124,166,0.13);
+      transform: translateY(-4px) scale(1.03);
+      border-color: var(--primary);
+      z-index: 1;
+    }
+    .testimonial-quote-icon {
+      position: absolute;
+      top: 1.1rem;
+      left: 1.1rem;
+      font-size: 1.5em;
+      color: var(--primary);
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    .testimonial-text {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.07rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .testimonial-stars {
+      color: #fbc02d;
+      font-size: 1.12em;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .testimonial-user {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1.05rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin-bottom: 0.15em;
+    }
+    .testimonial-meta {
+      color: var(--accent);
+      font-size: 0.97rem;
+      margin-bottom: 0.1em;
+    }
+    /* Carousel controls */
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1.1rem;
+    }
+    .carousel-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 2.2em;
+      height: 2.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      box-shadow: 0 2px 10px rgba(23,124,166,0.09);
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    .carousel-btn:focus,
+    .carousel-btn:hover {
+      background: var(--accent);
+    }
+
+    /* ===========================
+        Contact Section
+    ==============================*/
+    .contact {
+      padding: 4.2rem 0 3.7rem 0;
+      background: var(--white);
+    }
+    .contact-wrap {
+      display: flex;
+      gap: 3rem;
+      max-width: 950px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    /* Consultation Form */
+    .contact-form-col {
+      flex: 1.1;
+      min-width: 285px;
+      background: var(--gray-light);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 14px rgba(23,124,166,0.06);
+      padding: 2.4rem 1.4rem 1.8rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .contact-form label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 0.45em;
+      display: block;
+      letter-spacing: 0.03em;
+    }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 0.85em 1em;
+      font-size: 1.06rem;
+      border-radius: 2em;
+      border: 1.4px solid var(--gray);
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin-bottom: 1.1rem;
+      outline: none;
+      transition: border 0.18s;
+      box-sizing: border-box;
+      resize: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+    }
+    .contact-form textarea {
+      min-height: 90px;
+      border-radius: 1.2em;
+    }
+    .contact-form .btn-submit {
+      width: 100%;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.9em 0;
+      font-size: 1.14rem;
+      font-weight: 600;
+      border-radius: 2.5em;
+      box-shadow: 0 2px 10px rgba(23,124,166,0.11);
+      transition: background 0.18s, box-shadow 0.18s, transform 0.16s;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      outline: none;
+    }
+    .contact-form .btn-submit:active {
+      transform: scale(0.97);
+    }
+    .contact-form .btn-submit:focus,
+    .contact-form .btn-submit:hover {
+      background: var(--accent);
+    }
+    .form-message {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.7em;
+      display: none;
+    }
+    /* Contact Info + Map */
+    .contact-info-col {
+      flex: 1;
+      min-width: 270px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.7rem;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 1.1em;
+      font-size: 1.05rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    .contact-info-item i {
+      font-size: 1.35em;
+      color: var(--accent);
+    }
+    .contact-map {
+      border-radius: 1.2em;
+      overflow: hidden;
+      width: 100%;
+      min-height: 180px;
+      box-shadow: 0 2px 10px rgba(23,124,166,0.07);
+      border: 1.5px solid var(--gray);
+    }
+    /* ===========================
+        Footer
+    ==============================*/
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 2.8rem 0 1.6rem 0;
+      font-size: 1rem;
+    }
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding-bottom: 1.1rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      gap: 0.5rem;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .footer-nav a {
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.93;
+      transition: opacity 0.18s;
+    }
+    .footer-nav a:focus,
+    .footer-nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .footer-social {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+    .footer-social a {
+      color: var(--accent);
+      font-size: 1.5em;
+      transition: color 0.18s;
+    }
+    .footer-social a:focus,
+    .footer-social a:hover {
+      color: var(--white);
+    }
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.98rem;
+      color: rgba(255,255,255,0.8);
+      margin-top: 1.1rem;
+    }
+
+    /* ===========================
+        Responsive Styles
+    ==============================*/
+    @media (max-width: 1100px) {
+      .container, .footer-inner {
+        max-width: 98vw;
+      }
+      .about-content-wrap, .contact-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.2rem;
+      }
+      .about-img {
+        margin-bottom: 0.7rem;
+      }
+    }
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.6rem;
+      }
+      .hero-inner {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 2.2rem;
+      }
+      .hero-content {
+        text-align: left;
+      }
+      .hero-img-wrap {
+        justify-content: flex-start;
+      }
+    }
+    @media (max-width: 700px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .testimonial-carousel {
+        gap: 1.2rem;
+      }
+      .footer-top {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: flex-start;
+      }
+    }
+    @media (max-width: 600px) {
+      .container, .footer-inner {
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+      }
+      .section-title {
+        font-size: 1.45rem;
+      }
+      .hero-title {
+        font-size: 1.4rem;
+      }
+      .hero-img {
+        width: 100%;
+        min-width: 0;
+      }
+      .about-img {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        border-radius: 1em;
+      }
+      .contact-map {
+        min-height: 140px;
+      }
+    }
+    @media (max-width: 540px) {
+      .header-wrap {
+        flex-direction: row;
+        height: auto;
+        padding: 0.6em 0;
+      }
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+        background: var(--white);
+        box-shadow: 0 8px 24px rgba(23,124,166,0.10);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.6rem 0 1.2rem 0;
+        z-index: 101;
+      }
+      nav.open {
+        display: flex;
+      }
+      .nav-list {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+        padding-left: 1.7rem;
+      }
+      .btn-cta {
+        width: 90vw;
+        max-width: 350px;
+        margin: 1.3rem auto 0 auto;
+        display: block;
+        font-size: 1.17rem;
+        padding: 1em 0;
+      }
+      .nav-toggle {
+        display: block;
+        z-index: 110;
+      }
+      .hero-inner {
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+        align-items: flex-start;
+        padding-top: 1.2rem;
+      }
+      .about-content-wrap, .contact-wrap {
+        gap: 1.5rem;
+      }
+      .testimonial {
+        min-width: 90vw;
+      }
+      .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+      }
+      .footer-nav {
+        gap: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-social {
+        gap: 0.7rem;
+      }
+    }
+    /* Accessibility focus indicators */
+    a:focus, .btn-cta:focus, .carousel-btn:focus, .btn-submit:focus {
+      outline: 2px dashed var(--accent);
+      outline-offset: 2px;
+    }
+    /* Hide scrollbars for testimonial carousel (for aesthetics) */
+    .testimonial-carousel::-webkit-scrollbar {
+      height: 0.5em;
+      background: transparent;
+    }
+    .testimonial-carousel::-webkit-scrollbar-thumb {
+      background: var(--gray);
+      border-radius: 1em;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===================
+        HEADER
+  =======================-->
+  <header>
+    <div class="container header-wrap">
+      <!-- Logo -->
+      <div class="logo" aria-label="Champion Chiropractic">
+        <span class="logo-icon"><i class="fas fa-spa" aria-hidden="true"></i></span>
+        <span>Champion <span style="font-weight:400;">Chiropractic</span></span>
+      </div>
+      <!-- Nav Toggle Button for Mobile -->
+      <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mainnav">
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Navigation -->
+      <nav id="mainnav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <!-- Book Appointment CTA (always visible in nav) -->
+        <a href="#contact" class="btn-cta" aria-label="Book Appointment">Book Appointment</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ===================
+        HERO SECTION
+  =======================-->
+  <section id="home" class="hero" aria-label="Champion Chiropractic Hero">
+    <div class="container hero-inner">
+      <!-- Chiropractic Hero Image (Spinal adjustment, Dr. Aaron's real photo) -->
+      <div class="hero-img-wrap">
+        <!-- Real photo from Yelp or high-quality placeholder -->
+        <img class="hero-img" src="https://s3-media0.fl.yelpcdn.com/bphoto/v27LAFRtLflpV5lA0UOiTA/o.jpg" alt="Dr. Aaron Schoneberger performing spinal adjustment" />
+      </div>
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <h1 class="hero-title">Champion Chiropractic</h1>
+        <div class="hero-subtitle">West Hollywood · Dr. Aaron Schoneberger DC</div>
+        <div class="hero-desc">
+          20+ years of patient-centered, evidence-based chiropractic care in Los Angeles.<br>
+          Focused on spinal alignment, posture correction, nervous system health, and natural healing.<br>
+          Partnerships for your long-term wellness journey.
+        </div>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-cta" aria-label="Book Appointment">Book Appointment</a>
+          <span style="color:var(--white);font-size:1rem;">
+            <i class="fas fa-phone-alt" style="color:var(--accent);"></i> <a href="tel:3236567722" style="color:var(--white);text-decoration:underline;">323-656-7722</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===================
+        SERVICES SECTION
+  =======================-->
+  <section id="services" class="services" aria-label="Chiropractic Services">
+    <div class="container">
+      <h2 class="section-title">Our Chiropractic Services</h2>
+      <div class="services-grid">
+        <!-- Service 1: Spinal Alignment -->
+        <div class="service-card" tabindex="0">
+          <span class="service-icon" aria-hidden="true"><i class="fas fa-sitemap"></i></span>
+          <div class="service-title">Spinal Alignment</div>
+          <div class="service-desc">Precision adjustments to restore natural spinal curves, improve mobility, and support optimal nervous system function.</div>
+        </div>
+        <!-- Service 2: Posture Correction -->
+        <div class="service-card" tabindex="0">
+          <span class="service-icon" aria-hidden="true"><i class="fas fa-user-check"></i></span>
+          <div class="service-title">Posture Correction</div>
+          <div class="service-desc">Personalized postural analysis and corrective strategies to enhance your alignment, confidence, and overall well-being.</div>
+        </div>
+        <!-- Service 3: Massage Therapy -->
+        <div class="service-card" tabindex="0">
+          <span class="service-icon" aria-hidden="true"><i class="fas fa-hands"></i></span>
+          <div class="service-title">Therapeutic Massage</div>
+          <div class="service-desc">Soothing, targeted massage techniques to relieve muscle tension, improve circulation, and accelerate healing.</div>
+        </div>
+        <!-- Service 4: Pain Management -->
+        <div class="service-card" tabindex="0">
+          <span class="service-icon" aria-hidden="true"><i class="fas fa-user-injured"></i></span>
+          <div class="service-title">Pain Relief & Management</div>
+          <div class="service-desc">Natural, non-invasive approaches to manage back, neck, and joint pain, supporting a pain-free, active lifestyle.</div>
+        </div>
+        <!-- Service 5: Physical Therapy & Rehab -->
+        <div class="service-card" tabindex="0">
+          <span class="service-icon" aria-hidden="true"><i class="fas fa-dumbbell"></i></span>
+          <div class="service-title">Physical Therapy & Rehab</div>
+          <div class="service-desc">Customized exercise plans and rehabilitative therapies to restore strength, mobility, and function after injury.</div>
+        </div>
+        <!-- Service 6: Digital X-Ray & Analysis -->
+        <div class="service-card" tabindex="0">
+          <span class="service-icon" aria-hidden="true"><i class="fas fa-x-ray"></i></span>
+          <div class="service-title">Digital X-Ray Analysis</div>
+          <div class="service-desc">On-site digital X-rays for accurate diagnosis, treatment planning, and tracking your postural progress.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===================
+        ABOUT SECTION
+  =======================-->
+  <section id="about" class="about" aria-label="About Dr. Aaron Schoneberger">
+    <div class="container">
+      <h2 class="section-title">Meet Dr. Aaron Schoneberger DC</h2>
+      <div class="about-content-wrap">
+        <!-- Doctor's Real Photo -->
+        <img class="about-img" src="https://s3-media0.fl.yelpcdn.com/bphoto/v27LAFRtLflpV5lA0UOiTA/o.jpg"
+          alt="Dr. Aaron Schoneberger DC, West Hollywood Chiropractor" />
+        <!-- About Info -->
+        <div class="about-info">
+          <div class="about-name">Dr. Aaron Schoneberger, DC</div>
+          <div class="about-title">Board Certified Chiropractor · 20+ Years Experience</div>
+          <div class="about-badges">
+            <span class="badge"><i class="fas fa-award" aria-hidden="true"></i> 20+ Years Experience</span>
+            <span class="badge"><i class="fas fa-user-md" aria-hidden="true"></i> Board Certified</span>
+            <span class="badge"><i class="fas fa-language" aria-hidden="true"></i> English &amp; Spanish</span>
+            <span class="badge"><i class="fas fa-leaf" aria-hidden="true"></i> Holistic, Patient-Centered</span>
+          </div>
+          <div class="about-desc">
+            Dedicated to evidence-based, holistic chiropractic care, Dr. Schoneberger partners with patients for natural healing, spinal health, and lifelong wellness.<br>
+            Fluent in English & Spanish, he delivers individualized, compassionate care in a comfortable, modern clinic setting.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===================
+        TESTIMONIALS SECTION
+  =======================-->
+  <section id="testimonials" class="testimonials" aria-label="Patient Testimonials">
+    <div class="container testimonials-inner">
+      <h2 class="section-title">What Our Patients Say</h2>
+      <!-- Carousel/slider for testimonials -->
+      <div class="testimonial-carousel" id="testimonial-carousel" tabindex="0" aria-live="polite">
+        <!-- Testimonial 1 -->
+        <div class="testimonial" tabindex="0">
+          <span class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></span>
+          <div class="testimonial-text">Dr. Aaron is a miracle worker! He helped me recover from chronic back pain when no one else could. Compassionate, thorough, and truly cares about his patients' long-term health.</div>
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonial-user">Jessica G.</div>
+          <div class="testimonial-meta">West Hollywood, CA</div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="testimonial" tabindex="0">
+          <span class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></span>
+          <div class="testimonial-text">The office is beautiful and welcoming. Dr. Schoneberger explained everything clearly and made me feel at ease. My posture has improved so much—I can't recommend Champion Chiropractic enough!</div>
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonial-user">Michael R.</div>
+          <div class="testimonial-meta">Los Angeles, CA</div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="testimonial" tabindex="0">
+          <span class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></span>
+          <div class="testimonial-text">I appreciate that Dr. Aaron speaks Spanish and makes me feel heard. My back pain is gone and I feel more energetic than ever. ¡Gracias por todo!</div>
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonial-user">Carolina S.</div>
+          <div class="testimonial-meta">Hollywood, CA</div>
+        </div>
+        <!-- Testimonial 4 -->
+        <div class="testimonial" tabindex="0">
+          <span class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></span>
+          <div class="testimonial-text">After just a few sessions, my migraines and neck stiffness have dramatically decreased. Dr. Aaron’s holistic approach is second to none.</div>
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonial-user">Alexandra K.</div>
+          <div class="testimonial-meta">Beverly Hills, CA</div>
+        </div>
+        <!-- Testimonial 5 -->
+        <div class="testimonial" tabindex="0">
+          <span class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></span>
+          <div class="testimonial-text">Professional, knowledgeable, and genuinely invested in my health. Highly recommend for anyone seeking long-term relief and better wellness.</div>
+          <div class="testimonial-stars" aria-label="5 out of 5 stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <div class="testimonial-user">Daniel T.</div>
+          <div class="testimonial-meta">West Hollywood, CA</div>
+        </div>
+      </div>
+      <!-- Carousel Controls -->
+      <div class="carousel-controls" aria-label="Testimonial carousel controls">
+        <button class="carousel-btn" id="carousel-prev" aria-label="Previous testimonials"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-btn" id="carousel-next" aria-label="Next testimonials"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+  <!-- ===================
+        CONTACT SECTION
+  =======================-->
+  <section id="contact" class="contact" aria-label="Book Your Consultation">
+    <div class="container">
+      <h2 class="section-title">Book Your Consultation</h2>
+      <div class="contact-wrap">
+        <!-- Consultation Form -->
+        <div class="contact-form-col">
+          <form class="contact-form" id="contactForm" novalidate autocomplete="off" aria-label="Consultation form">
+            <div class="form-message" id="form-message" role="alert" aria-live="assertive"></div>
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Your name" aria-required="true" />
+            <label for="phone">Phone *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="e.g. (323) 656-7722" aria-required="true" />
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="you@email.com" aria-required="true" />
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option>Spinal Alignment</option>
+              <option>Posture Correction</option>
+              <option>Massage Therapy</option>
+              <option>Pain Management</option>
+              <option>Physical Therapy &amp; Rehab</option>
+              <option>Digital X-Ray</option>
+            </select>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can we help you?"></textarea>
+            <button type="submit" class="btn-submit" aria-label="Submit consultation request">Send Request</button>
+          </form>
+        </div>
+        <!-- Contact Info & Map -->
+        <div class="contact-info-col">
+          <div class="contact-info-list">
+            <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i>
+              7901 Santa Monica Blvd, Ste 207<br>
+              West Hollywood, CA 90046
+            </div>
+            <div class="contact-info-item"><i class="fas fa-phone"></i>
+              <a href="tel:3236567722" style="color:inherit;text-decoration:underline;">323-656-7722</a>
+            </div>
+            <div class="contact-info-item"><i class="fas fa-language"></i>
+              English &amp; Spanish Spoken
+            </div>
+            <div class="contact-info-item"><i class="fas fa-clock"></i>
+              Mon–Fri: 9am–6pm<br>
+              Sat: 10am–1pm
+            </div>
+          </div>
+          <!-- Google Map Embed Placeholder -->
+          <div class="contact-map" aria-label="Champion Chiropractic Map Location">
+            <iframe 
+              title="Champion Chiropractic Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.037557628775!2d-118.36051268478207!3d34.09003448059692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2beb8c5a264dd%3A0x57fd49d2fbd3e457!2s7901%20Santa%20Monica%20Blvd%20%23207%2C%20West%20Hollywood%2C%20CA%2090046!5e0!3m2!1sen!2sus!4v1682719780900!5m2!1sen!2sus"
+              width="100%" height="190" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===================
+        FOOTER
+  =======================-->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <!-- Footer Logo -->
+        <div class="footer-logo">
+          <span class="logo-icon"><i class="fas fa-spa" aria-hidden="true"></i></span>
+          Champion <span style="font-weight:400;">Chiropractic</span>
+        </div>
+        <!-- Footer Navigation -->
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <!-- Social Icons (placeholders) -->
+        <div class="footer-social">
+          <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://yelp.com/biz/champion-chiropractic-west-hollywood-2" target="_blank" rel="noopener" aria-label="Yelp"><i class="fab fa-yelp"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 Champion Chiropractic. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <!-- ===================
+        INTERACTIVITY & VALIDATION
+  =======================-->
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('mainnav');
+    navToggle.addEventListener('click', function() {
+      nav.classList.toggle('open');
+      const expanded = nav.classList.contains('open');
+      navToggle.setAttribute('aria-expanded', expanded ? "true" : "false");
+    });
+    // Close nav when link is clicked (mobile)
+    document.querySelectorAll('.nav-list a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (window.innerWidth < 600 && nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', "false");
+        }
+      });
+    });
+
+    // Sticky Book Appointment button on mobile
+    function updateStickyCTA() {
+      const cta = document.querySelector('.btn-cta');
+      if (window.innerWidth <= 540) {
+        cta.style.position = 'fixed';
+        cta.style.left = '50%';
+        cta.style.bottom = '1.3em';
+        cta.style.transform = 'translateX(-50%)';
+        cta.style.zIndex = '111';
+        cta.style.boxShadow = '0 5px 28px rgba(23,124,166,0.24)';
+      } else {
+        cta.style.position = '';
+        cta.style.left = '';
+        cta.style.bottom = '';
+        cta.style.transform = '';
+        cta.style.zIndex = '';
+        cta.style.boxShadow = '';
+      }
+    }
+    updateStickyCTA();
+    window.addEventListener('resize', updateStickyCTA);
+
+    // Testimonials carousel (slider)
+    const carousel = document.getElementById('testimonial-carousel');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    let scrollAmount = 0;
+    function scrollTestimonials(direction) {
+      const card = carousel.querySelector('.testimonial');
+      if (!card) return;
+      const cardWidth = card.offsetWidth + 22; // padding/gap
+      if (direction === 'next') {
+        carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      }
+    }
+    prevBtn.addEventListener('click', function() { scrollTestimonials('prev'); });
+    nextBtn.addEventListener('click', function() { scrollTestimonials('next'); });
+
+    // Contact Form Validation
+    const form = document.getElementById('contactForm');
+    const msg = document.getElementById('form-message');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simple validation
+      let valid = true;
+      let errors = [];
+      const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      const email = form.email.value.trim();
+      if (!name) { valid = false; errors.push("Please enter your name."); }
+      if (!phone || !/^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/.test(phone)) {
+        valid = false;
+        errors.push("Please enter a valid phone number.");
+      }
+      if (!email || !/^[\w\-\.]+@[\w\-]+\.[a-z]{2,}$/i.test(email)) {
+        valid = false;
+        errors.push("Please enter a valid email address.");
+      }
+      if (!valid) {
+        msg.style.display = 'block';
+        msg.style.color = 'red';
+        msg.textContent = errors.join(' ');
+        form.querySelectorAll('input, textarea').forEach(function(el) {
+          if (el.value.trim() === '') el.style.borderColor = 'var(--accent)';
+          else el.style.borderColor = 'var(--gray)';
+        });
+        return false;
+      } else {
+        msg.style.display = 'block';
+        msg.style.color = 'var(--accent)';
+        msg.textContent = "Thank you! We'll be in touch soon.";
+        form.reset();
+        setTimeout(()=>{ msg.style.display='none'; }, 5000);
+        return false;
+      }
+    });
+    // Accessibility: clear border color on input
+    form.querySelectorAll('input, textarea').forEach(function(el) {
+      el.addEventListener('input', function() {
+        this.style.borderColor = 'var(--gray)';
+      });
+    });
+    // Focus management for carousel (keyboard accessibility)
+    carousel.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight') { scrollTestimonials('next'); }
+      if (e.key === 'ArrowLeft') { scrollTestimonials('prev'); }
+    });
+  </script>
+</body>
+</html>
